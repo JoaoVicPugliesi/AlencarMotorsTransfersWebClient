@@ -23,7 +23,7 @@
     color: var(--background-color);
     user-select: none;
     justify-content: start;
-    /* transform: translateX(100%); */
+    transform: translateX(100%); 
     transition: transform 0.5s ease-in-out;
 }
 
@@ -96,6 +96,10 @@
     transition: transform 0.5s ease-in-out;
     justify-content: center;
     flex-direction: row;
+}
+
+.notification-options.logged {
+    display: flex;
 }
 
 .notification-options-view, .notification-options-delete {

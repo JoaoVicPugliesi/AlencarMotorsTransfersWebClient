@@ -1,6 +1,6 @@
 import header from "./parts/header/header.js";
-import notifications from "./parts/notifications/notifications.js";
 import profile from "./parts/profile/profile.js";
+import notifications from "./parts/notifications/notifications.js"
 
 function page () {
     return `
