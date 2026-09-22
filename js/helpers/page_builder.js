@@ -1,7 +1,6 @@
-function page_builder (page) {
-    const body = document.getElementById('body');
-    body.innerHTML = '';
-    body.innerHTML = page();
+function page_builder (container, component) {
+    container.innerHTML = '';
+    container.innerHTML = component();
 }
 
 export default page_builder;
