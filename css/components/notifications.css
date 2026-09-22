@@ -1,3 +1,143 @@
+.notifications,
+#notifications-title, 
+.notification,
+.notification-info,
+.notification-options,
+.notification-options-view, 
+.notification-options-delete {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: center;
+}
+
 .notifications {
+    position: absolute;
+    top: 15%;
+    right: 0;
+    background: var(--text-color);
+    width: 20rem;
+    height: 85%;
+    font-family: var(--fredoka);
+    text-transform: uppercase;
+    color: var(--background-color);
+    user-select: none;
+    justify-content: start;
+    /* transform: translateX(100%); */
+    transition: transform 0.5s ease-in-out;
+}
+
+.notifications.opened {
+    transform: translateX(0);
+}
+
+#notifications-title {
+    width: 100%;
+    height: 15%;
+    justify-content: center;
+}
+
+#notifications-display {
+    height: 85%;
+    width: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    justify-content: start;
+    padding: 0.5rem;    
+}
+
+.notification {
+    justify-content: space-between;
     color: var(--text-color);
+    width: 100%;
+    height: 8rem;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.notification.viewed {
+    background: var(--conclusion-color);
+}
+
+.notification.pendent {
+    background: var(--pendence-color);
+}
+
+.notification-description {
+    font-family: var(--comic-neue);
+    height: 80%;
+    width: 100%;
+}
+
+.notification-info {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    font-family: var(--nunito);
+    height: 20%;
+    font-size: 0.8rem;
+}
+
+.notification-options {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.notification-options-view, .notification-options-delete {
+    width: 50%;
+    height: 100%;
+    font-size: 1.5rem;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.notification-options-view {
+    border-radius: 0.5rem 0rem 0rem 0.5rem;
+    background: var(--commands-color);
+}
+
+.notification-options-delete {
+    border-radius: 0rem 0.5rem 0.5rem 0rem;
+    background: var(--delay-color);
+}
+
+.notification-options-view h3, .notification-options-delete h3 {
+    font-size: 1rem;
+}
+
+.notification:hover .notification-options {
+    transform: translateX(0);
+}
+
+@media (max-width: 700px) {
+    .notifications {
+        width: 100%;
+        top: 20%;
+        height: 80%;
+    }
+
+    #notifications-display {
+        height: 80%;
+    }
+
+
+    .notification {
+        width: 100%;
+    }
+
 }
