@@ -18,7 +18,6 @@
     transition:
         transform 0.15s ease,
         box-shadow 0.15s ease;
-    border: 2px solid var(--text-color);
 }
 
 .button h3 {

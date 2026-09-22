@@ -1,3 +1,8 @@
+.main-title {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
 .toggles-title {
     width: 100%;
     height: 15%;
@@ -5,4 +10,10 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+}
+
+@media (max-width: 500px) {
+    .main-title {
+        font-size: 1rem;
+    }
 }
