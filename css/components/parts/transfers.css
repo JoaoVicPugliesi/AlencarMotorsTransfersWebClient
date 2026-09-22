@@ -35,7 +35,7 @@
     width: 100%;
     min-width: 0;
     box-sizing: border-box;
-    background: var(--pendence-color);
+    background: var(--pending-color);
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     border: 2px solid var(--text-color);
@@ -79,13 +79,13 @@
 }
 
 .transfer.concluded {
-    background: var(--conclusion-color);
+    background: var(--concluded-color);
 }
 .transfer.pending {
-    background: var(--pendence-color);
+    background: var(--pending-color);
 }
 .transfer.delayed {
-    background: var(--delay-color);
+    background: var(--delayed-color);
 }
 
 .transfer-info {

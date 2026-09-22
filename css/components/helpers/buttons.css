@@ -39,9 +39,9 @@
 }
 
 .button.green {
-    background: var(--conclusion-color);
+    background: var(--concluded-color);
 }
 
 .button.red {
-    background: var(--delay-color);
+    background: var(--delayed-color);
 }

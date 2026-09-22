@@ -50,7 +50,7 @@
 
 #header-options-profile-toggle,
 #header-options-notifications-toggle {
-    background: var(--pendence-color);
+    background: var(--pending-color);
     gap: 0.5rem;
     padding: 0.5rem;
     border-radius: 0.5rem;
@@ -74,7 +74,7 @@
     position: absolute;
     top: -0.35rem;
     right: -0.35rem;
-    background: var(--pendence-color);
+    background: var(--pending-color);
     width: 1.2rem;
     height: 1.2rem;
     text-align: center;

@@ -63,11 +63,11 @@
 }
 
 .notification.viewed {
-    background: var(--conclusion-color);
+    background: var(--concluded-color);
 }
 
 .notification.pendent {
-    background: var(--pendence-color);
+    background: var(--pending-color);
 }
 
 .notification-description {
@@ -117,7 +117,7 @@
 
 .notification-options-delete {
     border-radius: 0rem 0.5rem 0.5rem 0rem;
-    background: var(--delay-color);
+    background: var(--delayed-color);
 }
 
 .notification-options-view h3, .notification-options-delete h3 {
