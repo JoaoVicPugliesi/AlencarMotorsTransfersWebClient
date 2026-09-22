@@ -12,4 +12,5 @@
     justify-content: start;
     align-items: center;
     flex-direction: column;
+    position: relative;
 }
