@@ -1,0 +1,28 @@
+.input-holder {
+    position: relative;
+    overflow: hidden;
+}
+
+.input {
+    width: 25rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    border: 2px solid var(--text-color);
+    background: var(--input-color);
+    text-transform: uppercase;
+    font-family: var(--comic-neue);
+    padding: 0.5rem 1rem;
+}
+
+.input-holder-i {
+    position: absolute;
+    top: 50%;
+    left: 95%;
+    transform: translate(-95%, -50%);
+}
+
+@media (max-width: 500px) {
+    .input {
+        width: 15rem;
+    }
+}

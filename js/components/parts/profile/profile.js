@@ -5,7 +5,7 @@ import profile_options from "./parts/profile_options.js";
 function profile () {
     return `
         <div class="profile">
-            ${title('Perfil')}
+            ${title('toggles-title', 'Perfil')}
             ${profile_info()}
             ${profile_options()}
         </div>
