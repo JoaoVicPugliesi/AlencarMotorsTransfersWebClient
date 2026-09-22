@@ -1,4 +1,4 @@
-import header from "./page_parts/header/header.js";
+import header from "./parts/header/header.js";
 
 function page () {
     return `
