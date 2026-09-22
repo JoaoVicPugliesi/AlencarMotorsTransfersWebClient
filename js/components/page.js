@@ -1,4 +1,5 @@
 import header from "./parts/header/header.js";
+import notifications from "./parts/notifications/notifications.js";
 import profile from "./parts/profile/profile.js";
 
 function page () {
@@ -6,6 +7,7 @@ function page () {
         <div id="page">
             ${header()}
             ${profile()}
+            ${notifications()}
         </div>
     `
 }
