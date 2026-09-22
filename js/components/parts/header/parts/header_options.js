@@ -4,7 +4,7 @@ function header_options () {
         <div id="header-options-profile-toggle">
             <div><i class="fa-solid fa-circle-user"></i></div>
             <div><h3>Natália Alencar</h3></div>
-            <div><i class="fa-solid fa-angle-down"></i></div>
+            <div class="header-options-profile-toggle-arrow-down"><i class="fa-solid fa-angle-down"></i></div>
         </div>
         <div id="header-options-notifications-toggle">
             <i class="fa-solid fa-bell"></i>

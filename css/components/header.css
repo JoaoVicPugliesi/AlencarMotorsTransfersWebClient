@@ -33,6 +33,14 @@
     justify-content: center;
 }
 
+.header-options-profile-toggle-arrow-down {
+    transition: transform 0.5s ease-in-out;
+}
+
+.header-options-profile-toggle-arrow-down.opened {
+    transform: rotate(180deg);
+}
+
 #header-options-profile-toggle,
 #header-options-notifications-toggle {
     width: max-content;
