@@ -30,6 +30,7 @@
 
 #header-options {
     gap: 0.5rem;
+    justify-content: center;
 }
 
 #header-options-profile-toggle,
@@ -81,7 +82,12 @@
         justify-content: space-around;
     }
     #header-logo { height: 50%; }
-    #header-options { height: 50%; }
+    #header-options { 
+        height: 50%; 
+        width: 100%;
+        justify-content: center;
+        gap: 0.5rem;
+    }
 }
 
 @media (max-width: 300px) {
@@ -90,7 +96,6 @@
     }
     #header-options {
         overflow-x: auto;
-        width: 100%;
         justify-content: start;
         scroll-behavior: auto;
         scrollbar-width: none;
