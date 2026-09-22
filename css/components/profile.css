@@ -1,4 +1,4 @@
-.profile, #profile-title, #profile-info, #profile-options, #profile-options-commands {
+.profile, #profile-info, #profile-options, #profile-options-commands {
     display: flex;
     justify-content: start;
     flex-direction: column;
