@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+:root {
+    /* MY FONT-FAMILIES */
+    --fredoka: 'Fredoka', sans-serif;
+    --nunito: 'Nunito', sans-serif;
+    --comic-neue: 'Comic Neue', cursive;
+    /* MY COLORS */
+    --pendence-color: #ffec99;
+    --conclusion-color: #b2f2bb;
+    --delay-color: #fa5252;
+    --background-color: #fffce8;
+    --text-color: #343a40;
+    --input-color: #eaddd7;
+    --commands-color: #a5d8ff;
+}
