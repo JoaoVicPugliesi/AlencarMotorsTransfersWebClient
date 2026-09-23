@@ -1,4 +1,4 @@
-import transfer from './parts/transfer.js';
+import transfer from './parts/transfer/transfer.js';
 import transfers_searchbar from './parts/transfers_searchbar.js';
 
 

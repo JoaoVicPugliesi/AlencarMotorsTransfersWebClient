@@ -1,10 +1,12 @@
+import secondary_input from "../../../helpers/inputs/secondary_input.js";
+
 function transfers_searchbar_filters() {
     return `
     <div class="transfers-searchbar-filters">
-        <input placeholder="Placa">
-        <input placeholder="Veículo">
-        <input placeholder="Código">
-        <input placeholder="Status">
+        ${secondary_input('transfers-searchbar-filters-plate', 'Placa')}
+        ${secondary_input('transfers-searchbar-filters-vehicle', 'Veículo')}
+        ${secondary_input('transfers-searchbar-filters-code', 'Código')}
+        ${secondary_input('transfers-searchbar-filters-status', 'Status')}
     </div>
     `
 }

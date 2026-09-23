@@ -9,7 +9,7 @@ function notification (id, description, is_viewed, timestamp) {
                 <h3>${is_viewed ? 'LIDA' : 'NÃO LIDA'}</h3>
             </div>
             <div>
-                <h3 class="notification-info-timestamp" data-timestamp="${timestamp}">Há ${timestamp}</h3>
+                <h3 class="notification-info-timestamp" data-timestamp="${timestamp}">HÁ ${timestamp}</h3>
             </div>
         </div>
         <div class="notification-options">

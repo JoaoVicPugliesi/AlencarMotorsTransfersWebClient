@@ -13,7 +13,6 @@
     width: 20rem;
     height: 85%;
     font-family: var(--fredoka);
-    text-transform: uppercase;
     color: var(--background-color);
     user-select: none;
     justify-content: start;

@@ -5,13 +5,15 @@ import transfers from "./parts/transfers/transfers.js";
 // import login from "./parts/login/login.js";
 // ${login()};
 
-function page () {
+function page() {
     return `
         <div id="page">
             ${header()}
-            ${profile()}
-            ${transfers()}
-            ${notifications()}
+           <div id="main">
+                ${profile()}
+                ${transfers()}
+                ${notifications()}
+           </div>
         </div>
     `
 }

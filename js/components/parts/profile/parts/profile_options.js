@@ -1,11 +1,10 @@
 import button from '../../../helpers/button.js'
+import title from '../../../helpers/title.js';
 
 function profile_options () {
     return `
     <div id="profile-options">
-        <div>
-            <h3>Opções</h3>
-        </div>
+        ${title('toggles-title', 'Opções')}
         <div id="profile-options-commands">
             ${button('profile-options-edit-profile', 'fa-solid fa-pen-to-square', 'Editar Perfil', 'blue')}
             ${button('profile-options-add-profile', 'fa-solid fa-plus', 'Novo Perfil', 'green')}

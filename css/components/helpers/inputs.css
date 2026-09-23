@@ -1,22 +1,21 @@
-.main-input-holder {
+.primary-input-holder {
     position: relative;
     width: fit-content;
 }
 
-.main-input {
+.primary-input {
     width: 25rem;
     height: 2.5rem;
     box-sizing: border-box;
     border-radius: 0.5rem;
     border: 2px solid var(--text-color);
     background: var(--input-color);
-    text-transform: uppercase;
     font-family: var(--comic-neue);
     padding: 0.5rem 1rem;
     position: relative;
 }
 
-.main-input-holder-i {
+.primary-input-holder-i {
     position: absolute;
     top: 50%;
     right: 1rem;
@@ -27,8 +26,25 @@
     pointer-events: none;
 }
 
+.secondary-input {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    background: var(--pending-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid var(--text-color);
+    font-family: var(--comic-neue);
+}
+
 @media (max-width: 500px) {
-    .main-input {
+    .primary-input {
         width: 15rem;
+    }
+}
+
+@media (max-width: 300px) {
+    .primary-input {
+        width: 12rem;
     }
 }
