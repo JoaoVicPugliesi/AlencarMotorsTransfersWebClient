@@ -2,9 +2,6 @@ import header from "./parts/header/header.js";
 import profile from "./parts/profile/profile.js";
 import notifications from "./parts/notifications/notifications.js"
 import transfers from "./parts/transfers/transfers.js";
-import transfer_view from "./parts/transfer_view/transfer_view.js";
-// import login from "./parts/login/login.js";
-// ${login()};
 
 function page() {
     return `
@@ -14,17 +11,6 @@ function page() {
                 ${profile()}
                 ${transfers()}
                 ${notifications()}
-                ${transfer_view({
-                    id: 1,
-                    status: 'pending', 
-                    name: 'João Victor Lima Almeida Pugliesi', 
-                    plate: 'QLP2668', 
-                    vehicle: 'ONIX', 
-                    code: 'XXXXXX',
-                    initial_date: '25/09/2026',
-                    final_date: null,
-                    term_date: '02/10/2026'
-                })}
            </div>
         </div>
     `

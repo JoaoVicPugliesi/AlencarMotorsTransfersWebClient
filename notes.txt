@@ -1,0 +1,31 @@
+
+// import painel from "./parts/painel/painel.js";
+// import login from "./parts/login/login.js";
+// ${login()};
+
+// const transfer =
+// {
+//     id: 1,
+//     status: 'pending',
+//     name: 'João Victor Lima Almeida Pugliesi',
+//     plate: 'QLP2668',
+//     vehicle: 'ONIX',
+//     code: 'XXXXXX',
+//     initial_date: '25/09/2026',
+//     final_date: null,
+//     term_date: '02/10/2026'
+// }
+
+// const observation =
+// {
+//     id: 1,
+//     status: 'pending',
+//     title: 'Problema no CNH',
+//     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letrasets Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.',
+//     initial_date: '25/09/2026',
+//     final_date: null,
+//     term_date: '02/10/2026'
+// }
+
+// ${painel('observations', observation)}
+// ${painel('transfers', transfer)}

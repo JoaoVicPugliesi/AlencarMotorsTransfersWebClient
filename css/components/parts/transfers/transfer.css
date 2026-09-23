@@ -1,8 +1,7 @@
 .transfer,
 .transfer-info-progress-term,
 .transfer-info-progress,
-.transfer-info-term,
-.transfer-info-i {
+.transfer-info-term {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -96,8 +95,6 @@
 .transfer-info-term-countdown {
     color: var(--commands-color);
 }
-
-.transfer-info-i { gap: 0.5rem; }
 
 .transfer-info-progress-pending-observations { color: var(--pending-color); }
 

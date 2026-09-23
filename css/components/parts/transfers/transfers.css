@@ -35,8 +35,7 @@
     width: min(100%, 95rem);
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fit,
-            minmax(min(100%, 25rem), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     align-content: start;
     gap: 0.5rem;
     padding: 0.5rem;
@@ -44,7 +43,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: none;
-    scroll-behavior: smooth;
+    min-width: 0;
 }
 
 .transfers-display::-webkit-scrollbar {

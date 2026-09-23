@@ -1,0 +1,152 @@
+.painel-info, 
+#tranfer-view-info-basic, 
+.painel-info-basic, 
+.painel-info-progress,
+.painel-info-term,
+#painel-related,
+#painel-related-observations,
+#painel-related-observations-display,
+.observation,
+.observation-info,
+.observation-title,
+#painel-related-options,
+#painel-related-options-commands,
+.info-i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-i { gap: 0.5rem; }
+
+#painel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+}
+
+.painel-info {
+    width: 100%;
+    height: 30%;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.painel-info-basic, .painel-info-progress, .painel-info-term {
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5rem;
+}
+
+.painel-info-basic  { font-family: var(--fredoka); }
+
+#painel-info-code, .painel-info-term { font-family: var(--comic-neue); }
+
+.painel-info-progress {
+    font-family: var(--comic-neue);
+}
+
+#painel-info-pending-observations, 
+#painel-info-concluded-observations { font-family: var(--nunito); }
+
+#painel-related {
+    width: 100%;
+    height: 70%;
+    background: var(--text-color);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--background-color);
+}
+
+#painel-related-observations {
+    width: 100%;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+#painel-related-observations-display, #painel-related-options-commands {
+    scroll-behavior: smooth;
+    justify-content: start;
+    scrollbar-width: none;
+    width: 100%;
+    gap: 1rem;
+}
+
+#painel-related-observations-display {
+    height: max-content;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.observation {
+    min-width: 15rem;
+    height: 10rem;
+    border-radius: 0.5rem;
+    background: var(--pending-color);
+    cursor: pointer;
+    color: var(--text-color);
+    font-family: var(--comic-neue);
+    flex-direction: column;
+    justify-content: space-between;
+    transform: transition 0.5s ease-in-out;
+}
+
+.observation:hover {
+    transform: translate3d(180deg);
+}
+
+.observation-title {
+    height: 80%;
+    text-align: center;
+}
+
+.observation-info {
+    height: 20%;
+    width: 100%;
+    padding: 0.5rem;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}
+
+#painel-related-options {
+    width: 100%;
+    height: max-content;
+    padding: 1rem;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 1rem;
+}
+
+#painel-related-observation-description {
+    font-family: var(--comic-neue);
+    max-width: 100rem;
+}
+
+@media (max-width: 1000px) {
+    .painel-info {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        align-items: start;
+        justify-content: space-around;
+        padding: 0 1rem;
+        flex-direction: column;
+        transition: transform 0.5s ease-in-out;        
+    }
+
+    .painel-info.opened {
+        transform: translateX(0);
+    }
+
+    #painel-related {
+        height: 100%;
+    }
+}

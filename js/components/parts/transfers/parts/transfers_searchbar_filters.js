@@ -9,9 +9,9 @@ function transfers_searchbar_filters() {
         ${secondary_input('transfers-searchbar-filters-code', 'Código')}
         ${select_input('transfers-searchbar-filters-code-status',
         [
-        { value: 'pending', label: 'PENDING' },
-        { value: 'concluded', label: 'CONCLUDED' },
-        { value: 'delayed', label: 'DELAYED' }
+        { value: 'pending', label: 'Pendente' },
+        { value: 'concluded', label: 'Concluída' },
+        { value: 'delayed', label: 'Atrasada' }
         ]
     )}
     </div>
