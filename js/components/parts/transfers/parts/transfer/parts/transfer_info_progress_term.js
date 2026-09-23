@@ -7,7 +7,6 @@ function transfer_info_progress_term (initial_date, final_date, term_date) {
             ${info_i('transfer-info-initial-date', `Data de início: ${initial_date}`, 'fa-brands fa-angellist')}
             ${info_i('transfer-info-pending-observations', `2 observações pendentes`, 'fa-solid fa-spinner')}
             ${info_i('transfer-info-concluded-observations', `2 observações concluídas`, 'fa-solid fa-check')}
-            ${info_i('transfer-info-final-date', `Data de término: ${final_date !== null ? `${final_date}` : '...'}`, 'fa-solid fa-flag-checkered')}
         </div>
         <div class="transfer-info-term">
             ${info_i('transfer-info-term-date', `Prazo: ${term_date}`, 'fa-solid fa-file-contract')}

@@ -22,8 +22,8 @@
 #painel {
     position: absolute;
     width: 100%;
-    height: 100%;
-    top: 0;
+    height: 85%;
+    top: 15%;
     right: 0;
 }
 
@@ -71,6 +71,8 @@
 }
 
 #painel-related-observations-display, #painel-related-options-commands {
+    overflow-x: auto;
+    overflow-y: hidden;
     scroll-behavior: smooth;
     justify-content: start;
     scrollbar-width: none;
@@ -80,8 +82,6 @@
 
 #painel-related-observations-display {
     height: max-content;
-    overflow-x: auto;
-    overflow-y: hidden;
 }
 
 .observation {
@@ -116,13 +116,16 @@
 
 #painel-related-options {
     width: 100%;
-    height: max-content;
     padding: 1rem;
     flex-direction: column;
     justify-content: start;
     align-items: start;
     gap: 1rem;
 }
+
+ #painel-related-options-commands {
+    height: 5rem;
+ }
 
 #painel-related-observation-description {
     font-family: var(--comic-neue);
@@ -139,6 +142,7 @@
         justify-content: space-around;
         padding: 0 1rem;
         flex-direction: column;
+        transform: translateX(100%);
         transition: transform 0.5s ease-in-out;        
     }
 
@@ -148,5 +152,12 @@
 
     #painel-related {
         height: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    #painel {
+        height: 80%;
+        top: 20%;
     }
 }

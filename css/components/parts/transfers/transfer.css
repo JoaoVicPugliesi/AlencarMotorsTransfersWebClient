@@ -10,8 +10,7 @@
 .transfer {
     width: 100%;
     min-width: 0;
-    max-width: none;
-    box-sizing: border-box;
+    max-width: 30rem;
     border-radius: 0.5rem;
     border: 2px solid var(--text-color);
     font-family: var(--comic-neue);
@@ -20,7 +19,8 @@
     align-self: start;
     user-select: none;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; 
+    margin-bottom: 5rem; 
 }
 
 .transfer-info {
@@ -100,6 +100,11 @@
 
 .transfer-info-progress-concluded-observations { color: var(--concluded-color); }
 
+@media (max-width: 1000px) {
+    .transfer-info-progress-term {
+        display: none;
+    }
+}
 @media (max-width: 700px) {
     .transfer {
         font-size: 0.8rem;
