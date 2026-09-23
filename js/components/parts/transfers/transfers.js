@@ -1,7 +1,6 @@
 import transfer from './parts/transfer/transfer.js';
 import transfers_searchbar from './parts/transfers_searchbar.js';
 
-
 function transfers () {
     return `
         <div class="transfers">
