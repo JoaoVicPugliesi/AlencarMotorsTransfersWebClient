@@ -37,6 +37,33 @@
     font-family: var(--comic-neue);
 }
 
+.select-input {
+    width: max-content;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 2px solid var(--text-color);
+    background: var(--commands-color);
+    font-family: var(--comic-neue);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+}
+
+.select-input-arrow-down {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(-10%, -50%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.select-input::selection .select-input-arrow-down {
+    transform: rotate(180deg);
+}
+
 @media (max-width: 500px) {
     .primary-input {
         width: 15rem;

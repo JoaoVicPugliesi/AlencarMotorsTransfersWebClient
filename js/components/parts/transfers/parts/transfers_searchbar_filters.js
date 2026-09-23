@@ -1,4 +1,5 @@
 import secondary_input from "../../../helpers/inputs/secondary_input.js";
+import select_input from "../../../helpers/inputs/select_input.js";
 
 function transfers_searchbar_filters() {
     return `
@@ -6,7 +7,13 @@ function transfers_searchbar_filters() {
         ${secondary_input('transfers-searchbar-filters-plate', 'Placa')}
         ${secondary_input('transfers-searchbar-filters-vehicle', 'Veículo')}
         ${secondary_input('transfers-searchbar-filters-code', 'Código')}
-        ${secondary_input('transfers-searchbar-filters-status', 'Status')}
+        ${select_input('transfers-searchbar-filters-code-status',
+        [
+        { value: 'pending', label: 'PENDING' },
+        { value: 'concluded', label: 'CONCLUDED' },
+        { value: 'delayed', label: 'DELAYED' }
+        ]
+    )}
     </div>
     `
 }
