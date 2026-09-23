@@ -12,11 +12,11 @@
 
 .notifications {
     position: absolute;
-    top: 15%;
+    top: 0;
     right: 0;
     background: var(--text-color);
     width: 20rem;
-    height: 85%;
+    height: 100%;
     font-family: var(--fredoka);
     color: var(--background-color);
     user-select: none;
@@ -65,7 +65,7 @@
     background: var(--concluded-color);
 }
 
-.notification.pendent {
+.notification.not_viewed {
     background: var(--pending-color);
 }
 
@@ -130,8 +130,6 @@
 @media (max-width: 700px) {
     .notifications {
         width: 100%;
-        top: 20%;
-        height: 80%;
     }
 
     #notifications-display {

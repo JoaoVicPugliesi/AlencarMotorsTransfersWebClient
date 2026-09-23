@@ -1,6 +1,6 @@
 function notification (id, description, is_viewed, timestamp) {
     return `
-    <div class="notification ${is_viewed ? 'viewed' : 'pendent'}">
+    <div class="notification ${is_viewed ? 'viewed' : 'not_viewed'}">
         <div class="notification-description">
             <p>${description}</p>
         </div>

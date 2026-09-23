@@ -1,22 +1,12 @@
-function transfer_info (name, plate, vehicle, code) {
+import transfer_info_i from "../../../../../helpers/transfer_info_i.js";
+
+function transfer_info(name, plate, vehicle, code) {
     return `
     <div class="transfer-info">
-        <div class="transfer-info-name">
-            <i class="fa-regular fa-id-card"></i>
-            <h3>${name}</h3>
-        </div>
-        <div class="transfer-info-plate">
-            <i class="fa-solid fa-certificate"></i>
-            <h3>${plate}</h3>
-        </div>
-        <div class="transfer-info-vehicle">
-            <i class="fa-solid fa-car"></i>
-            <h3>${vehicle}</h3>
-        </div>
-        <div class="transfer-info-code">
-            <i class="fa-solid fa-code"></i>
-            <h3>${code}</h3>
-        </div>
+          ${transfer_info_i('transfer-info-name', `${name}`, 'fa-regular fa-id-card')}
+          ${transfer_info_i('transfer-info-plate', `${plate}`, 'fa-solid fa-certificate')}
+          ${transfer_info_i('transfer-info-vehicle', `${vehicle}`, 'fa-solid fa-car')}
+          ${transfer_info_i('transfer-info-code', `${code}`, 'fa-solid fa-code')}
     </div>
     `
 }

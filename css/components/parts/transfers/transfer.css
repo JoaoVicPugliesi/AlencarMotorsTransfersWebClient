@@ -1,12 +1,12 @@
 .transfer,
-.transfer-info-options,
-.transfer-info-options-progress,
-.transfer-info-options-term {
+.transfer-info-progress-term,
+.transfer-info-progress,
+.transfer-info-term,
+.transfer-info-i {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
-
 
 .transfer {
     width: 100%;
@@ -22,18 +22,6 @@
     user-select: none;
     position: relative;
     overflow: hidden;
-}
-
-.transfer.concluded {
-    background: var(--concluded-color);
-}
-
-.transfer.pending {
-    background: var(--pending-color);
-}
-
-.transfer.delayed {
-    background: var(--delayed-color);
 }
 
 .transfer-info {
@@ -70,7 +58,7 @@
     font-family: var(--nunito);
 }
 
-.transfer-info-options {
+.transfer-info-progress-term {
     top: 0;
     right: 0;
     position: absolute;
@@ -87,11 +75,11 @@
     font-family: var(--nunito);
 }
 
-.transfer:hover .transfer-info-options {
+.transfer:hover .transfer-info-progress-term {
     transform: translateX(0);
 }
 
-.transfer-info-options-progress, .transfer-info-options-term {
+.transfer-info-progress, .transfer-info-term {
     height: 100%;
     flex-direction: column;
     justify-content: space-between;
@@ -99,19 +87,21 @@
 }
 
 
-.transfer-info-options-progress-initial-date,
-.transfer-info-options-progress-final-date,
-.transfer-info-options-term-date {
+.transfer-info-progress-initial-date,
+.transfer-info-progress-final-date,
+.transfer-info-term-date {
     font-family: var(--comic-neue);
 }
 
-.transfer-info-options-term-countdown {
+.transfer-info-term-countdown {
     color: var(--commands-color);
 }
 
-.transfer-info-options-progress-pending-observations { color: var(--pending-color); }
+.transfer-info-i { gap: 0.5rem; }
 
-.transfer-info-options-progress-concluded-observations { color: var(--concluded-color); }
+.transfer-info-progress-pending-observations { color: var(--pending-color); }
+
+.transfer-info-progress-concluded-observations { color: var(--concluded-color); }
 
 @media (max-width: 700px) {
     .transfer {

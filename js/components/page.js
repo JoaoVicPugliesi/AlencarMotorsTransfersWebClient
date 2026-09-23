@@ -14,7 +14,17 @@ function page() {
                 ${profile()}
                 ${transfers()}
                 ${notifications()}
-                ${transfer_view()}
+                ${transfer_view({
+                    id: 1,
+                    status: 'pending', 
+                    name: 'João Victor Lima Almeida Pugliesi', 
+                    plate: 'QLP2668', 
+                    vehicle: 'ONIX', 
+                    code: 'XXXXXX',
+                    initial_date: '25/09/2026',
+                    final_date: null,
+                    term_date: '02/10/2026'
+                })}
            </div>
         </div>
     `

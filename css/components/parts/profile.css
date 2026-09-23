@@ -7,13 +7,13 @@
 
 .profile {
     position: absolute;
-    top: 15%;
+    top: 0;
     right: 0;
     background: var(--text-color);
-    width: 20rem;
-    height: 85%;
-    font-family: var(--fredoka);
     color: var(--background-color);
+    width: 20rem;
+    height: 100%;
+    font-family: var(--fredoka);
     user-select: none;
     justify-content: start;
     transform: translateX(100%);
@@ -23,6 +23,11 @@
 
 .profile.opened {
     transform: translateX(0);
+}
+
+.profile.opened.adapted {
+    background: var(--background-color);
+    color: var(--text-color);
 }
 
 #profile-title {
@@ -36,7 +41,7 @@
     justify-content: center;
     font-size: 2rem;
     color: var(--text-color);
-    background: var(--pending-color);
+    background: var(--commands-color);
     width: 100%;
 }
 
@@ -61,7 +66,5 @@
 @media (max-width: 700px) {
     .profile {
         width: 100%;
-        top: 20%;
-        height: 80%;
     }
 }
