@@ -7,8 +7,28 @@ function transfers () {
         <div class="transfers">
             ${transfers_searchbar()}
             <div class="transfers-display">
-                ${transfer('pending', 'João Victor Lima Almeida Pugliesi', 'QLP2668', 'ONIX', 'XXXXXX')}
-                ${transfer('delayed', 'Lucas Da Silva Ribeiro Machado', 'WVT2568', 'STRADA', 'XYZFGD')}
+                ${transfer({
+                    id: 1,
+                    status: 'pending', 
+                    name: 'João Victor Lima Almeida Pugliesi', 
+                    plate: 'QLP2668', 
+                    vehicle: 'ONIX', 
+                    code: 'XXXXXX',
+                    initial_date: '25/09/2026',
+                    final_date: null,
+                    term_date: '02/10/2026'
+                })}
+                ${transfer({
+                    id: 2,
+                    status: 'delayed', 
+                    name: 'Lucas Da Silva Ribeiro Machado', 
+                    plate: 'WVT2568', 
+                    vehicle: 'STRADA', 
+                    code: 'XYZFGD',
+                    initial_date: '25/09/2026',
+                    final_date: null,
+                    term_date: '02/10/2026'
+                })}
             </div>
         </div>
     `
