@@ -5,13 +5,10 @@ import render_related from "./parts/render_related.js";
 import render_term from "./parts/render_term.js";
 
 function painel(mode, params) {
-
     const config = configs[mode];
-
     if (!config) {
         throw new Error(`Modo de painel inválido: ${mode}`);
     }
-
     return `
         <div class="painel" data-id="${params.id}">
             <div></div>

@@ -25,6 +25,10 @@
 .concluded, .viewed { background: var(--concluded-color); }
 .delayed { background: var(--delayed-color); }
 
+.already_clicked {
+    pointer-events: none;
+}
+
 @media (max-width: 700px) {
     #main {
         height: 80%;

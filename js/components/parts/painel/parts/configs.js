@@ -19,7 +19,7 @@ const configs = {
         ],
 
         buttons: [
-            ['transfers-comeback', 'fa-solid fa-xmark', 'Voltar', 'blue'],
+            ['transfers-comeback', 'fa-solid fa-arrow-left-long', 'Voltar', 'blue'],
             ['transfers-edit', 'fa-solid fa-pen-to-square', 'Editar', 'blue'],
             ['transfers-add-observation', 'fa-solid fa-plus', 'Observação', 'green'],
             ['transfers-conclude', 'fa-solid fa-check-double', 'Concluir', 'green'],
@@ -42,7 +42,7 @@ const configs = {
         ],
 
         buttons: [
-            ['observations-comeback', 'fa-solid fa-xmark', 'Voltar', 'blue'],
+            ['observations-comeback', 'fa-solid fa-arrow-left-long', 'Voltar', 'blue'],
             ['observations-edit', 'fa-solid fa-pen-to-square', 'Editar', 'blue'],
             ['observations-conclude', 'fa-solid fa-check-double', 'Concluir', 'green'],
             ['observations-exclude', 'fa-solid fa-trash', 'Excluir', 'red']

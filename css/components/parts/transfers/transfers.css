@@ -9,12 +9,12 @@
 }
 
 .transfers-searchbar {
-    width: min(100%, 31rem);
+    width: min(100%, 30rem);
     display: flex;
     height: max-content;
     padding: 1rem;
     flex-direction: column;
-    align-items: stretch;
+    align-items: start;
     gap: 1rem;
     flex-shrink: 0;
 }
