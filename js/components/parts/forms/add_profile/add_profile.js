@@ -1,9 +1,9 @@
-import title from "../../../../../helpers/title.js";
+import title from "../../../helpers/title.js";
 import add_profile_form from "./add_profile_form.js";
 
 function add_profile () {
     return `
-        <div class="profile-form-holder">
+        <div class="form-holder">
             ${title('main-title', 'Adicionar novo perfil')}
             ${add_profile_form()}
         </div>

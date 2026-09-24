@@ -1,7 +1,7 @@
 function adapt_togglers () {
     const main = document.getElementById('main');
     const painels_opened = main.querySelectorAll('.painel'); 
-    const profile_forms_opened = main.querySelectorAll('.profile-form-holder'); 
+    const profile_forms_opened = main.querySelectorAll('.form-holder'); 
     const notifications = document.querySelector('.notifications');
     const profile = document.querySelector('.profile');
     

@@ -1,4 +1,4 @@
-import info_i from "../../../../../helpers/info_i.js";
+import info_i from "../../../helpers/info_i.js";
 
 function participant (params) {
     return `
