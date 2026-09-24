@@ -13,6 +13,7 @@
     font-family: var(--comic-neue);
     padding: 0.5rem 1rem;
     position: relative;
+    user-select: none;
 }
 
 .primary-input-holder-i {

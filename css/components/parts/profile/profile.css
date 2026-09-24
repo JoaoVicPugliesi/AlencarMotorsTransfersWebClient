@@ -25,7 +25,7 @@
     transform: translateX(0);
 }
 
-.profile.opened.adapted {
+.profile.adapted {
     background: var(--background-color);
     color: var(--text-color);
 }

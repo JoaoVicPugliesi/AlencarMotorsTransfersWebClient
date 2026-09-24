@@ -2,10 +2,8 @@ import painel from '../../components/parts/painel/painel.js'
 
 function open_observations_interface() {
     const observations = document.querySelectorAll('.observation');
-    console.log(observations);
     observations.forEach((o) => {
         o.addEventListener('click', () => {
-            console.log('clicked')
             const main = document.getElementById('main');
             const observation =
             {

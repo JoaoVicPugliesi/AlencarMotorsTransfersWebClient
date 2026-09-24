@@ -5,9 +5,10 @@
 }
 
 .sections-title {
-    font-family: var(--fredoka);
+    font-family: var(--nunito);
     text-transform: uppercase;
     user-select: none;
+    font-size: 1rem;
 }
 
 .toggles-title {
@@ -24,5 +25,18 @@
 @media (max-width: 500px) {
     .main-title {
         font-size: 1rem;
+    }
+
+    .sections-title {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 300px) {
+    .main-title {
+        font-size: 0.9rem;
+    }
+    .sections-title {
+        font-size: 0.7rem;
     }
 }

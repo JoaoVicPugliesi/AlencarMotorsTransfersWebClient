@@ -29,3 +29,7 @@
 
 // ${painel('observations', observation)}
 // ${painel('transfers', transfer)}
+
+O formato atual mistura letras e números na sequência ABC1D23 
+(três letras, um número, uma letra e dois números), 
+totalizando 7 caracteres no conjunto, sendo 3 números e 4 letras.

@@ -1,4 +1,4 @@
-import format_status from "../../../../helpers/format_status.js";
+import format_status from "../../../../../helpers/format_status.js";
 
 function observation(id, title, status, timestamp) {
     return `
