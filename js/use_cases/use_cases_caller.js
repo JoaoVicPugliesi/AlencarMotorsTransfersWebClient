@@ -10,7 +10,6 @@ function use_cases_caller () {
     open_close_profile_interface();
     open_close_add_transfer_interface();
     open_close_notifications_interface();
-
     view_transfer_interface();
     view_observation_interface();
     view_notification_interface();

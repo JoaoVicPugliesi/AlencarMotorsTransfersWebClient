@@ -16,7 +16,6 @@ function view_transfer_interface() {
             term_date: '02/10/2026'
         }
     });
-
 }
 
 export default view_transfer_interface;

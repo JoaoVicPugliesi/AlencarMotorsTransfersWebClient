@@ -3,6 +3,7 @@ import profile from "./parts/profile/profile.js";
 import notifications from "./parts/notifications/notifications.js"
 import transfers from "./parts/transfers/transfers.js";
 import add_transfer from "./parts/profile/parts/add_transfer/add_transfer.js";
+import add_profile from "./parts/profile/parts/add_profile/add_profile.js";
 
 function page() {
     return `
@@ -12,6 +13,7 @@ function page() {
 
                 ${profile()}
                 ${add_transfer()}
+                ${add_profile()}
 
                 ${transfers()}
                 ${notifications()}

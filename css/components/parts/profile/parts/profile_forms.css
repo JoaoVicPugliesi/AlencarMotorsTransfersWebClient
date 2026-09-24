@@ -1,0 +1,31 @@
+.add-transfer, .add-profile {
+    color: var(--background-color);
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--text-color);
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    font-family: var(--fredoka);
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.add-transfer .primary-input-holder,
+.add-profile .primary-input-holder {
+    color: var(--text-color);
+}
+
+.add-profile {
+    transform: translateX(0);
+}
+
+.add-transfer.opened, .add-profile.opened {
+    transform: translateX(0);
+}
