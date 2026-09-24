@@ -1,6 +1,6 @@
-function profile_form (id, content) {
+function profile_form (content) {
     return `
-    <div class="profile-form" id="${id}">
+    <div class="profile-form">
         ${content}
     </div>
     `

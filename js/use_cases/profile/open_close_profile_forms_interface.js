@@ -1,28 +1,57 @@
+import add_transfer from '../../components/parts/profile/parts/forms/add_transfer/add_transfer.js';
+import add_profile from '../../components/parts/profile/parts/forms/add_profile/add_profile.js';
+import edit_profile from '../../components/parts/profile/parts/forms/edit_profile/edit_profile.js';
 import adapt_togglers from '../../helpers/adapt_togglers.js';
 
-function open_close_profile_forms_interface (add, comeback, form_id) {
-    const command_i = document.getElementById(add);
-    const comeback_i = document.getElementById(comeback);
+function open_close_profile_forms_interface(add, comeback, callback) {
 
-    const profile_form = document.getElementById(form_id);
-    const profile_form_holder = profile_form.closest('.profile-form-holder');
+    const main = document.getElementById('main');
+    const command_i = document.getElementById(add);
 
     command_i.addEventListener('click', () => {
-        if (profile_form_holder.classList.contains('opened')) return;
-        profile_form_holder.classList.add('opened');
+        if (command_i.dataset.already_opened === 'true') return;
+        command_i.dataset.already_opened = 'true';
+        const component = callback();
+        main.insertAdjacentHTML('beforeend', component);
+        console.log(main);
         adapt_togglers();
     });
 
-    comeback_i.addEventListener('click', () => {
-        if (!profile_form_holder.classList.contains('opened')) return;
-        profile_form_holder.classList.remove('opened');
+
+    document.addEventListener('click', (event) => {
+        const comeback_i = event.target.closest(`#${comeback}`);
+        if (!comeback_i) return;
+        if (command_i.dataset.already_opened !== 'true') return;
+        command_i.dataset.already_opened = 'false';
+        const element = comeback_i.closest('.profile-form-holder');
+        if (element) {
+            element.remove();
+        }
         adapt_togglers();
     });
 }
 
-function open_close_profile_forms_interface_caller () {
-    open_close_profile_forms_interface('profile-options-add-transfer', 'add-transfer-comeback', 'add-transfer-form');
-    open_close_profile_forms_interface('profile-options-add-profile', 'add-profile-comeback', 'add-profile-form');
+
+function open_close_profile_forms_interface_caller() {
+
+    open_close_profile_forms_interface(
+        'profile-options-add-transfer',
+        'add-transfer-comeback',
+        add_transfer
+    );
+    
+    open_close_profile_forms_interface(
+        'profile-options-add-profile',
+        'add-profile-comeback',
+        add_profile
+    );
+    
+    open_close_profile_forms_interface(
+        'profile-options-edit-profile',
+        'edit-profile-comeback',
+        edit_profile
+    );
 }
+
 
 export default open_close_profile_forms_interface_caller;

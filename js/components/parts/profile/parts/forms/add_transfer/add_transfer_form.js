@@ -22,7 +22,7 @@ function add_transfer_form () {
         </div>
     `
     return `
-        ${profile_form('add-transfer-form', content)}
+        ${profile_form(content)}
     `
 }
 
