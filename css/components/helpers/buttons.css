@@ -20,6 +20,7 @@
         transform 0.15s ease,
         box-shadow 0.15s ease;
     border: var(--text-color) 2px solid;
+    user-select: none;
 }
 
 .button h3 {

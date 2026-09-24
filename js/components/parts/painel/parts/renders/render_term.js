@@ -1,4 +1,4 @@
-import info_i from "../../../helpers/info_i.js";
+import info_i from "../../../../helpers/info_i.js";
 import render_info from "./render_info.js";
 
 function render_term(fields, params, mode) {

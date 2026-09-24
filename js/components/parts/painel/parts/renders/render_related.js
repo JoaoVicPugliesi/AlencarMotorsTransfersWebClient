@@ -1,6 +1,6 @@
-import title from '../../../helpers/title.js'
+import title from '../../../../helpers/title.js'
+import observation from '../transfers/observation.js';
 import configs from './configs.js';
-import observation from './observations/observation.js';
 import render_buttons from './render_buttons.js';
 
 function render_related(mode, params) {

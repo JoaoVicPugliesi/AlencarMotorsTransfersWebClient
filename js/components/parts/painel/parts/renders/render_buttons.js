@@ -1,4 +1,4 @@
-import button from "../../../helpers/button.js";
+import button from "../../../../helpers/button.js";
 
 function render_buttons(buttons) {
     return buttons

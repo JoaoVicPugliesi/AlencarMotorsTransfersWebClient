@@ -1,8 +1,8 @@
 import format_status from "../../../helpers/format_status.js";
-import configs from "./parts/configs.js";
-import render_info from "./parts/render_info.js";
-import render_related from "./parts/render_related.js";
-import render_term from "./parts/render_term.js";
+import configs from "./parts/renders/configs.js";
+import render_info from "./parts/renders/render_info.js";
+import render_related from "./parts/renders/render_related.js";
+import render_term from "./parts/renders/render_term.js";
 
 function painel(mode, params) {
     const config = configs[mode];
@@ -11,7 +11,6 @@ function painel(mode, params) {
     }
     return `
         <div class="painel" data-id="${params.id}">
-            <div></div>
             <div class="painel-info ${params.status}">
                 <div class="painel-info-basic">
                     ${render_info(config.basic, params)}
