@@ -13,7 +13,7 @@ function painel(mode, params) {
     }
 
     return `
-        <div id="painel" data-id="${params.id}">
+        <div class="painel" data-id="${params.id}">
             <div></div>
             <div class="painel-info ${params.status}">
                 <div class="painel-info-basic">

@@ -4,7 +4,13 @@ function transfer_info_progress_term (initial_date, final_date, term_date) {
     return `
     <div class="transfer-info-progress-term">  
         <div class="transfer-info-progress">
-            ${info_i('transfer-info-initial-date', `Data de início: ${initial_date}`, 'fa-brands fa-angellist')}
+            ${
+
+            final_date === null ? 
+            `${info_i('transfer-info-initial-date', `Data de início: ${initial_date}`, 'fa-brands fa-angellist')}`
+            :
+            `${info_i('transfer-info-final-date', `Data de término: ${final_date}`, 'fa-solid fa-flag-checkered')}`
+            }
             ${info_i('transfer-info-pending-observations', `2 observações pendentes`, 'fa-solid fa-spinner')}
             ${info_i('transfer-info-concluded-observations', `2 observações concluídas`, 'fa-solid fa-check')}
         </div>

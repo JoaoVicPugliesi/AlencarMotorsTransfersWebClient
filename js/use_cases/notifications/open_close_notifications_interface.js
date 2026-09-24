@@ -1,4 +1,4 @@
-function open_close_notifications () {
+function open_close_notifications_interface () {
     const toggle = document.getElementById('header-options-notifications-toggle');
     const notifications = document.querySelector('.notifications');
     toggle.addEventListener('click', () => {
@@ -10,4 +10,4 @@ function open_close_notifications () {
     })
 }
 
-export default open_close_notifications;
+export default open_close_notifications_interface;
