@@ -11,7 +11,8 @@
 .observation-title,
 #painel-related-options,
 #painel-related-options-commands,
-.info-i {
+.info-i,
+.painel-info-toggler {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,7 +133,25 @@
     max-width: 100rem;
 }
 
+.painel-info-toggler {
+    position: absolute;
+    color: var(--text-color);
+    background: var(--pending-color);
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    top: 5%;
+    left: 1rem;
+    transform: translateY(-5%);
+    display: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
 @media (max-width: 1000px) {
+    .painel-info-toggler {
+        display: flex;
+    }
     .painel-info {
         position: absolute;
         top: 0;
@@ -144,8 +163,7 @@
         flex-direction: column;
         transform: translateX(100%);
         transition: transform 0.5s ease-in-out;        
-    }
-
+    }  
     .painel-info.opened {
         transform: translateX(0);
     }

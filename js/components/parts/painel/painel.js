@@ -11,6 +11,9 @@ function painel(mode, params) {
     }
     return `
         <div class="painel" data-id="${params.id}">
+            <div class="painel-info-toggler">
+                <i class="fa-solid fa-angles-left"></i>
+            </div>
             <div class="painel-info ${params.status}">
                 <div class="painel-info-basic">
                     ${render_info(config.basic, params)}

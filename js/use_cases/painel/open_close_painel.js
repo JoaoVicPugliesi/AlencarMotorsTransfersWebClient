@@ -1,5 +1,6 @@
 import painel from "../../components/parts/painel/painel.js";
 import adapt_togglers from "../../helpers/adapt_togglers.js";
+import open_close_painel_info from "./open_close_painel_info.js";
 
 const painel_cases = new Map();
 
@@ -21,6 +22,7 @@ document.addEventListener('click', (e) => {
             painel(mode, painel_data)       
         );
         adapt_togglers();
+        open_close_painel_info();
         const painel_instance = main.lastElementChild;
         const comeback = painel_instance.querySelector(`#${mode}-comeback`);
         if (!comeback) return;
