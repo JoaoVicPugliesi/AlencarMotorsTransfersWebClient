@@ -65,6 +65,39 @@
     transform: rotate(180deg);
 }
 
+.text-area {
+    position: relative;
+}
+
+.text-area textarea {
+    position: relative;
+    resize: none;
+    width: 25rem;
+    height: 10rem;
+    padding: 0rem 1rem;
+    border-radius: 0.5rem;
+    background: var(--input-color);
+    font-family: var(--comic-neue);
+    line-height: clamp(1.8rem, 4vw, 2.125rem);
+    box-sizing: border-box;
+    background-image: repeating-linear-gradient(to bottom,
+            transparent 0,
+            transparent calc(clamp(1.8rem, 4vw, 2.125rem) - 1px),
+            var(--text-color) calc(clamp(1.8rem, 4vw, 2.125rem) - 1px),
+            var(--text-color) clamp(1.8rem, 4vw, 2.125rem));
+    overflow-y: auto;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    border: none;
+}
+
+.text-area-i {
+    position: absolute;
+    color: var(--text-color);
+    top: 0.5rem;
+    right: 1rem;
+}
+
 @media (max-width: 500px) {
     .primary-input {
         width: 15rem;
