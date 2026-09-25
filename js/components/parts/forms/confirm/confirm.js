@@ -1,13 +1,13 @@
 import confirm_form from "./confirm_form.js";
 import title from "../../../helpers/title.js";
 
-function confirm (title_content, id, action, action_i) {
+function confirm_f () {
     return `
     <div class="form-holder">
-        ${title('main-title', `${title_content}`)}
-        ${confirm_form(id, action, action_i)}
+        ${title('main-title', 'Confirme sua identidade')}
+        ${confirm_form()}
     </div>
     `
 }
 
-export default confirm;
+export default confirm_f;
