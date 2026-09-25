@@ -5,8 +5,8 @@ import select_input from "../../../helpers/inputs/select_input.js";
 
 function add_profile_form () {
     const content = `
-        ${primary_input('add-profile-username', 'Nome de Usuário', 25, 'fa-solid fa-user')}
-        ${primary_input('add-profile-password', 'Senha', 12, 'fa-solid fa-key')}
+        ${primary_input('add-profile-username', 'text', 'Nome de Usuário', 25, 'fa-solid fa-user')}
+        ${primary_input('add-profile-password', 'passeword', 'Senha', 12, 'fa-solid fa-key')}
         ${select_input('add-profile-role', [
             {
                 value: 'admin',

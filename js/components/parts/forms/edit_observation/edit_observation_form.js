@@ -5,7 +5,7 @@ import text_area from "../../../helpers/inputs/text_area.js";
 
 function edit_observation_form () {
     const content = `
-        ${primary_input('add-observation-name', 'Nome da Observação', 25, 'fa-solid fa-signature')}
+        ${primary_input('add-observation-name', 'text', 'Nome da Observação', 25, 'fa-solid fa-signature')}
         ${text_area('add-observation-description', 'Descrição', 1000)}
         <div class="form-options">
             ${button('edit-observation-comeback', 'fa-solid fa-arrow-left-long', 'Voltar', 'blue')}

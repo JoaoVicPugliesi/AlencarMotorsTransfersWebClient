@@ -4,7 +4,7 @@ import primary_input from "../../../helpers/inputs/primary_input.js";
 
 function confirm_form () {
     const content = `
-        ${primary_input(`confirm-password`, 'Senha', 25, 'fa-solid fa-signature')}
+        ${primary_input(`confirm-password`, 'password', 'Senha', 25, 'fa-solid fa-signature')}
         <div class="form-options">
             ${button(`confirm-comeback`, 'fa-solid fa-arrow-left-long', 'Voltar', 'blue')}
             ${button(`confirm-command`, 'fa-solid fa-check-double', `Confirmar`, 'green')}

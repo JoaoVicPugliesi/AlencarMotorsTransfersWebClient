@@ -9,12 +9,12 @@ function add_transfer_form () {
         <div class="form-participants-options">
             ${participant(1, 'André Alencar')}
         </div>
-        ${primary_input('add-transfer-name', 'Nome do Cliente', 100, 'fa-solid fa-address-card')}
-        ${primary_input('add-transfer-plate', 'Placa', 7, 'fa-solid fa-certificate')}
-        ${primary_input('add-transfer-vehicle', 'Veículo', 50, 'fa-solid fa-car')}
+        ${primary_input('add-transfer-name', 'text', 'Nome do Cliente', 100, 'fa-solid fa-address-card')}
+        ${primary_input('add-transfer-plate', 'text', 'Placa', 7, 'fa-solid fa-certificate')}
+        ${primary_input('add-transfer-vehicle', 'text', 'Veículo', 50, 'fa-solid fa-car')}
         <div class="form-participants">
             ${title('sections-title', 'Adicione os participantes: ')}
-            ${primary_input('add-transfer-participants', 'X Participantes', 1000, 'fa-solid fa-users-line')}
+            ${primary_input('add-transfer-participants', 'text', 'X Participantes', 1000, 'fa-solid fa-users-line')}
         </div>
         <div class="form-options">
             ${button('add-transfer-comeback', 'fa-solid fa-arrow-left-long', 'Voltar', 'blue')}

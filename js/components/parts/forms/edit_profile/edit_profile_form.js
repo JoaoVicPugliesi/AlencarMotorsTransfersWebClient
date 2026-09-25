@@ -5,7 +5,7 @@ import select_input from "../../../helpers/inputs/select_input.js";
 
 function edit_profile_form () {
     const content = `
-        ${primary_input('edit-profile-username', 'Nome de Usuário', 25, 'fa-solid fa-user', 'Natália Alencar')}
+        ${primary_input('edit-profile-username', 'text', 'Nome de Usuário', 25, 'fa-solid fa-user', 'Natália Alencar')}
         ${select_input('edit-profile-role', [
             {
                 value: 'admin',
