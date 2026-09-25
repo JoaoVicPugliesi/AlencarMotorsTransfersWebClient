@@ -18,7 +18,7 @@ function edit_profile_form () {
         ])}
         <div class="form-options">
             ${button('edit-profile-comeback', 'fa-solid fa-arrow-left-long', 'Voltar', 'blue')}
-            ${button('edit-profile-save', 'fa-solid fa-plus', 'Editar', 'green')}
+            ${button('edit-profile-save', 'fa-solid fa-pen-to-square', 'Editar', 'green')}
         </div>
     `
     return `
