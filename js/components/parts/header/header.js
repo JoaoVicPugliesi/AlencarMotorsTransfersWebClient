@@ -1,11 +1,11 @@
 import header_logo from "./parts/header_logo.js";
 import header_options from "./parts/header_options.js";
 
-function header () {
+function header (logged) {
     return `
     <div id="header">
        ${header_logo()}
-       ${header_options()}
+       ${logged ? header_options() : ''}
     </div>
     `
 }
