@@ -1,5 +1,5 @@
-import header from '../../components/parts/header/header.js'
-import login from "../../components/parts/login/login.js";
+import header from '../../../components/parts/header/header.js'
+import login from "../../../components/parts/login/login.js";
 import login_interface from '../login/login_interface.js';
 
 function logout_interface() {

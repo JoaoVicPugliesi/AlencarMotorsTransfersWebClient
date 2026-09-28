@@ -6,15 +6,19 @@ import edit_observation from '../../components/parts/forms/edit_observation/edit
 import edit_profile from '../../components/parts/forms/edit_profile/edit_profile.js';
 import edit_transfer from '../../components/parts/forms/edit_transfer/edit_transfer.js';
 import adapt_togglers from '../../helpers/adapt_togglers.js';
+import toggle_primary_input_eye from '../../helpers/toggle_primary_input_eye.js';
+import register_interface from '../users/register/register_interface.js';
 
 const form_cases = new Map();
 const form_commands = new WeakMap();
 
-function open_close_forms_interface(add, comeback, callback) {
+function open_close_forms_interface(add, comeback, callback, use_case) {
+    const is_use_case = use_case ? use_case : null;
     form_cases.set(add, {
         add,
         comeback,
-        callback
+        callback,
+        use_case: is_use_case
     });
 }
 
@@ -36,6 +40,8 @@ document.addEventListener('click', (event) => {
         const form = main.lastElementChild;
         form_commands.set(form, command_i);
         adapt_togglers();
+        params.use_case();
+        toggle_primary_input_eye()
         return;
     }
 
@@ -64,55 +70,65 @@ function open_close_forms_interface_caller() {
     open_close_forms_interface(
         'profile-options-add-transfer',
         'add-transfer-comeback',
-        add_transfer
+        add_transfer,
+        null
     );
     open_close_forms_interface(
         'transfers-edit',
         'edit-transfer-comeback',
-        edit_transfer
+        edit_transfer,
+        null
     );
     
     open_close_forms_interface(
         'profile-options-add-profile',
         'add-profile-comeback',
-        add_profile
+        add_profile,
+        register_interface
     );
     
     open_close_forms_interface(
         'profile-options-edit-profile',
         'edit-profile-comeback',
-        edit_profile 
+        edit_profile,
+        null
     );
     open_close_forms_interface(
         'transfers-add-observation',
         'add-observation-comeback',
-        add_observation
+        add_observation,
+        null
     );
     open_close_forms_interface(
         'observations-edit',
         'edit-observation-comeback',
-        edit_observation
+        edit_observation,
+        null
     );
     open_close_forms_interface(
         'transfers-conclude',
         'confirm-comeback',
-        confirm_f
+        confirm_f,
+        null
     );
     open_close_forms_interface(
         'transfers-exclude',
         'confirm-comeback',
-        confirm_f
+        confirm_f,
+        null
     );
   
     open_close_forms_interface(
         'observations-conclude',
         'confirm-comeback',
-        confirm_f
+        confirm_f,
+        null
     );
     open_close_forms_interface(
         'observations-exclude',
         'confirm-comeback',
-        confirm_f
+        confirm_f,
+        null
     );
   
 }

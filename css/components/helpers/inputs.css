@@ -16,7 +16,7 @@
     user-select: none;
 }
 
-.primary-input-holder-i {
+.primary-input-holder-i, .primary-input-holder-eye {
     position: absolute;
     top: 50%;
     right: 1rem;
@@ -25,6 +25,11 @@
     align-items: center;
     justify-content: center;
     pointer-events: none;
+}
+
+.primary-input-holder-eye {
+    cursor: pointer;
+    pointer-events: visible;
 }
 
 .secondary-input {
