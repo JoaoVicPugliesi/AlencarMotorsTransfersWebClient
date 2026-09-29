@@ -7,7 +7,8 @@ import edit_profile from '../../components/parts/forms/edit_profile/edit_profile
 import edit_transfer from '../../components/parts/forms/edit_transfer/edit_transfer.js';
 import adapt_togglers from '../../helpers/adapt_togglers.js';
 import toggle_primary_input_eye from '../../helpers/toggle_primary_input_eye.js';
-import register_interface from '../users/auth/register/register_interface.js';
+import add_transfer_interface from '../transfers/add_transfer_interface/add_transfer_interface.js';
+import add_profile_interface from '../users/auth/register/add_profile_interface.js';
 
 const form_cases = new Map();
 const form_commands = new WeakMap();
@@ -73,7 +74,7 @@ function open_close_forms_interface_caller() {
         'profile-options-add-transfer',
         'add-transfer-comeback',
         add_transfer,
-        null
+        add_transfer_interface
     );
     open_close_forms_interface(
         'transfers-edit',
@@ -86,7 +87,7 @@ function open_close_forms_interface_caller() {
         'profile-options-add-profile',
         'add-profile-comeback',
         add_profile,
-        register_interface
+        add_profile_interface
     );
     
     open_close_forms_interface(

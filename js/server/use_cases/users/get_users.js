@@ -1,8 +1,9 @@
 import base_url from "../../base_URL.js"
 
 async function get_users (params) {
+    console.log(params);
     const query = new URLSearchParams(params).toString();
-    const req = await fetch(`${base_url}/login?${query}`, {
+    const req = await fetch(`${base_url}/get_users?${query}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json'
@@ -11,7 +12,7 @@ async function get_users (params) {
 
     const status = req.status;
     const { message, users } = await req.json();
-    console.log(users);
+    console.log(message, status);
     return {
         status: status,
         json: {

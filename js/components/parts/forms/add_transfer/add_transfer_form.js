@@ -7,7 +7,7 @@ import participant from "./participant.js";
 function add_transfer_form () {
     const content = `
         <div class="form-participants-options">
-            ${participant(1, 'André Alencar')}
+           
         </div>
         ${primary_input('add-transfer-name', 'text', 'Nome do Cliente', 100, 'fa-solid fa-address-card')}
         ${primary_input('add-transfer-plate', 'text', 'Placa', 7, 'fa-solid fa-certificate')}
@@ -18,7 +18,7 @@ function add_transfer_form () {
         </div>
         <div class="form-options">
             ${button('add-transfer-comeback', 'fa-solid fa-arrow-left-long', 'Voltar', 'blue')}
-            ${button('add-transfer-add', 'fa-solid fa-plus', 'Adicionar', 'green')}
+            ${button('add-transfer-command', 'fa-solid fa-plus', 'Adicionar', 'green')}
         </div>
     `
     return `

@@ -21,7 +21,6 @@ function clear_application() {
     document.querySelector('.transfers')?.remove();
 }
 
-
 function show_login() {
     const page = document.getElementById('page');
     const main = document.getElementById('main');
@@ -32,7 +31,6 @@ function show_login() {
     login_interface();
     toggle_primary_input_eye();
 }
-
 
 function show_application() {
     const page = document.getElementById('page');
@@ -50,8 +48,8 @@ function show_application() {
     view_transfer_interface();
     view_observation_interface();
     view_notification_interface();
+    localStorage.setItem('participants', JSON.stringify([]))
 }
-
 
 export {
     show_login,
