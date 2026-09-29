@@ -1,9 +1,10 @@
 function header_options () {
+    const user = JSON.parse(localStorage.getItem('user')) ?? null;
     return `
     <div id="header-options">
         <div id="header-options-profile-toggle">
             <div><i class="fa-solid fa-circle-user"></i></div>
-            <div><h3>Natália Alencar</h3></div>
+            ${user ?  `<div><h3>${user.username}</h3></div>` : `<div><h3>null</h3></div>`}
             <div class="header-options-profile-toggle-arrow-down"><i class="fa-solid fa-angle-down"></i></div>
         </div>
         <div id="header-options-notifications-toggle">

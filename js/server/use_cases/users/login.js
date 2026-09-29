@@ -1,8 +1,8 @@
 import base_url from "../../base_URL.js"
 
-async function register (params) {
+async function login (params) {
     console.log(params);
-    const req = await fetch(`${base_url}/register`, {
+    const req = await fetch(`${base_url}/login`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -21,4 +21,4 @@ async function register (params) {
     }
 }
 
-export default register;
+export default login;

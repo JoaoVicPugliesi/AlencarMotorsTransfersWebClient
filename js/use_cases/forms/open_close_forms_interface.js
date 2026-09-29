@@ -7,7 +7,7 @@ import edit_profile from '../../components/parts/forms/edit_profile/edit_profile
 import edit_transfer from '../../components/parts/forms/edit_transfer/edit_transfer.js';
 import adapt_togglers from '../../helpers/adapt_togglers.js';
 import toggle_primary_input_eye from '../../helpers/toggle_primary_input_eye.js';
-import register_interface from '../users/register/register_interface.js';
+import register_interface from '../users/auth/register/register_interface.js';
 
 const form_cases = new Map();
 const form_commands = new WeakMap();

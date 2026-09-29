@@ -1,7 +1,7 @@
 import button from '../../../helpers/button.js'
 import title from '../../../helpers/title.js';
 
-function profile_options () {
+function profile_options (params) {
     return `
     <div id="profile-options">
         ${title('toggles-title', 'Opções')}

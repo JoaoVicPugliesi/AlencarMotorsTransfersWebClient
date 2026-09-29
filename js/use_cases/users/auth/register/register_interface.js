@@ -1,4 +1,4 @@
-import register from "../../../server/use_cases/users/register.js";
+import register from "../../../../server/use_cases/users/register.js";
 
 function register_interface() {
     const username = document.getElementById('add-profile-username');
@@ -7,22 +7,19 @@ function register_interface() {
     const command = document.getElementById('add-profile-command');
     command.addEventListener('click', async () => {
         if(username.value === '' || password.value === '' || role.value === '') {
-            console.log('Os campos precisam ser preenchidos');
+            window.alert('Campos precisam ser preenchidos');
             return;
         }
-        const response = await register({
+        const { status, json } = await register({
             username: username.value,
             password: password.value,
             role: role.value
         });
-        
-        if(response.status !== 201) {
-            console.log(response.json.message);
+        if(status !== 201) {
+            console.log(json.message);
             return;
         }
-
         window.alert('Usuário Criado');
-
         username.value = '';
         password.value = '';
         role.value = 'admin';
