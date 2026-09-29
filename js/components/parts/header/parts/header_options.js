@@ -1,5 +1,5 @@
 function header_options () {
-    const user = JSON.parse(localStorage.getItem('user')) ?? null;
+    const user = JSON.parse(localStorage.getItem('user'));
     return `
     <div id="header-options">
         <div id="header-options-profile-toggle">

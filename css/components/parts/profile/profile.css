@@ -56,7 +56,7 @@
 
 #profile-options {
     height: 60%;
-    justify-content: space-around;
+    justify-content: start;
 }
 
 #profile-options-commands {

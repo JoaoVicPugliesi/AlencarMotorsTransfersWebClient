@@ -26,15 +26,9 @@ function show_login() {
     const page = document.getElementById('page');
     const main = document.getElementById('main');
     clear_application();
-    page.insertAdjacentHTML(
-        'afterbegin',
-        header(false)
-    );
+    page.insertAdjacentHTML('afterbegin', header(false));
     main.innerHTML = '';
-    main.insertAdjacentHTML(
-        'beforeend',
-        login()
-    );
+    main.insertAdjacentHTML('beforeend', login());
     login_interface();
     toggle_primary_input_eye();
 }
@@ -44,23 +38,11 @@ function show_application() {
     const page = document.getElementById('page');
     const main = document.getElementById('main');
     clear_application();
-    page.insertAdjacentHTML(
-        'afterbegin',
-        header(true)
-    );
+    page.insertAdjacentHTML('afterbegin', header(true));
     main.innerHTML = '';
-    main.insertAdjacentHTML(
-        'beforeend',
-        profile()
-    );
-    main.insertAdjacentHTML(
-        'beforeend',
-        notifications()
-    );
-    main.insertAdjacentHTML(
-        'beforeend',
-        transfers()
-    );
+    main.insertAdjacentHTML('beforeend', profile());
+    main.insertAdjacentHTML('beforeend', notifications());
+    main.insertAdjacentHTML('beforeend', transfers());
     open_close_profile_interface();
     open_close_forms_interface_caller();
     open_close_notifications_interface();

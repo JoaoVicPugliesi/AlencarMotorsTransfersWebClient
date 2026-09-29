@@ -40,7 +40,9 @@ document.addEventListener('click', (event) => {
         const form = main.lastElementChild;
         form_commands.set(form, command_i);
         adapt_togglers();
-        params.use_case();
+        if(params.use_case) {
+            params.use_case();
+        }
         toggle_primary_input_eye()
         return;
     }
