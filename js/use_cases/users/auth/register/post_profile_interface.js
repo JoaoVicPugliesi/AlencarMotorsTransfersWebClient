@@ -1,6 +1,6 @@
 import register from "../../../../server/use_cases/users/register.js";
 
-function add_profile_interface() {
+function post_profile_interface() {
     const user = JSON.parse(localStorage.getItem('user'));
     console.log(user);
     const username_i = document.getElementById('add-profile-username');
@@ -29,4 +29,4 @@ function add_profile_interface() {
     });
 }
 
-export default add_profile_interface;
+export default post_profile_interface;

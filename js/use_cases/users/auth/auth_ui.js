@@ -13,6 +13,7 @@ import view_transfer_interface from '../../transfers/view_transfer_interface.js'
 import view_observation_interface from '../../observations/view_observation_interface.js';
 import view_notification_interface from '../../notifications/view_notification_interface.js';
 import get_transfers_interface from "../../transfers/get_transfers_interface/get_transfers_interface.js";
+import search_transfers_interface from "../../transfers/search_transfers_interface.js";
 
 function clear_application() {
     document.getElementById('header')?.remove();
@@ -50,6 +51,7 @@ async function show_application() {
     view_observation_interface();
     view_notification_interface();
     await get_transfers_interface();
+    search_transfers_interface();
     localStorage.setItem('participants', JSON.stringify([]))
 }
 

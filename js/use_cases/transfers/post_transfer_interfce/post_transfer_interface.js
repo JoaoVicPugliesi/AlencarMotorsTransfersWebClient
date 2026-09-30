@@ -6,7 +6,7 @@ import get_transfers_interface from "../get_transfers_interface/get_transfers_in
 import search_participants_options from "./helpers/search_participants_options.js";
 import select_participant_option from "./helpers/select_participant_option.js";
 
-async function add_transfer_interface() {
+async function post_transfer_interface() {
     search_participants_options();
     select_participant_option();
     const command = document.getElementById('add-transfer-command');
@@ -62,4 +62,4 @@ async function add_transfer_interface() {
     });
 }
 
-export default add_transfer_interface;
+export default post_transfer_interface;
