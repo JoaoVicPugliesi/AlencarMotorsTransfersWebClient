@@ -1,6 +1,8 @@
 import code_generator from "../../../helpers/code_generator.js";
 import set_timestamp from "../../../helpers/set_timestamp.js";
+import get_transfers from "../../../server/use_cases/transfers/get_transfers.js";
 import post_transfer from "../../../server/use_cases/transfers/post_transfer.js";
+import get_transfers_interface from "../get_transfers_interface/get_transfers_interface.js";
 import search_participants_options from "./helpers/search_participants_options.js";
 import select_participant_option from "./helpers/select_participant_option.js";
 
@@ -27,7 +29,7 @@ async function add_transfer_interface() {
         const now = new Date();
         const initial_date = set_timestamp(now);
         const default_term = new Date(now.getTime() + 15 * 24 * 60 * 60 * 1000);
-        const term_date = set_timestamp(default_term); 
+        const term_date = set_timestamp(default_term);
         const code = code_generator();
         const params = {
             name: name_i.value.toUpperCase(),
@@ -45,14 +47,18 @@ async function add_transfer_interface() {
             window.alert(`${json.message}`);
             return;
         }
-
         window.alert(`${json.message}`);
-
-        localStorage.setItem('participants', JSON.stringify([]))
+        localStorage.setItem('participants', JSON.stringify([]));
         participants_options.classList.remove('searched');
-        name_i.value  = ''; 
-        plate_i.value = ''; 
+        name_i.value = '';
+        plate_i.value = '';
         vehicle_i.value = '';
+        const transfers = await get_transfers({ id: user.id });
+        console.log(transfers);
+        if (transfers.status === 200) {
+            localStorage.setItem('transfers', JSON.stringify(transfers.json.transfers));
+            get_transfers_interface();
+        }
     });
 }
 
