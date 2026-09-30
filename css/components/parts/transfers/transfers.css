@@ -35,8 +35,9 @@
     width: min(100%, 95rem);
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(1rem, 20rem));
     align-content: start;
+    justify-content: start;
     gap: 0.5rem;
     padding: 0.5rem;
     box-sizing: border-box;

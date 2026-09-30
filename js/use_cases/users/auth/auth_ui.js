@@ -33,7 +33,7 @@ function show_login() {
     toggle_primary_input_eye();
 }
 
-function show_application() {
+async function show_application() {
     const page = document.getElementById('page');
     const main = document.getElementById('main');
     clear_application();
@@ -49,7 +49,7 @@ function show_application() {
     view_transfer_interface();
     view_observation_interface();
     view_notification_interface();
-    get_transfers_interface();
+    await get_transfers_interface();
     localStorage.setItem('participants', JSON.stringify([]))
 }
 

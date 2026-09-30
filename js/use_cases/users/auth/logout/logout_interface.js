@@ -4,6 +4,7 @@ function logout_interface() {
     logout_confirm.addEventListener('click', () => {
         localStorage.removeItem('user');
         localStorage.removeItem('users');
+        localStorage.removeItem('transfers');
         window.dispatchEvent(new CustomEvent('user-logout'));
     });
 

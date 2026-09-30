@@ -1,7 +1,5 @@
 .transfer,
-.transfer-info-progress-term,
-.transfer-info-progress,
-.transfer-info-term {
+.transfer-info-progress-term {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -68,8 +66,9 @@
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     padding: 0.5rem;
-    justify-content: space-between;
-    
+    justify-content: space-around;
+    align-items: start;
+    flex-direction: column;
     font-size: 0.9rem;
     font-family: var(--nunito);
 }
@@ -77,28 +76,6 @@
 .transfer:hover .transfer-info-progress-term {
     transform: translateX(0);
 }
-
-.transfer-info-progress, .transfer-info-term {
-    height: 100%;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: start;
-}
-
-
-.transfer-info-progress-initial-date,
-.transfer-info-progress-final-date,
-.transfer-info-term-date {
-    font-family: var(--comic-neue);
-}
-
-.transfer-info-term-countdown {
-    color: var(--commands-color);
-}
-
-.transfer-info-progress-pending-observations { color: var(--pending-color); }
-
-.transfer-info-progress-concluded-observations { color: var(--concluded-color); }
 
 @media (max-width: 1000px) {
     .transfer-info-progress-term {

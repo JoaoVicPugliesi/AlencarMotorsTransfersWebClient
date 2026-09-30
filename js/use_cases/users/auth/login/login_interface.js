@@ -1,4 +1,3 @@
-import get_transfers from '../../../../server/use_cases/transfers/get_transfers.js';
 import get_users from '../../../../server/use_cases/users/get_users.js';
 import login from '../../../../server/use_cases/users/login.js';
 
@@ -24,9 +23,6 @@ function login_interface() {
         localStorage.setItem('user', JSON.stringify(user));
         const users = await get_users({ username: username.value });
         if(users.status === 200) localStorage.setItem('users', JSON.stringify(users.json.users));
-        const transfers = await get_transfers({ id: user.id });
-        console.log(transfers);
-        if(transfers.status === 200) { localStorage.setItem('transfers', JSON.stringify(transfers.json.transfers))};
         window.dispatchEvent(new CustomEvent('user-login'));
     });
 

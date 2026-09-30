@@ -12,13 +12,18 @@
 #painel-related-options,
 #painel-related-options-commands,
 .info-i,
+.countdown,
 .painel-info-toggler {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.info-i { gap: 0.5rem; }
+.info-i, .countdown { gap: 0.5rem; }
+
+.countdown {
+    color: var(--commands-color);
+}
 
 .painel {
     position: absolute;
