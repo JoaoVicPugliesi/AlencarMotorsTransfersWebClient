@@ -1,6 +1,6 @@
 import format_status from "../../../../../helpers/format_status.js";
 
-function observation(id, title, status, timestamp) {
+function observation({ id, title, status, initial_date }) {
     return `
         <div class="observation ${status}" data-id="${id}">
             <div class="observation-title"> 
@@ -8,7 +8,7 @@ function observation(id, title, status, timestamp) {
             </div>
             <div class="observation-info"> 
                 <h3>${format_status(status)}</h3>
-                <h3>HÁ ${timestamp}</h3>    
+                <h3>HÁ ${initial_date}</h3>    
             </div>
         </div>
     `

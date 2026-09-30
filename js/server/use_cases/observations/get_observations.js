@@ -1,7 +1,6 @@
 import base_url from "../../base_URL.js"
 
 async function get_observations (params) {
-    console.log(params);
     const query = new URLSearchParams(params).toString();
     const req = await fetch(`${base_url}/get_observations?${query}`, {
         method: 'GET',
@@ -11,13 +10,13 @@ async function get_observations (params) {
     });
 
     const status = req.status;
-    const { message, users } = await req.json();
-    console.log(message, status);
+    const json = await req.json();
+   
     return {
         status: status,
         json: {
-            message: message,
-            users: users
+            message: json.message,
+            observations: json.observations
         }
     }
 }

@@ -6,17 +6,17 @@ const painel_cases = new Map();
 
 function open_close_painel(params) { painel_cases.set(params.trigger, params); }
 
-document.addEventListener('click', (e) => {
+document.addEventListener('click', async (e) => {
     for (const [trigger, params] of painel_cases) {
-        const element = e.target.closest(trigger);
-        if (!element) continue;
-        const already_opened = element.dataset.already_opened;
+        const el = e.target.closest(trigger);
+        if (!el) continue;
+        const already_opened = el.dataset.already_opened;
         if (already_opened === 'true') return;
-        element.dataset.already_opened = 'true';
+        el.dataset.already_opened = 'true';
         const { mode, data, get_data } = params;
         const main = document.getElementById('main');
         if (!main) return;
-        const painel_data = get_data ? get_data(element) : data;
+        const painel_data = get_data ? await get_data(el) : data;
         main.insertAdjacentHTML(
             'beforeend',
             painel(mode, painel_data)       
@@ -28,7 +28,7 @@ document.addEventListener('click', (e) => {
         if (!comeback) return;
         comeback.addEventListener('click', () => {
             painel_instance.remove()
-            element.dataset.already_opened = 'false';
+            el.dataset.already_opened = 'false';
             adapt_togglers();
         }, { once: true });     
     }   

@@ -1,8 +1,8 @@
 import base_url from "../../base_URL.js"
 
-async function get_transfers (params) {
+async function get_transfer (params) {
     const query = new URLSearchParams(params).toString();
-    const req = await fetch(`${base_url}/get_transfers?${query}`, {
+    const req = await fetch(`${base_url}/get_transfer?${query}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json'
@@ -15,9 +15,9 @@ async function get_transfers (params) {
         status: status,
         json: {
             message: json.message,
-            transfers: json.transfers
+            transfer: json.transfer
         }
     }
 }
 
-export default get_transfers;
+export default get_transfer;

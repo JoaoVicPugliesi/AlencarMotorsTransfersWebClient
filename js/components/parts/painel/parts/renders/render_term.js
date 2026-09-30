@@ -1,16 +1,14 @@
-import info_i from "../../../../helpers/info_i.js";
 import render_info from "./render_info.js";
 
-function render_term(fields, params, mode) {
+function render_term(fields, params) {
     return `
         ${render_info(fields, params)}
 
         <div>
-            ${info_i(
-                `${mode}-term-countdown`,
-                '1D 7H 24M 22S',
-                'fa-solid fa-hourglass-half'
-            )}
+             <div class="countdown" data-termdate="${params.term_date}">
+                <i class="fa-solid fa-hourglass-half"></i>
+                <h3></h3>
+            </div>
         </div>
     `;
 }

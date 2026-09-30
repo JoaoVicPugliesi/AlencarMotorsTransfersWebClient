@@ -1,9 +1,10 @@
+import get_observations_interface from '../../../../../use_cases/observations/get_observations_interface/get_observations_interface.js';
 import title from '../../../../helpers/title.js'
-import observation from '../transfers/observation.js';
 import configs from './configs.js';
 import render_buttons from './render_buttons.js';
 
 function render_related(mode, params) {
+
     if (mode === 'transfers') {
         return `
             <div id="painel-related">
@@ -11,21 +12,15 @@ function render_related(mode, params) {
                     ${title('sections-title', 'Observações')}
 
                     <div id="painel-related-observations-display">
-
-                        ${observation(
-                            1,
-                            'Problema no CNH',
-                            'pending',
-                            '16H'
-                        )}
-
-                        ${observation(
-                            2,
-                            'Problema na procuração',
-                            'concluded',
-                            '24H'
-                        )}
-
+                        ${params.observations ?
+                            `
+                                ${get_observations_interface(params.observations)}
+                            `
+                            :
+                            `
+                            <h3>Sem observações</h3>
+                            `
+                        }
                     </div>
                 </div>
 

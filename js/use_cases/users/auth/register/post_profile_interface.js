@@ -18,10 +18,7 @@ function post_profile_interface() {
             role: role_i.value,
             admin_username: user.username
         });
-        if(status !== 201) {
-            console.log(json.message);
-            return;
-        }
+        if(status !== 201) return;
         window.alert('Usuário Criado');
         username_i.value = '';
         password_i.value = '';

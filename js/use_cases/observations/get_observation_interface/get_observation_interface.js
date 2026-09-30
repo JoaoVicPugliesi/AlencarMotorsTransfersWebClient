@@ -1,6 +1,6 @@
-import open_close_painel from "../painel/open_close_painel.js";
+import open_close_painel from "../../painel/open_close_painel.js";
 
-function view_observation_interface() {
+function get_observation_interface() {
     open_close_painel({
         trigger: '.observation',
         mode: 'observations',
@@ -16,4 +16,4 @@ function view_observation_interface() {
     });
 }
 
-export default view_observation_interface;
+export default get_observation_interface;

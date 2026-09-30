@@ -31,7 +31,7 @@ function painel(mode, params) {
                     ${render_info(config.progress, params)}
                 </div>
                 <div class="painel-info-term">
-                    ${render_term(config.term, params, mode)}
+                    ${render_term(config.term, params)}
                 </div>
             </div>
             ${render_related(mode, params)}

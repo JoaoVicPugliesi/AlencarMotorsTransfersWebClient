@@ -21,10 +21,6 @@
 
 .info-i, .countdown { gap: 0.5rem; }
 
-.countdown {
-    color: var(--commands-color);
-}
-
 .painel {
     position: absolute;
     width: 100%;
@@ -88,6 +84,10 @@
 
 #painel-related-observations-display {
     height: max-content;
+}
+
+#painel-related-observations-display h3 {
+    font-family: var(--comic-neue);
 }
 
 .observation {
