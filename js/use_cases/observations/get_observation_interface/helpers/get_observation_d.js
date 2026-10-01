@@ -2,7 +2,6 @@ import get_observation from "../../../../server/use_cases/observations/get_obser
 
 async function get_observation_d (el) {
     const id = el.dataset.id;
-    console.log(id);
     if(!id) return;
     const { status: tr_status, json: tr_json } = await get_observation({
         id: id

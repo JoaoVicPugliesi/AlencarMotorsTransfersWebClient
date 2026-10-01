@@ -1,6 +1,6 @@
 import open_close_painel from '../painel/open_close_painel.js';
 
-function view_notification_interface() {
+function get_notification_interface() {
     open_close_painel({
         trigger: '.notification',
         mode: 'transfers',
@@ -18,4 +18,4 @@ function view_notification_interface() {
     });
 }
 
-export default view_notification_interface;
+export default get_notification_interface;

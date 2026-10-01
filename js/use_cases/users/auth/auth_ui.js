@@ -9,11 +9,11 @@ import logout_interface from "./logout/logout_interface.js";
 import open_close_profile_interface from '../../profile/open_close_profile_interface.js';
 import open_close_notifications_interface from '../../notifications/open_close_notifications_interface.js';
 import open_close_forms_interface_caller from '../../forms/open_close_forms_interface.js';
-import view_notification_interface from '../../notifications/view_notification_interface.js';
 import get_transfers_interface from "../../transfers/get_transfers_interface/get_transfers_interface.js";
 import search_transfers_interface from "../../transfers/search_transfers_interface.js";
 import get_transfer_interface from "../../transfers/get_transfer_interface/get_transfer_interface.js";
 import get_observation_interface from "../../observations/get_observation_interface/get_observation_interface.js";
+import get_notification_interface from "../../notifications/get_notification_interface.js";
 
 function clear_application() {
     document.getElementById('header')?.remove();
@@ -49,7 +49,7 @@ async function show_application() {
     logout_interface();
     get_transfer_interface();
     get_observation_interface();
-    view_notification_interface();
+    get_notification_interface();
     await get_transfers_interface();
     search_transfers_interface();
     localStorage.setItem('participants', JSON.stringify([]))

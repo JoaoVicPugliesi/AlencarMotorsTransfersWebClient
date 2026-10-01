@@ -6,7 +6,6 @@ import render_buttons from './render_buttons.js';
 
 function render_related(mode, params) {
     const user = JSON.parse(localStorage.getItem('user'));
-    console.log(user);
     if (mode === 'transfers') {
         return `
             <div id="painel-related">

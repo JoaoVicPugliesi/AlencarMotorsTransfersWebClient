@@ -20,7 +20,6 @@ function select_participant_option() {
             option.classList.add('selected');
             localStorage.setItem('participants', JSON.stringify(participants));
             participants_i.value = '';
-            console.log(participants)
         }
     });
 }

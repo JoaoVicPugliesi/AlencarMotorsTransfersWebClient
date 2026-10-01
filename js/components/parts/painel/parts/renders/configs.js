@@ -9,8 +9,8 @@ const configs = {
 
         progress: [
             ['tranfers-initial-date', 'initial_date', 'fa-brands fa-angellist', 'Data de início: '],
-            ['tranfers-pending-observations', null, 'fa-solid fa-spinner', '2 observações pendentes'],
-            ['tranfers-concluded-observations', null, 'fa-solid fa-check', '2 observações concluídas'],
+            ['tranfers-pending-observations', 'pending_observations', 'fa-solid fa-spinner', 'Observações pendentes: '],
+            ['tranfers-concluded-observations', 'concluded_observations', 'fa-solid fa-check', 'Observações concluídas: '],
             ['tranfers-final-date', 'final_date', 'fa-solid fa-flag-checkered', 'Data de término: ', '...']
         ],
 

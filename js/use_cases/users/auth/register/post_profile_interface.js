@@ -2,7 +2,6 @@ import register from "../../../../server/use_cases/users/register.js";
 
 function post_profile_interface() {
     const user = JSON.parse(localStorage.getItem('user'));
-    console.log(user);
     const username_i = document.getElementById('add-profile-username');
     const password_i = document.getElementById('add-profile-password');
     const role_i = document.getElementById('add-profile-role');

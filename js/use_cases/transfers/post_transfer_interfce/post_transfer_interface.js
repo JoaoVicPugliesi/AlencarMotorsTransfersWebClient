@@ -54,7 +54,6 @@ async function post_transfer_interface() {
         plate_i.value = '';
         vehicle_i.value = '';
         const transfers = await get_transfers({ id: user.id });
-        console.log(transfers);
         if (transfers.status === 200) {
             localStorage.setItem('transfers', JSON.stringify(transfers.json.transfers));
             get_transfers_interface();

@@ -16,9 +16,16 @@ async function get_transfer_d (el) {
         id: transfer.id
     });
     const { message, observations } = ob_json;
-   
+    let pending_observations = [];
+    let concluded_observations = [];
+    if(observations) {
+        pending_observations = observations.filter((ob) => ob.status === 'pending');
+        concluded_observations = observations.filter((ob) => ob.status === 'concluded');
+    }
     return {
         ...transfer,
+        pending_observations: pending_observations.length > 0 ? pending_observations.length : '0',
+        concluded_observations: concluded_observations.length > 0 ? concluded_observations.length : '0',
         observations: observations ? [
             ...observations
         ] : null
