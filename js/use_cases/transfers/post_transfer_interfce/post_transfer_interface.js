@@ -1,5 +1,5 @@
 import code_generator from "../../../helpers/code_generator.js";
-import set_timestamp from "../../../helpers/set_timestamp.js";
+import set_timestamp from "../../../helpers/timestamp/set_timestamp.js";
 import get_transfers from "../../../server/use_cases/transfers/get_transfers.js";
 import post_transfer from "../../../server/use_cases/transfers/post_transfer.js";
 import get_transfers_interface from "../get_transfers_interface/get_transfers_interface.js";

@@ -1,10 +1,12 @@
 import get_observations_interface from '../../../../../use_cases/observations/get_observations_interface/get_observations_interface.js';
+import button from '../../../../helpers/button.js';
 import title from '../../../../helpers/title.js'
 import configs from './configs.js';
 import render_buttons from './render_buttons.js';
 
 function render_related(mode, params) {
-
+    const user = JSON.parse(localStorage.getItem('user'));
+    console.log(user);
     if (mode === 'transfers') {
         return `
             <div id="painel-related">
@@ -29,7 +31,12 @@ function render_related(mode, params) {
                     ${title('sections-title', 'Opções')}
 
                     <div id="painel-related-options-commands">
-                        ${render_buttons(configs.transfers.buttons)}
+                        ${
+                        user.role == 'admin' ? 
+                        render_buttons(configs.transfers.buttons)
+                        :
+                        button('transfers-comeback', 'fa-solid fa-arrow-left-long', 'Voltar', 'blue')
+                        }
                     </div>
 
                 </div>
@@ -58,7 +65,12 @@ function render_related(mode, params) {
                 ${title('sections-title', 'Opções')}
 
                 <div id="painel-related-options-commands">
-                    ${render_buttons(configs.observations.buttons)}
+                    ${
+                        user.role == 'admin' ? 
+                        render_buttons(configs.observations.buttons)
+                        :
+                        button('observations-comeback', 'fa-solid fa-arrow-left-long', 'Voltar', 'blue')
+                    }
                 </div>
 
             </div>

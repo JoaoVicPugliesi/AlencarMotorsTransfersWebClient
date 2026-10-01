@@ -7,6 +7,7 @@ import edit_profile from '../../components/parts/forms/edit_profile/edit_profile
 import edit_transfer from '../../components/parts/forms/edit_transfer/edit_transfer.js';
 import adapt_togglers from '../../helpers/adapt_togglers.js';
 import toggle_primary_input_eye from '../../helpers/toggle_primary_input_eye.js';
+import post_observation_interface from '../observations/post_observation_interface/post_observation_interface.js';
 import post_transfer_interface from '../transfers/post_transfer_interfce/post_transfer_interface.js';
 import post_profile_interface from '../users/auth/register/post_profile_interface.js';
 
@@ -42,7 +43,7 @@ document.addEventListener('click', (event) => {
         form_commands.set(form, command_i);
         adapt_togglers();
         if(params.use_case) {
-            params.use_case();
+            params.use_case(command_i);
         }
         toggle_primary_input_eye()
         return;
@@ -100,7 +101,7 @@ function open_close_forms_interface_caller() {
         'transfers-add-observation',
         'add-observation-comeback',
         add_observation,
-        null
+        post_observation_interface
     );
     open_close_forms_interface(
         'observations-edit',

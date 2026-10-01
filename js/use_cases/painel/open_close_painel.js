@@ -1,6 +1,7 @@
 import painel from "../../components/parts/painel/painel.js";
 import adapt_togglers from "../../helpers/adapt_togglers.js";
 import open_close_painel_info from "./open_close_painel_info.js";
+import update_timestamp_ago_counter from '../../helpers/timestamp/update_timestamp_ago.js'
 
 const painel_cases = new Map();
 
@@ -21,6 +22,10 @@ document.addEventListener('click', async (e) => {
             'beforeend',
             painel(mode, painel_data)       
         );
+        const timestamps = document.querySelectorAll('.timestamp-ago');
+        if(timestamps) {
+            update_timestamp_ago_counter();
+        }
         adapt_togglers();
         open_close_painel_info();
         const painel_instance = main.lastElementChild;

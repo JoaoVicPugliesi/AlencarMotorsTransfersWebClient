@@ -7,10 +7,14 @@ import render_term from "./parts/renders/render_term.js";
 function painel(mode, params) {
     const config = configs[mode];
     if (!config) {
-        throw new Error(`Modo de painel inválido: ${mode}`);
+        window.alert(`Modo de painel inválido: ${mode}`);
+        return;
     }
     return `
-        <div class="painel" data-id="${params.id}">
+        <div class="painel" data-ids='${JSON.stringify({
+            id: params.id,
+            transfer_id: params.transfer_id ? params.transfer_id : null
+        })}'>
             <div class="painel-info-toggler">
                 <i class="fa-solid fa-angles-left"></i>
             </div>
