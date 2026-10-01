@@ -8,10 +8,6 @@ async function get_transfers_interface() {
     const { status, json } = transfers_i;
     const { transfers } = json;
     if (status === 200) { localStorage.setItem('transfers', JSON.stringify(transfers)) };
-    if (!transfers) {
-        window.alert('Nenhuma transferência associada')
-        return;
-    }
     display_transfers_interface(transfers); 
     countdown();
 }

@@ -1,6 +1,9 @@
 import transfer from '../../../../components/parts/transfers/parts/transfer/transfer.js';
 
 function display_transfers_interface (transfers) {
+    if(!transfers) {
+        transfers = [];
+    }
     const reversed_transfers = transfers.reverse();
     const transfers_display = document.querySelector('.transfers-display');
     transfers_display.innerHTML = '';

@@ -2,9 +2,7 @@ import delete_transfer from "../../../server/use_cases/transfers/delete_transfer
 import get_transfers_interface from "../get_transfers_interface/get_transfers_interface.js";
 
 async function delete_transfer_interface (command_i) {
-    console.log(command_i);
     const main = document.querySelector('#main');
-    console.log(main);
     const form_i = main.lastElementChild;
     const painel_i = command_i.closest('.painel');
     const user = JSON.parse(localStorage.getItem('user'));
