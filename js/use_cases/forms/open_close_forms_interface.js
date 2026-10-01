@@ -8,6 +8,7 @@ import edit_transfer from '../../components/parts/forms/edit_transfer/edit_trans
 import adapt_togglers from '../../helpers/adapt_togglers.js';
 import toggle_primary_input_eye from '../../helpers/toggle_primary_input_eye.js';
 import post_observation_interface from '../observations/post_observation_interface/post_observation_interface.js';
+import delete_transfer_interface from '../transfers/delete_transfer_interface/delete_transfer_interface.js';
 import post_transfer_interface from '../transfers/post_transfer_interfce/post_transfer_interface.js';
 import post_profile_interface from '../users/auth/register/post_profile_interface.js';
 
@@ -119,7 +120,7 @@ function open_close_forms_interface_caller() {
         'transfers-exclude',
         'confirm-comeback',
         confirm_f,
-        null
+        delete_transfer_interface
     );
   
     open_close_forms_interface(

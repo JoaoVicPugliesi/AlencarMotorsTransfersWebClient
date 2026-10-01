@@ -56,8 +56,8 @@ async function post_observation_interface(command_i) {
         const transfer_i = JSON.parse(painel_i.dataset.params);
         const params_i = {
             ...transfer_i,
-            pending_observations: pending_obervations.length > 0 ? pending_obervations.length : '0',
-            concluded_observations: concluded_obervations.length > 0 ? concluded_obervations.length : '0',
+            pending_observations: pending_observations.length > 0 ? pending_observations.length : '0',
+            concluded_observations: concluded_observations.length > 0 ? concluded_observations.length : '0',
             observations: observations ? [
                 ...observations
             ] : null

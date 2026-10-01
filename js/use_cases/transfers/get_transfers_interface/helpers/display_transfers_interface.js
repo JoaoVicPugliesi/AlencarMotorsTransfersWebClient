@@ -1,14 +1,15 @@
 import transfer from '../../../../components/parts/transfers/parts/transfer/transfer.js';
 
 function display_transfers_interface (transfers) {
+    const reversed_transfers = transfers.reverse();
     const transfers_display = document.querySelector('.transfers-display');
     transfers_display.innerHTML = '';
-    if(transfers.length === 0) {
+    if(reversed_transfers.length === 0) {
         transfers_display.insertAdjacentHTML('beforeend', '<h3>Sem Transferências</h3>')
     }
-    for(let i = 0; i < transfers.length; i++) {
+    for(let i = 0; i < reversed_transfers.length; i++) {
         if(i === 15) return;
-        const transfer_i = transfers[i];
+        const transfer_i = reversed_transfers[i];
         transfers_display
             .insertAdjacentHTML('beforeend', transfer({
                 id: transfer_i.id,
