@@ -5,11 +5,13 @@ import post_transfer from "../../../server/use_cases/transfers/post_transfer.js"
 import get_transfers_interface from "../get_transfers_interface/get_transfers_interface.js";
 import search_participants_options from "./helpers/search_participants_options.js";
 import select_participant_option from "./helpers/select_participant_option.js";
+import adapt_togglers from '../../../helpers/adapt_togglers.js';
 
 async function post_transfer_interface() {
     search_participants_options();
     select_participant_option();
     const command = document.getElementById('add-transfer-command');
+    const form = command.closest('.form-holder');
     command.addEventListener('click', async () => {
         const user = JSON.parse(localStorage.getItem('user'));
         const name_i = document.getElementById('add-transfer-name');
@@ -53,6 +55,8 @@ async function post_transfer_interface() {
         name_i.value = '';
         plate_i.value = '';
         vehicle_i.value = '';
+        form.remove();
+        adapt_togglers();
         const transfers = await get_transfers({ id: user.id });
         if (transfers.status === 200) {
             localStorage.setItem('transfers', JSON.stringify(transfers.json.transfers));

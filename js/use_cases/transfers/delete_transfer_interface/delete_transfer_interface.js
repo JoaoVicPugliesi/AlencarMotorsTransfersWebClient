@@ -6,7 +6,6 @@ async function delete_transfer_interface (command_i) {
     const form_i = main.lastElementChild;
     const painel_i = command_i.closest('.painel');
     const user = JSON.parse(localStorage.getItem('user'));
-    const transfers_display = document.querySelector('.transfers-display');
     if(!painel_i) return;
     const ids_i = JSON.parse(painel_i.dataset.ids);
     const params_i = JSON.parse(painel_i.dataset.params);
@@ -33,7 +32,7 @@ async function delete_transfer_interface (command_i) {
             window.alert('Falhou ao deletar');
             return;
         }
-        get_transfers_interface();
+        await get_transfers_interface();
         painel_i.remove();
         form_i.remove();
         window.alert('Transferência deletada');

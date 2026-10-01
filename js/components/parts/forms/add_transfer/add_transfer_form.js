@@ -2,7 +2,6 @@ import button from "../../../helpers/button.js";
 import form from "../../../helpers/form.js";
 import primary_input from "../../../helpers/inputs/primary_input.js";
 import title from "../../../helpers/title.js";
-import participant from "./participant.js";
 
 function add_transfer_form () {
     const content = `

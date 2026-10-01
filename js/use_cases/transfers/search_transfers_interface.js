@@ -10,10 +10,6 @@ function search_transfers_interface () {
         const code_i = document.getElementById('transfers-searchbar-filters-code');
         const status_i = document.getElementById('transfers-searchbar-filters-code-status');
         let transfers = JSON.parse(localStorage.getItem('transfers'));
-        if(!transfers) {
-            window.alert('Nenhuma Transferência');
-            return;
-        }            
         if(name_i.value) transfers = transfers.filter((t) => t.name.toUpperCase().startsWith(name_i.value.toUpperCase()));
         if(plate_i.value) transfers = transfers.filter((t) => t.plate.toUpperCase().startsWith(plate_i.value.toUpperCase()));
         if(vehicle_i.value) transfers = transfers.filter((t) => t.vehicle.toUpperCase().startsWith(vehicle_i.value.toUpperCase()));
