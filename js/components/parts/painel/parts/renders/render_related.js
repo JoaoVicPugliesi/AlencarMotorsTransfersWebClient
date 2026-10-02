@@ -28,35 +28,35 @@ function render_related(mode, params) {
                     ${title('sections-title', 'Opções')}
                    <div id="painel-related-options-commands">
                     ${(() => {
-                    if (user.role == 'admin') {
-                        if (params.status == 'pending') {
-                            return render_buttons(configs.transfers.buttons);
+                        if (user.role == 'admin') {
+                            if (params.status == 'pending') {
+                                return render_buttons(configs.transfers.buttons);
+                            }
+                            if (params.status == 'concluded') {
+                                return `
+                                ${button(
+                                    'transfers-comeback',
+                                    'fa-solid fa-arrow-left-long',
+                                    'Voltar',
+                                    'blue'
+                                )}
+                                ${button(
+                                    'transfers-reactivate',
+                                    'fa-solid fa-unlock',
+                                    'Reativar',
+                                    'blue'
+                                )}
+                            `
+                            }
                         }
-                        if (params.status == 'concluded') {
-                            return `
-                            ${button(
+                        return button(
                             'transfers-comeback',
                             'fa-solid fa-arrow-left-long',
                             'Voltar',
                             'blue'
-                            )}
-                            ${button(
-                            'transfers-reactivate',
-                            'fa-solid fa-unlock',
-                            'Reativar',
-                            'blue'
-                            )}
-                        `
-                        }
+                        );
+                    })()
                     }
-                return button(
-                    'transfers-comeback',
-                    'fa-solid fa-arrow-left-long',
-                    'Voltar',
-                    'blue'
-                );
-            })()
-            }
                     </div>
                 </div>
             </div>
@@ -77,27 +77,27 @@ function render_related(mode, params) {
                 ${title('sections-title', 'Opções')}
                 <div id="painel-related-options-commands">
                     ${(() => {
-                    if (user.role == 'admin') {
-                        if (params.status == 'pending') {
-                            return render_buttons(configs.observations.buttons);
+                        if (user.role == 'admin') {
+                            if (params.status == 'pending') {
+                                return render_buttons(configs.observations.buttons);
+                            }
+                            if (params.status == 'concluded') {
+                                return `
+                                    ${button(
+                                        'observations-comeback',
+                                        'fa-solid fa-arrow-left-long',
+                                        'Voltar',
+                                        'blue'
+                                    )}
+                                    ${button(
+                                        'observations-reactivate',
+                                        'fa-solid fa-unlock',
+                                        'Reativar',
+                                        'blue'
+                                    )}
+                                `
+                            }
                         }
-                        if (params.status == 'concluded') {
-                            return `
-                                ${button(
-                                'observations-comeback',
-                                'fa-solid fa-arrow-left-long',
-                                'Voltar',
-                                'blue'
-                                )}
-                                ${button(
-                                'observations-reactivate',
-                                'fa-solid fa-unlock',
-                                'Reativar',
-                                'blue'
-                                )}
-                            `
-                        }
-                    }
                         return button(
                             'observations-comeback',
                             'fa-solid fa-arrow-left-long',

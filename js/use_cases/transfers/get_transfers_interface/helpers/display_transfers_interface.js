@@ -7,9 +7,10 @@ function display_transfers_interface (transfers) {
         transfers_display.insertAdjacentHTML('beforeend', '<h3>Sem Transferências</h3>');
         return;
     }
-    for(let i = 0; i < transfers.length; i++) {
+    const reversed_transfers = transfers.reverse();
+    for(let i = 0; i < reversed_transfers.length; i++) {
         if(i === 15) return;
-        const transfer_i = transfers.reverse()[i];
+        const transfer_i = reversed_transfers[i];
         transfers_display
             .insertAdjacentHTML('beforeend', transfer({
                 id: transfer_i.id,

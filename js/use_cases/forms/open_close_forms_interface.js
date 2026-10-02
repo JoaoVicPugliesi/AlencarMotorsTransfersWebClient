@@ -13,6 +13,7 @@ import post_observation_interface from '../observations/post_observation_interfa
 import conclude_transfer_interface from '../transfers/conclude_transfer_interface/conclude_transfer_interface.js';
 import delete_transfer_interface from '../transfers/delete_transfer_interface/delete_transfer_interface.js';
 import post_transfer_interface from '../transfers/post_transfer_interfce/post_transfer_interface.js';
+import reactivate_transfer_interface from '../transfers/reactivate_transfer_interface/reactivate_transfer_interface.js';
 import post_profile_interface from '../users/auth/register/post_profile_interface.js';
 
 const form_cases = new Map();
@@ -125,6 +126,12 @@ function open_close_forms_interface_caller() {
         confirm_f,
         delete_transfer_interface
     );
+    open_close_forms_interface(
+        'transfers-reactivate',
+        'confirm-comeback',
+        confirm_f,
+        reactivate_transfer_interface
+    );
   
     open_close_forms_interface(
         'observations-conclude',
@@ -137,6 +144,12 @@ function open_close_forms_interface_caller() {
         'confirm-comeback',
         confirm_f,
         delete_observation_interface
+    );
+    open_close_forms_interface(
+        'observations-reactivate',
+        'confirm-comeback',
+        confirm_f,
+        null
     );
   
 }

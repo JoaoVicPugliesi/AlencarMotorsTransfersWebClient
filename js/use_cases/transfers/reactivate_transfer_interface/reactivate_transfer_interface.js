@@ -1,11 +1,9 @@
 import painel from "../../../components/parts/painel/painel.js";
-import set_timestamp from "../../../helpers/timestamp/set_timestamp.js";
 import get_observations from '../../../server/use_cases/observations/get_observations.js';
-import conclude_transfer from "../../../server/use_cases/transfers/conclude_transfer.js";
-import get_transfers from "../../../server/use_cases/transfers/get_transfers.js";
+import reactivate_transfer from "../../../server/use_cases/transfers/reactivate_transfer.js";
 import get_transfers_interface from "../get_transfers_interface/get_transfers_interface.js";
 
-async function conclude_transfer_interface(command_i) {
+async function reactivate_transfer_interface(command_i) {
 
     const main = document.querySelector('#main');
     const painel_i = command_i.closest('.painel');
@@ -33,10 +31,11 @@ async function conclude_transfer_interface(command_i) {
             window.alert('Campos precisam ser preenchidos');
             return;
         }
-
+        const now = new Date();
+        const default_term = new Date(now.getTime() + 15 * 24 * 60 * 60 * 1000);
         const params = {
             id: ids_i.id,
-            final_date: set_timestamp(new Date()),
+            term_date: default_term,
             username: user_i.username,
             password: password.value
         };
@@ -44,7 +43,7 @@ async function conclude_transfer_interface(command_i) {
         const {
             status: c_status,
             json: c_json
-        } = await conclude_transfer(params);
+        } = await reactivate_transfer(params);
 
         const {
             message: c_message,
@@ -92,4 +91,4 @@ async function conclude_transfer_interface(command_i) {
     });
 }
 
-export default conclude_transfer_interface;
+export default reactivate_transfer_interface;

@@ -1,9 +1,10 @@
 import get_transfer from '../../../server/use_cases/transfers/get_transfer.js';
 import post_observation from '../../../server/use_cases/observations/post_observation.js';
 import get_observations from '../../../server/use_cases/observations/get_observations.js';
-import get_observations_interface from '../get_observations_interface/get_observations_interface.js';
 import set_timestamp from '../../../helpers/timestamp/set_timestamp.js';
 import painel from '../../../components/parts/painel/painel.js';
+import adapt_togglers from '../../../helpers/adapt_togglers.js';
+import get_transfers_interface from '../../transfers/get_transfers_interface/get_transfers_interface.js';
 
 async function post_observation_interface(command_i) {
     const main = document.getElementById('main');
@@ -63,13 +64,22 @@ async function post_observation_interface(command_i) {
             ] : null
         }
 
+        const trigger = painel_i._trigger;
+
         main.insertAdjacentHTML(
             'beforeend',
             painel('transfers', params_i)
-        )
+        );
+
+        const new_painel = main.lastElementChild;
+
+        new_painel._trigger = trigger;
+
         painel_i.remove();
         form_i.remove();
-        window.alert(ob_json.message);
+
+        adapt_togglers();
+        get_transfers_interface();
     });
 }
 

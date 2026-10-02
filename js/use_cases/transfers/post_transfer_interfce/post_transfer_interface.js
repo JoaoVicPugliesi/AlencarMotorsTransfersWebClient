@@ -57,11 +57,7 @@ async function post_transfer_interface() {
         vehicle_i.value = '';
         form.remove();
         adapt_togglers();
-        const transfers = await get_transfers({ id: user.id });
-        if (transfers.status === 200) {
-            localStorage.setItem('transfers', JSON.stringify(transfers.json.transfers));
-            get_transfers_interface();
-        }
+        await get_transfers_interface();
     });
 }
 

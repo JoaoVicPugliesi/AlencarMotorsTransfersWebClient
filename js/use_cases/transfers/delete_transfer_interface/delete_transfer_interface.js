@@ -1,4 +1,5 @@
 import delete_transfer from "../../../server/use_cases/transfers/delete_transfer.js";
+import get_transfers from "../../../server/use_cases/transfers/get_transfers.js";
 import get_transfers_interface from "../get_transfers_interface/get_transfers_interface.js";
 
 async function delete_transfer_interface (command_i) {
@@ -32,14 +33,11 @@ async function delete_transfer_interface (command_i) {
             window.alert('Falhou ao deletar');
             return;
         }
-        await get_transfers_interface();
         painel_i.remove();
         form_i.remove();
+        await get_transfers_interface();
         window.alert('Transferência deletada');
     });
-
-    console.log(password);
-    console.log(command);
 }
 
 export default delete_transfer_interface;

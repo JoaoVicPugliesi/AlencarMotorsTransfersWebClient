@@ -65,15 +65,23 @@ async function delete_observation_interface(command_i) {
             concluded_observations: concluded_observations.length,
             observations: observations ?? null
         };
+
         form_i.remove();
         painel_i.remove();
-        main = document.querySelector('#main');
-        painel_i = main.lastElementChild;
-        painel_i.remove();
+        const previous_painel = main.lastElementChild;
+        if (!previous_painel?.classList.contains('painel')) {
+            console.error('Transfer painel not found');
+            return;
+        }
+        const trigger = previous_painel._trigger;
+        previous_painel.remove();
         main.insertAdjacentHTML(
             'beforeend',
             painel('transfers', updated_params)
         );
+        const new_painel = main.lastElementChild;
+        new_painel._trigger = trigger;
+
 
         window.alert('Observação deletada');
     });
