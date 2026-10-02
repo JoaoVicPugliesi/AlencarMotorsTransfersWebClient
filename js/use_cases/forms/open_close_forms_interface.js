@@ -11,6 +11,7 @@ import conclude_observation_interface from '../observations/conclude_observation
 import delete_observation_interface from '../observations/delete_observation_interface/delete_observation_interface.js';
 import post_observation_interface from '../observations/post_observation_interface/post_observation_interface.js';
 import reactivate_observation_interface from '../observations/reactivate_observation_interface/reactivate_observation_interface.js';
+import update_observation_interface from '../observations/update_observation_interface/update_observation_interface.js';
 import conclude_transfer_interface from '../transfers/conclude_transfer_interface/conclude_transfer_interface.js';
 import delete_transfer_interface from '../transfers/delete_transfer_interface/delete_transfer_interface.js';
 import post_transfer_interface from '../transfers/post_transfer_interfce/post_transfer_interface.js';
@@ -114,7 +115,7 @@ function open_close_forms_interface_caller() {
         'observations-edit',
         'edit-observation-comeback',
         edit_observation,
-        null
+        update_observation_interface
     );
     open_close_forms_interface(
         'transfers-conclude',
