@@ -122,15 +122,16 @@
 
 #painel-related-options {
     width: 100%;
-    padding: 1rem;
     flex-direction: column;
     justify-content: start;
     align-items: start;
     gap: 1rem;
+    padding: 1rem;
 }
 
  #painel-related-options-commands {
     height: 5rem;
+    width: 100%;
  }
 
 #painel-related-observation-description {

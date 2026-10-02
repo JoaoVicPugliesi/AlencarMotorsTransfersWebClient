@@ -13,18 +13,17 @@ function render_related(mode, params) {
                     ${title('sections-title', 'Observações')}
 
                     <div id="painel-related-observations-display">
-                        ${params.observations ?
-                `
-                                ${get_observations_interface(params.observations)}
-                            `
-                :
-                `
+                    ${params.observations ?
+                        `
+                            ${get_observations_interface(params.observations)}
+                        `
+                        :
+                        `
                             <h3>Sem observações</h3>
-                            `
-            }
+                        `
+                    }
                     </div>
                 </div>
-
                 <div id="painel-related-options">
                     ${title('sections-title', 'Opções')}
                    <div id="painel-related-options-commands">
@@ -66,49 +65,47 @@ function render_related(mode, params) {
 
     return `
         <div id="painel-related">
-
             <div id="painel-related-observations">
-
                 ${title('sections-title', 'DESCRIÇÃO')}
-
                 <div id="painel-related-observation-description">
                     <p>
                         ${params.description ?? 'Nenhuma descrição disponível.'}
                     </p>
                 </div>
-
             </div>
-
-            <div id="painel-related-options-commands">
-                ${(() => {
-                if (user.role == 'admin') {
-                    if (params.status == 'pending') {
-                        return render_buttons(configs.observations.buttons);
+            <div id="painel-related-options">
+                ${title('sections-title', 'Opções')}
+                <div id="painel-related-options-commands">
+                    ${(() => {
+                    if (user.role == 'admin') {
+                        if (params.status == 'pending') {
+                            return render_buttons(configs.observations.buttons);
+                        }
+                        if (params.status == 'concluded') {
+                            return `
+                                ${button(
+                                'observations-comeback',
+                                'fa-solid fa-arrow-left-long',
+                                'Voltar',
+                                'blue'
+                                )}
+                                ${button(
+                                'observations-reactivate',
+                                'fa-solid fa-unlock',
+                                'Reativar',
+                                'blue'
+                                )}
+                            `
+                        }
                     }
-                    if (params.status == 'concluded') {
-                        return `
-                            ${button(
+                        return button(
                             'observations-comeback',
                             'fa-solid fa-arrow-left-long',
                             'Voltar',
                             'blue'
-                            )}
-                            ${button(
-                            'observations-reactivate',
-                            'fa-solid fa-unlock',
-                            'Reativar',
-                            'blue'
-                            )}
-                        `
-                    }
-                }
-                    return button(
-                        'observations-comeback',
-                        'fa-solid fa-arrow-left-long',
-                        'Voltar',
-                        'blue'
-                    );
-                })()}
+                        );
+                    })()}
+                </div>
             </div>
             </div>
         </div>

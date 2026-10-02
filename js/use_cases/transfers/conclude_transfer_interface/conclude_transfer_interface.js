@@ -1,10 +1,9 @@
 import painel from "../../../components/parts/painel/painel.js";
 import set_timestamp from "../../../helpers/timestamp/set_timestamp.js";
-import conclude_observation from "../../../server/use_cases/observations/conclude_observation.js";
-import get_transfer from '../../../server/use_cases/transfers/get_transfer.js'
 import get_observations from '../../../server/use_cases/observations/get_observations.js'
+import conclude_transfer from "../../../server/use_cases/transfers/conclude_transfer.js";
 
-async function conclude_observation_interface (command_i) {
+async function conclude_transfer_interface (command_i) {
     let main = document.querySelector('#main');
     let painel_i = command_i.closest('.painel');
     const form_i = main.lastElementChild;
@@ -28,30 +27,18 @@ async function conclude_observation_interface (command_i) {
             username: user_i.username,
             password: password.value
         }
-        const { status: c_status, json: c_json } = await conclude_observation(params);
+        const { status: c_status, json: c_json } = await conclude_transfer(params);
+        const { message: c_message, transfer: c_transfer } = c_json;
         if(c_status !== 200) {
-            window.alert('Erro');
+            window.alert(`${c_message}`);
             return;
         }
-        const { message: c_message, observation: c_observation } = c_json;
         form_i.remove();
         painel_i.remove();
-        main = document.querySelector('#main');
-        painel_i = main.lastElementChild;
-        painel_i.remove();
-        const { status: tr_status, json: tr_json } = await get_transfer({
-            id: ids_i.transfer_id
-        });
-        
-        if(tr_status !== 200){
-            window.alert(tr_json.message);
-            return;
-        }
-        const { transfer } = tr_json;
         const {
             json: obs_json
         } = await get_observations({
-            id: transfer.id
+            id: c_transfer.id
         });
         const { observations } = obs_json;
         const pending_observations =
@@ -64,7 +51,7 @@ async function conclude_observation_interface (command_i) {
         ) ?? [];
         
         const updated_params = {
-            ...transfer,
+            ...c_transfer,
             pending_observations: pending_observations.length,
             concluded_observations: concluded_observations.length,
             observations: observations ?? null
@@ -74,14 +61,8 @@ async function conclude_observation_interface (command_i) {
             'beforeend',
             painel('transfers', updated_params)
         );
-
-        main.insertAdjacentHTML(
-            'beforeend',
-            painel('observations', c_observation)
-        );
-
         window.alert(`${c_message}`);
     });
 }
 
-export default conclude_observation_interface;
+export default conclude_transfer_interface;
