@@ -15,6 +15,7 @@ import conclude_transfer_interface from '../transfers/conclude_transfer_interfac
 import delete_transfer_interface from '../transfers/delete_transfer_interface/delete_transfer_interface.js';
 import post_transfer_interface from '../transfers/post_transfer_interfce/post_transfer_interface.js';
 import reactivate_transfer_interface from '../transfers/reactivate_transfer_interface/reactivate_transfer_interface.js';
+import update_transfer_interface from '../transfers/update_transfer_interface.js/update_transfer_interface.js';
 import post_profile_interface from '../users/auth/register/post_profile_interface.js';
 
 const form_cases = new Map();
@@ -87,7 +88,7 @@ function open_close_forms_interface_caller() {
         'transfers-edit',
         'edit-transfer-comeback',
         edit_transfer,
-        null
+        update_transfer_interface
     );
     
     open_close_forms_interface(
