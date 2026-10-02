@@ -10,6 +10,7 @@ import toggle_primary_input_eye from '../../helpers/toggle_primary_input_eye.js'
 import conclude_observation_interface from '../observations/conclude_observation_interface/conclude_observation_interface.js';
 import delete_observation_interface from '../observations/delete_observation_interface/delete_observation_interface.js';
 import post_observation_interface from '../observations/post_observation_interface/post_observation_interface.js';
+import reactivate_observation_interface from '../observations/reactivate_observation_interface/reactivate_observation_interface.js';
 import conclude_transfer_interface from '../transfers/conclude_transfer_interface/conclude_transfer_interface.js';
 import delete_transfer_interface from '../transfers/delete_transfer_interface/delete_transfer_interface.js';
 import post_transfer_interface from '../transfers/post_transfer_interfce/post_transfer_interface.js';
@@ -149,7 +150,7 @@ function open_close_forms_interface_caller() {
         'observations-reactivate',
         'confirm-comeback',
         confirm_f,
-        null
+        reactivate_observation_interface
     );
   
 }
