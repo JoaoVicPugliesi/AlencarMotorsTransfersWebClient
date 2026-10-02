@@ -7,7 +7,8 @@ import edit_profile from '../../components/parts/forms/edit_profile/edit_profile
 import edit_transfer from '../../components/parts/forms/edit_transfer/edit_transfer.js';
 import adapt_togglers from '../../helpers/adapt_togglers.js';
 import toggle_primary_input_eye from '../../helpers/toggle_primary_input_eye.js';
-import delete_observation_interface from '../observations/delete_observation_interface.js/delete_observation_interface.js';
+import conclude_observation_interface from '../observations/conclude_observation_interface/conclude_observation_interface.js';
+import delete_observation_interface from '../observations/delete_observation_interface/delete_observation_interface.js';
 import post_observation_interface from '../observations/post_observation_interface/post_observation_interface.js';
 import delete_transfer_interface from '../transfers/delete_transfer_interface/delete_transfer_interface.js';
 import post_transfer_interface from '../transfers/post_transfer_interfce/post_transfer_interface.js';
@@ -128,7 +129,7 @@ function open_close_forms_interface_caller() {
         'observations-conclude',
         'confirm-comeback',
         confirm_f,
-        null
+        conclude_observation_interface
     );
     open_close_forms_interface(
         'observations-exclude',

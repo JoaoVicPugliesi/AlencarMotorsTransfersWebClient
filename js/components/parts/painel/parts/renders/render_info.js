@@ -10,6 +10,7 @@ function render_info(fields, params) {
         : prefix;
         if(property === 'initial_date') value = date_format_timestamp(params.initial_date);
         if(property === 'term_date') value = date_format_timestamp(params.term_date);
+        if(property === 'final_date' && params.final_date) value = date_format_timestamp(params.final_date);
         if (property && (value === null || value === undefined)) {
             value = fallback;
         }

@@ -14,32 +14,52 @@ function render_related(mode, params) {
 
                     <div id="painel-related-observations-display">
                         ${params.observations ?
-                            `
+                `
                                 ${get_observations_interface(params.observations)}
                             `
-                            :
-                            `
+                :
+                `
                             <h3>Sem observações</h3>
                             `
-                        }
+            }
                     </div>
                 </div>
 
                 <div id="painel-related-options">
-
                     ${title('sections-title', 'Opções')}
-
-                    <div id="painel-related-options-commands">
-                        ${
-                        user.role == 'admin' ? 
-                        render_buttons(configs.transfers.buttons)
-                        :
-                        button('transfers-comeback', 'fa-solid fa-arrow-left-long', 'Voltar', 'blue')
+                   <div id="painel-related-options-commands">
+                    ${(() => {
+                    if (user.role == 'admin') {
+                        if (params.status == 'pending') {
+                            return render_buttons(configs.transfers.buttons);
                         }
+                        if (params.status == 'concluded') {
+                            return `
+                            ${button(
+                            'transfers-comeback',
+                            'fa-solid fa-arrow-left-long',
+                            'Voltar',
+                            'blue'
+                            )}
+                            ${button(
+                            'transfers-reactivate',
+                            'fa-solid fa-unlock',
+                            'Reativar',
+                            'blue'
+                            )}
+                        `
+                        }
+                    }
+                return button(
+                    'transfers-comeback',
+                    'fa-solid fa-arrow-left-long',
+                    'Voltar',
+                    'blue'
+                );
+            })()
+            }
                     </div>
-
                 </div>
-
             </div>
         `;
     }
@@ -59,21 +79,38 @@ function render_related(mode, params) {
 
             </div>
 
-            <div id="painel-related-options">
-
-                ${title('sections-title', 'Opções')}
-
-                <div id="painel-related-options-commands">
-                    ${
-                        user.role == 'admin' ? 
-                        render_buttons(configs.observations.buttons)
-                        :
-                        button('observations-comeback', 'fa-solid fa-arrow-left-long', 'Voltar', 'blue')
+            <div id="painel-related-options-commands">
+                ${(() => {
+                if (user.role == 'admin') {
+                    if (params.status == 'pending') {
+                        return render_buttons(configs.observations.buttons);
                     }
-                </div>
-
+                    if (params.status == 'concluded') {
+                        return `
+                            ${button(
+                            'observations-comeback',
+                            'fa-solid fa-arrow-left-long',
+                            'Voltar',
+                            'blue'
+                            )}
+                            ${button(
+                            'observations-reactivate',
+                            'fa-solid fa-unlock',
+                            'Reativar',
+                            'blue'
+                            )}
+                        `
+                    }
+                }
+                    return button(
+                        'observations-comeback',
+                        'fa-solid fa-arrow-left-long',
+                        'Voltar',
+                        'blue'
+                    );
+                })()}
             </div>
-
+            </div>
         </div>
     `;
 }
