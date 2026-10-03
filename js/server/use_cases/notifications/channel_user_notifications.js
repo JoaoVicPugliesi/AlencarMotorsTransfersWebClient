@@ -15,16 +15,13 @@ function channel_user_notifications() {
         console.log('Channel is opened');
     });
     event.addEventListener('message', async (e) => {
-        console.log(e);
         const payload = JSON.parse(e.data);
-        console.log(payload);
         if (!payload) return;
         const response = await get_notifications({
             user_id: payload.new.user_id,
             notification_id: payload.new.notification_id,
             unique: true
         });
-        console.log(response);
         if (response.status !== 200) return;
         display_notifications({
             user_id: payload.new.user_id,

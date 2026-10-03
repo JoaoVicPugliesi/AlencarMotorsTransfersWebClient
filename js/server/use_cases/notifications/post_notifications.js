@@ -1,7 +1,7 @@
 import base_url from "../../base_URL.js"
 
-async function post_transfer (params) {
-    const req = await fetch(`${base_url}/post_transfer`, {
+async function post_notifications (params) {
+    const req = await fetch(`${base_url}/post_notifications`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -10,14 +10,14 @@ async function post_transfer (params) {
     });
 
     const status = req.status;
-    const { message, transfer } = await req.json();
+    const { message, notification } = await req.json();
     return {
         status: status,
         json: {
             message: message,
-            transfer: transfer
+            notification: notification
         }
     }
 }
 
-export default post_transfer;
+export default post_notifications;
