@@ -14,6 +14,7 @@ import search_transfers_interface from "../../transfers/search_transfers_interfa
 import get_transfer_interface from "../../transfers/get_transfer_interface/get_transfer_interface.js";
 import get_observation_interface from "../../observations/get_observation_interface/get_observation_interface.js";
 import get_notification_interface from "../../notifications/get_notification_interface.js";
+import channel_user_notifications from "../../../server/use_cases/users/channel_user_notifications.js";
 
 function clear_application() {
     document.getElementById('header')?.remove();
@@ -52,6 +53,7 @@ async function show_application() {
     get_notification_interface();
     await get_transfers_interface();
     search_transfers_interface();
+    await channel_user_notifications();
     localStorage.setItem('participants', JSON.stringify([]))
 }
 
