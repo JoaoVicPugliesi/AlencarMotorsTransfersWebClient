@@ -10,9 +10,11 @@ function header_options () {
             <div class="header-options-profile-toggle-arrow-down"><i class="fa-solid fa-angle-down"></i></div>
         </div>
         <div id="header-options-notifications-toggle">
-            <i class="fa-solid fa-bell"></i>
+            <div class="header-options-notifications-toggle-i">
+                <i class="fa-solid fa-bell"></i>
+            </div>
             <div id="header-options-notifications-toggle-number">
-                <h3>2</h3>
+                <h3>0</h3>
             </div>
         </div>
     </div>

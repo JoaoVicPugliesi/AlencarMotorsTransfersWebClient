@@ -1,15 +1,20 @@
-function notification ({ id, transfer_id, description, is_viewed, timestamp }) {
+function notification (params) {
+    const { user_id, is_viewed, id, transfer_id, content, created_at } = params;
     return `
-    <div class="notification ${is_viewed ? 'viewed' : 'not_viewed'}">
+    <div class="notification ${is_viewed ? 'viewed' : 'not_viewed'}" data-ids='${JSON.stringify({
+        id: id,
+        user_id: user_id,
+        transfer_id: transfer_id
+    })}'>
         <div class="notification-description">
-            <p>${description}</p>
+            <p>${content}</p>
         </div>
         <div class="notification-info">
             <div class="notification-info-isviewed">
-                <h3>${is_viewed ? 'LIDA' : 'NÃO LIDA'}</h3>
+                <h3>${is_viewed ? 'Lida' : 'Não lida'}</h3>
             </div>
             <div>
-                <h3 class="notification-info-timestamp" data-timestamp="${timestamp}">HÁ ${timestamp}</h3>
+                <h3 class="timestamp-ago" data-timestamp="${created_at}">HÁ</h3>
             </div>
         </div>
         <div class="notification-options">

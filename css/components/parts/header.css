@@ -56,6 +56,44 @@
     border-radius: 0.5rem;
 }
 
+.header-options-notifications-toggle-i.ring {
+    animation: bell-ring 1.5s ease-in-out infinite;
+}
+
+@keyframes bell-ring {
+    0%, 50%, 100% {
+        transform: rotate(0deg);
+    }
+
+    5% {
+        transform: rotate(12deg);
+    }
+
+    10% {
+        transform: rotate(-12deg);
+    }
+
+    15% {
+        transform: rotate(9deg);
+    }
+
+    20% {
+        transform: rotate(-9deg);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    30% {
+        transform: rotate(-5deg);
+    }
+
+    35% {
+        transform: rotate(0deg);
+    }
+}
+
 #header-options-notifications-toggle {
     background: var(--text-color);
     color: var(--background-color);

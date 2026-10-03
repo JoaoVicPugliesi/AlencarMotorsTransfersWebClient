@@ -13,8 +13,11 @@ import get_transfers_interface from "../../transfers/get_transfers_interface/get
 import search_transfers_interface from "../../transfers/search_transfers_interface.js";
 import get_transfer_interface from "../../transfers/get_transfer_interface/get_transfer_interface.js";
 import get_observation_interface from "../../observations/get_observation_interface/get_observation_interface.js";
-import get_notification_interface from "../../notifications/get_notification_interface.js";
-import channel_user_notifications from "../../../server/use_cases/users/channel_user_notifications.js";
+import channel_user_notifications from '../../../server/use_cases/notifications/channel_user_notifications.js'
+import set_bell_number from "../../../helpers/set_bell_number.js";
+import get_notifications_interface from "../../notifications/get_notifications_interface/get_notifications_interface.js";
+import get_notification_interface from "../../notifications/get_notification_interface/get_notification_interface.js";
+import start_timestamp_ago_counter from "../../../helpers/timestamp/update_timestamp_ago.js";
 
 function clear_application() {
     document.getElementById('header')?.remove();
@@ -53,8 +56,12 @@ async function show_application() {
     get_notification_interface();
     await get_transfers_interface();
     search_transfers_interface();
-    await channel_user_notifications();
-    localStorage.setItem('participants', JSON.stringify([]))
+    channel_user_notifications();
+    localStorage.setItem('participants', JSON.stringify([]));
+    localStorage.setItem('bell_number', 0);
+    set_bell_number();
+    await get_notifications_interface();
+    start_timestamp_ago_counter();
 }
 
 export {
