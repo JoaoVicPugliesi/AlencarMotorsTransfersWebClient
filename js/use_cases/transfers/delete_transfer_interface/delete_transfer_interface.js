@@ -60,7 +60,6 @@ async function delete_transfer_interface(command_i) {
             generated_by: user.id,
             created_at: set_timestamp(new Date())
         });
-        console.log(transfer_users);
         let participants = transfer_users.filter((t) => String(t.user_id.trim().toUpperCase()) !== String(user.id.trim().toUpperCase()))
         participants.forEach(async (p) => {
             await post_user_notifications_interface({

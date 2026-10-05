@@ -17,7 +17,6 @@ function delete_user_notification_interface () {
                 user_id: user_id,
                 notification_id: id
             });
-            console.log(status);
             const { message } = json;
             if(status !== 200) {
                 window.alert(`${message}`);

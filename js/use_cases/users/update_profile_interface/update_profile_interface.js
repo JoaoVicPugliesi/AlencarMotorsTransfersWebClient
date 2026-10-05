@@ -2,7 +2,6 @@ import update_profile from "../../../server/use_cases/users/update_profile.js";
 
 function update_profile_interface() {
     const user_i = JSON.parse(localStorage.getItem('user'));
-    console.log(user_i);
     const username_i = document.getElementById('edit-profile-username');
     username_i.value = user_i.username;
     const command = document.getElementById('edit-profile-save');

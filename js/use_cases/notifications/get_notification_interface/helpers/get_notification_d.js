@@ -1,5 +1,6 @@
 import get_transfer from "../../../../server/use_cases/transfers/get_transfer.js";
 import get_observations from '../../../../server/use_cases/observations/get_observations.js';
+import update_user_notification_interface from "../../update_user_notification_interface/update_user_notification_interface.js";
 
 async function get_notification_d (el) {
     const ids_i = JSON.parse(el.dataset.ids);
@@ -22,6 +23,7 @@ async function get_notification_d (el) {
         pending_observations = observations.filter((ob) => ob.status === 'pending');
         concluded_observations = observations.filter((ob) => ob.status === 'concluded');
     }
+    await update_user_notification_interface(el);
     return {
         ...transfer,
         pending_observations: pending_observations.length > 0 ? pending_observations.length : '0',

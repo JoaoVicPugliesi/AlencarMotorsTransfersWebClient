@@ -11,7 +11,6 @@ async function get_notifications_interface() {
     });
     if (status !== 200) return;
     const { notifications } = json;
-    console.log(notifications);
     display_notifications(notifications);
 }
 

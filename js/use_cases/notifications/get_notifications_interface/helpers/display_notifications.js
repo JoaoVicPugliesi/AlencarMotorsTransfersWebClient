@@ -5,7 +5,6 @@ import delete_user_notification_interface from "../../delete_user_notification/d
 
 function display_notifications(params) {
     const container = document.querySelector('#notifications-display');
-    container.innerHTML = '';
     let unread_count = 0;
     if (!Array.isArray(params)) {
         container.insertAdjacentHTML(
@@ -22,6 +21,7 @@ function display_notifications(params) {
     }
 
     if (Array.isArray(params)) {
+        container.innerHTML = '';
         params.forEach((p) => {
             const params = {
                 user_id: p.user_id,
@@ -42,23 +42,15 @@ function display_notifications(params) {
         });
     }
 
-    if (unread_count > 0) {
-        const bell_number = Number(
-            localStorage.getItem('bell_number') || 0
-        );
-        localStorage.setItem(
-            'bell_number',
-            bell_number + unread_count
-        );
-        set_bell_number();
-        delete_user_notification_interface();
-        return;
-    }
+    const current_bell = Number(localStorage.getItem('bell_number') || 0);
     
-    localStorage.setItem(
-        'bell_number',
-        unread_count
-    );
+    if (unread_count > 0) { 
+        localStorage.setItem('bell_number', current_bell + unread_count); 
+    } else if (!Array.isArray(params) && unread_count === 0) {
+    } else {
+        localStorage.setItem('bell_number', 0); 
+    } 
+    
     set_bell_number();
     delete_user_notification_interface();
 }

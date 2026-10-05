@@ -11,7 +11,6 @@ async function get_transfer_users (params) {
 
     const status = req.status;
     const { message, transfer_users } = await req.json();
-    console.log(transfer_users);
     return {
         status: status,
         json: {
