@@ -1,9 +1,11 @@
 import notification from "../../../../components/parts/notifications/parts/notification.js";
 import set_bell_number from "../../../../helpers/set_bell_number.js";
 import play_sound_effect from '../../../../helpers/sound_effects/play_sound_effect.js'
+import delete_user_notification_interface from "../../delete_user_notification/delete_user_notification_interface.js";
 
 function display_notifications(params) {
     const container = document.querySelector('#notifications-display');
+    container.innerHTML = '';
     let unread_count = 0;
     if (!Array.isArray(params)) {
         container.insertAdjacentHTML(
@@ -19,7 +21,7 @@ function display_notifications(params) {
         );
     }
 
-    if(Array.isArray(params)) {
+    if (Array.isArray(params)) {
         params.forEach((p) => {
             const params = {
                 user_id: p.user_id,
@@ -39,7 +41,7 @@ function display_notifications(params) {
             }
         });
     }
-    
+
     if (unread_count > 0) {
         const bell_number = Number(
             localStorage.getItem('bell_number') || 0
@@ -49,7 +51,16 @@ function display_notifications(params) {
             bell_number + unread_count
         );
         set_bell_number();
+        delete_user_notification_interface();
+        return;
     }
+    
+    localStorage.setItem(
+        'bell_number',
+        unread_count
+    );
+    set_bell_number();
+    delete_user_notification_interface();
 }
 
 export default display_notifications;
