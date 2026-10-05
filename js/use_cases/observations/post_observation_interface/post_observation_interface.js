@@ -5,6 +5,10 @@ import set_timestamp from '../../../helpers/timestamp/set_timestamp.js';
 import painel from '../../../components/parts/painel/painel.js';
 import adapt_togglers from '../../../helpers/adapt_togglers.js';
 import get_transfers_interface from '../../transfers/get_transfers_interface/get_transfers_interface.js';
+import post_notifications_interface from "../../notifications/post_notifications_interface/post_notifications_interface.js";
+import post_user_notifications_interface from "../../notifications/post_user_notifications_interface/post_user_notifications_interface.js";
+import get_transfer_users from "../../../server/use_cases/transfers/get_transfer_users.js";
+import { get_current_user } from '../../users/helpers/get_current_user.js';
 
 async function post_observation_interface(command_i) {
     const main = document.getElementById('main');
@@ -15,18 +19,19 @@ async function post_observation_interface(command_i) {
     const title = form_i.querySelector('#add-observation-title');
     const description = form_i.querySelector('#add-observation-description');
     const command = form_i.querySelector('#add-observation-add');
-
+    
     command.addEventListener('click', async (e) => {
+        const user_i = get_current_user();
         if (!title.value || !description.value) {
             window.alert('Campos precisam ser preenchidos');
             return;
         }
-        const { status: tr_status, json: tr_json } = await get_transfer({ id: ids.id });
-        if (tr_status !== 200) {
+        const { status: t_status, json: t_json } = await get_transfer({ id: ids.id });
+        if (t_status !== 200) {
             window.alert('Transferência não existe');
             return;
         }
-        const { transfer } = tr_json;
+        const { transfer } = t_json;
 
         const params = {
             transfer_id: transfer.id,
@@ -63,6 +68,30 @@ async function post_observation_interface(command_i) {
                 ...observations
             ] : null
         }
+
+        const { status: tr_status, json: tr_json } = await get_transfer_users({
+            id: transfer.id
+        });
+        if (tr_status !== 200) {
+            window.alert('No participants');
+            return;
+        }
+        const { transfer_users } = tr_json;
+        const notification = await post_notifications_interface({
+            transfer_id: transfer.id,
+            content: `Observação criada por ${user_i.username} na transferência ${transfer.code} `,
+            generated_by: user_i.id,
+            created_at: set_timestamp(new Date())
+        });
+        console.log(transfer_users);
+        let participants = transfer_users.filter((t) => String(t.user_id.trim().toUpperCase()) !== String(user_i.id.trim().toUpperCase()))
+        participants.forEach(async (p) => {
+            await post_user_notifications_interface({
+                user_id: p.user_id,
+                notification_id: notification.id,
+                notified_at: notification.created_at
+            });
+        });
 
         const trigger = painel_i._trigger;
 

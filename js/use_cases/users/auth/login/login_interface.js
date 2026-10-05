@@ -1,5 +1,5 @@
-import get_users from '../../../../server/use_cases/users/get_users.js';
 import login from '../../../../server/use_cases/users/login.js';
+import { set_current_user } from '../../helpers/get_current_user.js';
 
 function login_interface() {
     const login_confirm = document.getElementById('login-confirm');
@@ -7,7 +7,8 @@ function login_interface() {
     login_confirm.addEventListener('click', async () => {
         const username = document.getElementById('login-name');
         const password = document.getElementById('login-password');
-        if (username.value === '' || password.value === '') {
+
+        if (!username.value || !password.value) {
             window.alert('Campos precisam ser preenchidos');
             return;
         }
@@ -20,12 +21,11 @@ function login_interface() {
             return;
         }
         const { user } = json;
-        localStorage.setItem('user', JSON.stringify(user));
-        const users = await get_users({ username: username.value });
-        if(users.status === 200) localStorage.setItem('users', JSON.stringify(users.json.users));
-        window.dispatchEvent(new CustomEvent('user-login'));
+        set_current_user(user);
+        window.dispatchEvent(
+            new CustomEvent('user-login')
+        );
     });
-
 }
 
 export default login_interface;

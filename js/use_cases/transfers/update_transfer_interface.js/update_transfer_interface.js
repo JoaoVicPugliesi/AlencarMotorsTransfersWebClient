@@ -6,27 +6,22 @@ import get_transfers_interface from "../get_transfers_interface/get_transfers_in
 import set_timestamp from '../../../helpers/timestamp/set_timestamp.js';
 import post_notifications_interface from '../../notifications/post_notifications_interface/post_notifications_interface.js'
 import post_user_notifications_interface from '../../notifications/post_user_notifications_interface/post_user_notifications_interface.js'
+import { get_current_user } from "../../users/helpers/get_current_user.js";
 
 async function update_transfer_interface(command_i) {
-    const user = JSON.parse(localStorage.getItem('user'));
     const main = document.querySelector('#main');
     const painel_i = command_i.closest('.painel');
     const form_i = main.lastElementChild;
-    const user_i = JSON.parse(localStorage.getItem('user'));
-
-    if (!painel_i || !form_i || !user_i) {
+    if (!painel_i || !form_i) {
         window.alert('Erro');
         return;
     }
-
     const ids_i = JSON.parse(painel_i.dataset.ids);
     const params_i = JSON.parse(painel_i.dataset.params);
-
     if (!ids_i) {
         window.alert('Erro');
         return;
     }
-
     const name = form_i.querySelector('#edit-transfer-name');
     const plate = form_i.querySelector('#edit-transfer-plate');
     const vehicle = form_i.querySelector('#edit-transfer-vehicle');
@@ -34,8 +29,8 @@ async function update_transfer_interface(command_i) {
     plate.value = params_i.plate;
     vehicle.value = params_i.vehicle;
     const command = form_i.querySelector('#edit-transfer-save');
-
     command.addEventListener('click', async () => {
+        const user = get_current_user();
         if (!name.value || !plate.value || !vehicle.value) {
             window.alert('Campos precisam ser preenchidos');
             return;

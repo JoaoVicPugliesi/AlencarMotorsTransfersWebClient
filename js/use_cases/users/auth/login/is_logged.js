@@ -1,4 +1,5 @@
-import { show_application, show_login } from "../auth_ui.js";
+import show_application from "../../helpers/show_application.js";
+import show_login from "../../helpers/show_login.js";
 
 function is_logged() {
     const user = JSON.parse(
