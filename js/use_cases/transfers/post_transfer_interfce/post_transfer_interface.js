@@ -61,16 +61,15 @@ async function post_transfer_interface() {
             generated_by: user.id,
             created_at: transfer.initial_date
         });
-        
+
+        participants.shift();
         participants.forEach(async (p) => {
-            if(p !== user.id) {
-                await post_user_notifications_interface({
-                    user_id: p,
-                    notification_id: notification.id,
-                    notified_at: transfer.initial_date
-                })
-            }
-        })
+            await post_user_notifications_interface({
+                user_id: p,
+                notification_id: notification.id,
+                notified_at: transfer.initial_date
+            });
+        });
         window.alert(`${message}`);
     });
 }

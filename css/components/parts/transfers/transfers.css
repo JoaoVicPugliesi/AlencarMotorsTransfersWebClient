@@ -32,12 +32,12 @@
 
 
 .transfers-display {
-    width: min(100%, 95rem);
+    width: 100%;
     flex: 1;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(1rem, 20rem));
+    display: flex;
     align-content: start;
     justify-content: start;
+    flex-wrap: wrap;
     gap: 0.5rem;
     padding: 0.5rem;
     box-sizing: border-box;
@@ -63,8 +63,7 @@
 
     .transfers-display {
         width: 100%;
-        grid-template-columns: repeat(auto-fit,
-                minmax(min(100%, 20rem), 1fr));
+        justify-content: center;
     }
 }
 @media (max-width: 500px) {

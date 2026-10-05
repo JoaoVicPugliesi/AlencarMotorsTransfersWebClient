@@ -1,10 +1,14 @@
 import painel from "../../../components/parts/painel/painel.js";
 import get_observations from '../../../server/use_cases/observations/get_observations.js';
+import get_transfer_users from "../../../server/use_cases/transfers/get_transfer_users.js";
 import update_transfer from "../../../server/use_cases/transfers/update_transfer.js";
 import get_transfers_interface from "../get_transfers_interface/get_transfers_interface.js";
+import set_timestamp from '../../../helpers/timestamp/set_timestamp.js';
+import post_notifications_interface from '../../notifications/post_notifications_interface/post_notifications_interface.js'
+import post_user_notifications_interface from '../../notifications/post_user_notifications_interface/post_user_notifications_interface.js'
 
 async function update_transfer_interface(command_i) {
-
+    const user = JSON.parse(localStorage.getItem('user'));
     const main = document.querySelector('#main');
     const painel_i = command_i.closest('.painel');
     const form_i = main.lastElementChild;
@@ -84,6 +88,30 @@ async function update_transfer_interface(command_i) {
             concluded_observations: concluded_observations.length,
             observations: observations ?? null
         };
+        const { status: tr_status, json: tr_json } = await get_transfer_users({
+            id: c_transfer.id
+        });
+        if(tr_status !== 200) {
+            window.alert('No participants');
+            return;
+        }
+
+        const { transfer_users } = tr_json;
+        const notification = await post_notifications_interface({
+            transfer_id: c_transfer.id,
+            content: `Transferência ${c_transfer.code} atualizada por ${user.username}`,
+            generated_by: user.id,
+            created_at: set_timestamp(new Date())
+        });
+
+        const participants =  transfer_users.filter((p) => p.user_id !== user.id);
+        participants.forEach(async (p) => {
+            await post_user_notifications_interface({
+                user_id: p.user_id,
+                notification_id: notification.id,
+                notified_at: notification.created_at
+            });
+        });
         main.insertAdjacentHTML(
             'beforeend',
             painel('transfers', updated_params)
