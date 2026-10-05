@@ -37,7 +37,6 @@ function display_notifications(params) {
             if (!p.is_viewed) {
                 unread_count++;
             }
-    
         });
     }
     
