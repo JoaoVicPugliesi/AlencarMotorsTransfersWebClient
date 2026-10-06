@@ -6,36 +6,29 @@ import post_notifications_interface from "../../notifications/post_notifications
 import post_user_notifications_interface from "../../notifications/post_user_notifications_interface/post_user_notifications_interface.js";
 import get_transfer_users from "../../../server/use_cases/transfers/get_transfer_users.js";
 import { get_current_user } from "../../users/helpers/get_current_user.js";
+import set_timestamp from "../../../helpers/timestamp/set_timestamp.js";
 
 
 async function delete_observation_interface(command_i) {
     let main = document.querySelector('#main');
     let painel_i = command_i.closest('.painel');
     const form_i = main.lastElementChild;
-    const user_i = get_current_user();
-    if (!painel_i || !form_i) {
-        console.log({
-            painel_i,
-            form_i
-        });
-        return;
-    }
+    if (!painel_i || !form_i) return;
     const ids_i = JSON.parse(painel_i.dataset.ids);
-    const user = JSON.parse(localStorage.getItem('user'));
     const password = form_i.querySelector('#confirm-password');
     const command = form_i.querySelector('#confirm-command');
     command.addEventListener('click', async () => {
+        const user_i = get_current_user();
         if (!password.value) {
             window.alert('Campos precisam ser preenchidos');
             return;
         }
         const params = {
-            username: user.username,
+            username: user_i.username,
             password: password.value,
             observation_id: ids_i.id
         };
 
-        
         const { status: ob_status, json: ob_json } = await delete_observation(params);
         if (ob_status !== 200) {
             window.alert(ob_json.message);
@@ -71,7 +64,7 @@ async function delete_observation_interface(command_i) {
             concluded_observations: concluded_observations.length,
             observations: observations ?? null
         };
-
+        
         form_i.remove();
         painel_i.remove();
         const previous_painel = main.lastElementChild;

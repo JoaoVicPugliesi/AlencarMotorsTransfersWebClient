@@ -1,5 +1,6 @@
 import display_notifications from '../../../use_cases/notifications/get_notifications_interface/helpers/display_notifications.js';
 import get_transfers_interface from '../../../use_cases/transfers/get_transfers_interface/get_transfers_interface.js';
+import { get_current_user } from '../../../use_cases/users/helpers/get_current_user.js';
 import base_url from '../../base_URL.js';
 import get_notifications from './get_notifications.js';
 
@@ -10,10 +11,10 @@ function channel_user_notifications() {
         event.close();
         event = null;
     }
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = get_current_user();
 
     if (!user) {
-        console.warn('No logged user');
+        window.alert('No logged user');
         return;
     }
 
@@ -27,20 +28,14 @@ function channel_user_notifications() {
         `${base_url}/channel_user_notifications?${query}`
     );
 
-    event.addEventListener('open', () => {
-        console.log(
-            `Notification channel opened for user ${user.username}`
-        );
-    });
+    event.addEventListener('open', () => {});
 
     event.addEventListener('message', async (e) => {
         const payload = JSON.parse(e.data);
 
         if (!payload) return;
 
-        const current_user = JSON.parse(
-            localStorage.getItem('user')
-        );
+        const current_user = get_current_user();
 
         if (!current_user || current_user.id !== user.id) {
             event?.close();
@@ -65,9 +60,7 @@ function channel_user_notifications() {
         await get_transfers_interface();
     });
 
-    event.addEventListener('error', (error) => {
-        console.log(error);
-    });
+    event.addEventListener('error', (error) => {});
 }
 
 function close_user_notifications_channel() {
@@ -75,8 +68,6 @@ function close_user_notifications_channel() {
 
     event.close();
     event = null;
-
-    console.log('Notification channel closed');
 }
 
 export { channel_user_notifications, close_user_notifications_channel };

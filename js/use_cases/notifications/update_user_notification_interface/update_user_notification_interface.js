@@ -3,7 +3,6 @@ import get_notifications_interface from '../get_notifications_interface/get_noti
 import set_timestamp from '../../../helpers/timestamp/set_timestamp.js';
 
 async function update_user_notification_interface(el) {
-    console.log(el);
     if (!el) {
         window.alert('Notificação não existe')
         return
