@@ -7,21 +7,21 @@ import post_user_notifications_interface from "../../notifications/post_user_not
 import get_transfer_users from "../../../server/use_cases/transfers/get_transfer_users.js";
 import set_timestamp from "../../../helpers/timestamp/set_timestamp.js";
 import { get_current_user } from "../../users/helpers/get_current_user.js";
+import show_message from "../../../helpers/messages/show_message.js";
 
 async function update_observation_interface(command_i) {
     const main = document.querySelector('#main');
     const observation_painel = command_i.closest('.painel');
     const form_i = main.lastElementChild;
     if (!observation_painel || !form_i) {
-        window.alert('Erro');
+        show_message(
+            'error',
+            'Erro'
+        );
         return;
     }
     const ids_i = JSON.parse(observation_painel.dataset.ids);
     const params_i = JSON.parse(observation_painel.dataset.params);
-    if (!ids_i) {
-        window.alert('Erro');
-        return;
-    }
     const title = form_i.querySelector('#add-observation-name');
     const description = form_i.querySelector('#add-observation-description');
     title.value = params_i.title;
@@ -30,7 +30,10 @@ async function update_observation_interface(command_i) {
     command.addEventListener('click', async () => {
         const user_i = get_current_user();
         if (!title.value || !description.value) {
-            window.alert('Campos precisam ser preenchidos');
+            show_message(
+                'error',
+                'Campos precisam ser preenchidos'
+            );
             return;
         }
         const params = {
@@ -38,12 +41,19 @@ async function update_observation_interface(command_i) {
             title: title.value,
             description: description.value
         };
+        const loading_message = show_message(
+            'loading',
+            'Atualizando Observação'
+        );
         const {
             status: c_status,
             json: c_json
         } = await update_observation(params);
         if (c_status !== 200) {
-            window.alert('Erro');
+            show_message(
+                'error',
+                'Erro ao atualizar a observação'
+            );
             return;
         }
         const {
@@ -69,7 +79,10 @@ async function update_observation_interface(command_i) {
             id: ids_i.transfer_id
         });
         if (t_status !== 200) {
-            window.alert(t_json.message);
+            show_message(
+                'error',
+                'Erro ao atualizar a observação'
+            );
             return;
         }
         const { transfer } = t_json;
@@ -81,7 +94,10 @@ async function update_observation_interface(command_i) {
         });
 
         if (obs_status !== 200) {
-            window.alert(obs_json.message);
+            show_message(
+                'error',
+                'Erro ao atualizar a observação'
+            );
             return;
         }
         const { observations } = obs_json;
@@ -99,11 +115,14 @@ async function update_observation_interface(command_i) {
             concluded_observations: concluded_observations.length,
             observations: observations ?? null
         };
-         const { status: tr_status, json: tr_json } = await get_transfer_users({
+        const { status: tr_status, json: tr_json } = await get_transfer_users({
             id: transfer.id
         });
         if (tr_status !== 200) {
-            window.alert('No participants');
+            show_message(
+                'error',
+                'Erro ao atualizar a observação'
+            );
             return;
         }
         const { transfer_users } = tr_json;
@@ -133,7 +152,11 @@ async function update_observation_interface(command_i) {
         );
         const new_observation_painel = main.lastElementChild;
         new_observation_painel._parent_painel = new_transfer_painel;
-        window.alert(c_message);
+        loading_message.remove();
+        show_message(
+            'success',
+            'Observação atualizada'
+        );
     });
 }
 

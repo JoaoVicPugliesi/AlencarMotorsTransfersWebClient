@@ -9,26 +9,38 @@ import post_notifications_interface from "../../notifications/post_notifications
 import post_user_notifications_interface from "../../notifications/post_user_notifications_interface/post_user_notifications_interface.js";
 import get_transfer_users from "../../../server/use_cases/transfers/get_transfer_users.js";
 import { get_current_user } from '../../users/helpers/get_current_user.js';
+import show_message from '../../../helpers/messages/show_message.js';
 
 async function post_observation_interface(command_i) {
     const main = document.getElementById('main');
     const form_i = main.lastElementChild;
     const painel_i = command_i.closest('.painel');
-    if (!painel_i || !form_i) return;
+    if (!painel_i || !form_i) {
+        show_message(
+            'error',
+            'Erro'
+        );
+        return;
+    };
     const ids = JSON.parse(painel_i.dataset.ids);
     const title = form_i.querySelector('#add-observation-title');
     const description = form_i.querySelector('#add-observation-description');
     const command = form_i.querySelector('#add-observation-add');
-    
     command.addEventListener('click', async (e) => {
         const user_i = get_current_user();
         if (!title.value || !description.value) {
-            window.alert('Campos precisam ser preenchidos');
+            show_message(
+                'error',
+                'Campos precisam ser preenchidos'
+            );
             return;
         }
         const { status: t_status, json: t_json } = await get_transfer({ id: ids.id });
         if (t_status !== 200) {
-            window.alert('Transferência não existe');
+            show_message(
+                'error',
+                'Erro ao adicionar a observação'
+            );
             return;
         }
         const { transfer } = t_json;
@@ -40,7 +52,10 @@ async function post_observation_interface(command_i) {
             initial_date: set_timestamp(new Date()),
             term_date: transfer.term_date
         }
-
+        const loading_message = show_message(
+            'loading',
+            'Adicionando Observação'
+        );
         const { status: ob_status, json: ob_json } = await post_observation(params);
 
         if (ob_status !== 201) return;
@@ -49,7 +64,10 @@ async function post_observation_interface(command_i) {
             id: transfer.id
         });
         if (obs_status !== 200) {
-            window.alert('Sem observações');
+            show_message(
+                'error',
+                'Erro ao adicionar a observação'
+            );
             return;
         }
         const { observations } = obs_json;
@@ -73,7 +91,10 @@ async function post_observation_interface(command_i) {
             id: transfer.id
         });
         if (tr_status !== 200) {
-            window.alert('No participants');
+            show_message(
+                'error',
+                'Erro ao adicionar a observação'
+            );
             return;
         }
         const { transfer_users } = tr_json;
@@ -108,6 +129,11 @@ async function post_observation_interface(command_i) {
 
         adapt_togglers();
         get_transfers_interface();
+        loading_message.remove();
+        show_message(
+            'success',
+            'Observação Adicionada'
+        );
     });
 }
 
