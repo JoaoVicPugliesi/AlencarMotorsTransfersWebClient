@@ -7,21 +7,21 @@ import set_timestamp from '../../../helpers/timestamp/set_timestamp.js';
 import post_notifications_interface from '../../notifications/post_notifications_interface/post_notifications_interface.js'
 import post_user_notifications_interface from '../../notifications/post_user_notifications_interface/post_user_notifications_interface.js'
 import { get_current_user } from "../../users/helpers/get_current_user.js";
+import show_message from "../../../helpers/messages/show_message.js";
 
 async function update_transfer_interface(command_i) {
     const main = document.querySelector('#main');
     const painel_i = command_i.closest('.painel');
     const form_i = main.lastElementChild;
     if (!painel_i || !form_i) {
-        window.alert('Erro');
+        show_message(
+            'error',
+            'Erro'
+        );
         return;
     }
     const ids_i = JSON.parse(painel_i.dataset.ids);
     const params_i = JSON.parse(painel_i.dataset.params);
-    if (!ids_i) {
-        window.alert('Erro');
-        return;
-    }
     const name = form_i.querySelector('#edit-transfer-name');
     const plate = form_i.querySelector('#edit-transfer-plate');
     const vehicle = form_i.querySelector('#edit-transfer-vehicle');
@@ -32,7 +32,10 @@ async function update_transfer_interface(command_i) {
     command.addEventListener('click', async () => {
         const user = get_current_user();
         if (!name.value || !plate.value || !vehicle.value) {
-            window.alert('Campos precisam ser preenchidos');
+            show_message(
+                'error',
+                'Os campos precisam ser preenchidos'
+            );
             return;
         }
 
@@ -40,9 +43,12 @@ async function update_transfer_interface(command_i) {
             id: ids_i.id,
             name: name.value,
             plate: plate.value,
-            vehicle: vehicle.value 
+            vehicle: vehicle.value
         };
-
+        const loading_message = show_message(
+            'loading',
+            'Reativando Transferência'
+        );
         const {
             status: c_status,
             json: c_json
@@ -54,7 +60,10 @@ async function update_transfer_interface(command_i) {
         } = c_json;
 
         if (c_status !== 200) {
-            window.alert(c_message);
+            show_message(
+                'error',
+                'Erro ao reativar a transferência'
+            );
             return;
         }
         const trigger = painel_i._trigger;
@@ -86,8 +95,11 @@ async function update_transfer_interface(command_i) {
         const { status: tr_status, json: tr_json } = await get_transfer_users({
             id: c_transfer.id
         });
-        if(tr_status !== 200) {
-            window.alert('No participants');
+        if (tr_status !== 200) {
+            show_message(
+                'error',
+                'Erro ao reativar a transferência'
+            );
             return;
         }
 
@@ -99,7 +111,7 @@ async function update_transfer_interface(command_i) {
             created_at: set_timestamp(new Date())
         });
 
-        const participants =  transfer_users.filter((p) => p.user_id !== user.id);
+        const participants = transfer_users.filter((p) => p.user_id !== user.id);
         participants.forEach(async (p) => {
             await post_user_notifications_interface({
                 user_id: p.user_id,
@@ -114,7 +126,11 @@ async function update_transfer_interface(command_i) {
         const new_painel = main.lastElementChild;
         new_painel._trigger = trigger;
         await get_transfers_interface();
-        window.alert(c_message);
+        loading_message.remove();
+        show_message(
+            'success',
+            'Transferência atualizada'
+        );
     });
 }
 

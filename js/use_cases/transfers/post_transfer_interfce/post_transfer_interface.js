@@ -6,6 +6,7 @@ import post_user_notifications_interface from "../../notifications/post_user_not
 import get_transfers_interface from "../get_transfers_interface/get_transfers_interface.js";
 import search_participants_options from "./helpers/search_participants_options.js";
 import select_participant_option from "./helpers/select_participant_option.js";
+import show_message from '../../../helpers/messages/show_message.js'
 
 async function post_transfer_interface() {
     search_participants_options();
@@ -19,11 +20,17 @@ async function post_transfer_interface() {
         const participants = JSON.parse(localStorage.getItem('participants')) || [];
         const participants_options = document.querySelector('.form-participants-options');
         if (!name_i.value || !plate_i.value || !vehicle_i.value) {
-            window.alert('Campos precisam ser preenchidos');
+            show_message(
+                'error',
+                'Os campos precisam ser preenchidos'
+            );
             return;
         }
         if (participants.length === 0) {
-            window.alert('Você adicionar pelo menos uma pessoa para te ajudar');
+            show_message(
+                'error',
+                'Você precisa adicionar pelo menos um participante'
+            );
             return;
         }
         participants.unshift(user.id);
@@ -42,11 +49,18 @@ async function post_transfer_interface() {
             participants: participants,
             created_by: user.username,
         };
+        const loading_message = show_message(
+            'loading',
+            'Criando Transferência'
+        );
         const { status, json } = await post_transfer(params);
 
         const { message, transfer } = json;
         if (status !== 201) {
-            window.alert(`${message}`);
+            show_message(
+                'error',
+                'Erro ao criar transferência'
+            );
             return;
         }
         localStorage.setItem('participants', JSON.stringify([]));
@@ -70,7 +84,11 @@ async function post_transfer_interface() {
                 notified_at: transfer.initial_date
             });
         });
-        window.alert(`${message}`);
+        loading_message.remove();
+        show_message(
+            'success',
+            'Transferência criada'
+        );
     });
 }
 

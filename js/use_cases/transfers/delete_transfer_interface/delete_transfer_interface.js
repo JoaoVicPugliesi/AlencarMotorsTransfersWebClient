@@ -7,40 +7,54 @@ import get_transfer from '../../../server/use_cases/transfers/get_transfer.js';
 import set_timestamp from '../../../helpers/timestamp/set_timestamp.js';
 import adapt_togglers from '../../../helpers/adapt_togglers.js';
 import { get_current_user } from "../../users/helpers/get_current_user.js";
+import show_message from "../../../helpers/messages/show_message.js";
 
 async function delete_transfer_interface(command_i) {
     const main = document.querySelector('#main');
     const form_i = main.lastElementChild;
     const painel_i = command_i.closest('.painel');
-    if (!painel_i) return;
+    if (!painel_i || !form_i) {
+        show_message(
+            'error',
+            'Erro'
+        );
+        return
+    };
     const ids_i = JSON.parse(painel_i.dataset.ids);
-    const params_i = JSON.parse(painel_i.dataset.params);
-    if (!ids_i || !params_i) {
-        window.alert('Painel não existe');
-        return;
-    }
     const password = form_i.querySelector('#confirm-password');
     const command = form_i.querySelector('#confirm-command');
-
     command.addEventListener('click', async () => {
         const user = get_current_user();
         if (!password.value) {
-            window.alert('Campos precisam ser preenchidos');
+            show_message(
+                'error',
+                'Os campos precisam ser preenchidos'
+            );
             return;
         }
+        const loading_message = show_message(
+            'loading',
+            'Reativando Transferência'
+        );
         const { status: t_status, json: t_json } = await get_transfer({
             id: ids_i.id
         });
         const { message: t_message, transfer: t_transfer } = t_json;
         if (t_status !== 200) {
-            window.alert(`${t_message}`);
+            show_message(
+                'error',
+                'Erro ao reativar a transferência'
+            );
             return;
         }
         const { status: tr_status, json: tr_json } = await get_transfer_users({
             id: t_transfer.id
         });
         if (tr_status !== 200) {
-            window.alert('No participants');
+            show_message(
+                'error',
+                'Erro ao reativar a transferência'
+            );
             return;
         }
         const params = {
@@ -50,7 +64,10 @@ async function delete_transfer_interface(command_i) {
         }
         const { status: d_status, json: d_json } = await delete_transfer(params);
         if (d_status !== 200) {
-            window.alert('Falhou ao deletar');
+            show_message(
+                'error',
+                'Erro ao reativar a transferência'
+            );
             return;
         }
         const { transfer_users } = tr_json;
@@ -68,12 +85,16 @@ async function delete_transfer_interface(command_i) {
                 notified_at: notification.created_at
             });
         });
-        
+
         painel_i.remove();
         form_i.remove();
         adapt_togglers();
         await get_transfers_interface();
-        window.alert('Transferência deletada');
+        loading_message.remove();
+        show_message(
+            'success',
+            'Transferência deletada'
+        );
     });
 }
 

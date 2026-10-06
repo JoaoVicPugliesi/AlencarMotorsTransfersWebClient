@@ -7,26 +7,29 @@ import post_user_notifications_interface from "../../notifications/post_user_not
 import get_transfer_users from "../../../server/use_cases/transfers/get_transfer_users.js";
 import get_transfers_interface from "../get_transfers_interface/get_transfers_interface.js";
 import { get_current_user } from "../../users/helpers/get_current_user.js";
+import show_message from "../../../helpers/messages/show_message.js";
 
 async function reactivate_transfer_interface(command_i) {
     const main = document.querySelector('#main');
     const painel_i = command_i.closest('.painel');
     const form_i = main.lastElementChild;
     if (!painel_i || !form_i) {
-        window.alert('Erro');
+        show_message(
+            'error',
+            'Erro'
+        );
         return;
     }
     const ids_i = JSON.parse(painel_i.dataset.ids);
-    if (!ids_i) {
-        window.alert('Erro');
-        return;
-    }
     const password = form_i.querySelector('#confirm-password');
     const command = form_i.querySelector('#confirm-command');
     command.addEventListener('click', async () => {
         const user_i = get_current_user();
         if (!password.value) {
-            window.alert('Campos precisam ser preenchidos');
+            show_message(
+                'error',
+                'Os campos precisam ser preenchidos'
+            );
             return;
         }
         const now = new Date();
@@ -37,6 +40,10 @@ async function reactivate_transfer_interface(command_i) {
             username: user_i.username,
             password: password.value
         };
+        const loading_message = show_message(
+            'loading',
+            'Reativando Transferência'
+        );
         const {
             status: c_status,
             json: c_json
@@ -46,7 +53,10 @@ async function reactivate_transfer_interface(command_i) {
             transfer: c_transfer
         } = c_json;
         if (c_status !== 200) {
-            window.alert(c_message);
+            show_message(
+            'error',
+            'Erro ao reativar a transferência'
+            );
             return;
         }
         const trigger = painel_i._trigger;
@@ -76,7 +86,10 @@ async function reactivate_transfer_interface(command_i) {
             id: c_transfer.id
         });
         if (tr_status !== 200) {
-            window.alert('No participants');
+            show_message(
+            'error',
+            'Erro ao reativar a transferência'
+            );
             return;
         }
         const { transfer_users } = tr_json;
@@ -101,7 +114,11 @@ async function reactivate_transfer_interface(command_i) {
         const new_painel = main.lastElementChild;
         new_painel._trigger = trigger;
         await get_transfers_interface();
-        window.alert(c_message);
+        loading_message.remove();
+        show_message(
+            'success',
+            'Transferência reativada'
+        );
     });
 }
 
