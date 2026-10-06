@@ -6,7 +6,7 @@ async function get_notifications_interface() {
     const user = get_current_user();
     const { status, json } = await get_notifications({
         user_id: user.id,
-        notificaion_id: null,
+        notification_id: null,
         unique: false
     });
     if (status !== 200) return;
