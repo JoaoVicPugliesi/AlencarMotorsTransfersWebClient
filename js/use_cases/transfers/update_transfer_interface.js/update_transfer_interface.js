@@ -104,11 +104,12 @@ async function update_transfer_interface(command_i) {
         }
 
         const { transfer_users } = tr_json;
+        const now = new Date();
         const notification = await post_notifications_interface({
             transfer_id: c_transfer.id,
             content: `Transferência ${c_transfer.code} atualizada por ${user.username}`,
             generated_by: user.id,
-            created_at: set_timestamp(new Date())
+            created_at: set_timestamp(now)
         });
 
         const participants = transfer_users.filter((p) => p.user_id !== user.id);

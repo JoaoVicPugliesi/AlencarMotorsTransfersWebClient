@@ -33,9 +33,10 @@ async function conclude_observation_interface(command_i) {
             );
             return;
         }
+        const now = new Date();
         const params = {
             id: ids_i.id,
-            final_date: set_timestamp(new Date()),
+            final_date: set_timestamp(now),
             username: user_i.username,
             password: password.value
         };
@@ -133,7 +134,7 @@ async function conclude_observation_interface(command_i) {
             transfer_id: transfer.id,
             content: `Observação concluída por ${user_i.username} na transferência ${transfer.code} `,
             generated_by: user_i.id,
-            created_at: set_timestamp(new Date())
+            created_at: set_timestamp(now)
         });
         let participants = transfer_users.filter((t) => String(t.user_id.trim().toUpperCase()) !== String(user_i.id.trim().toUpperCase()))
         participants.forEach(async (p) => {

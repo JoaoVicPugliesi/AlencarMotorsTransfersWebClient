@@ -4,7 +4,6 @@ import success from '../../components/parts/messages/success.js';
 
 function show_message(mode, message, delay = 3000) {
     const container = document.querySelector('#body');
-    console.log(container);
     container.insertAdjacentHTML('beforeend', '<div class="message-holder"></div>');
     const message_holder = container.querySelector('.message-holder');
     if (mode === 'loading') {

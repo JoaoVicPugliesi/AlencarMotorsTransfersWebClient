@@ -44,12 +44,13 @@ async function post_observation_interface(command_i) {
             return;
         }
         const { transfer } = t_json;
+        const now = new Date();
         const params = {
             transfer_id: transfer.id,
             title: title.value,
             description: description.value,
-            initial_date: set_timestamp(new Date()),
-            term_date: set_timestamp(new Date().getTime() * 5 * 24 * 60 * 60 * 1000)
+            initial_date: set_timestamp(now),
+            term_date: set_timestamp(new Date(now.getTime() + 5 * 24 * 60 * 60 * 1000))
         }
         const loading_message = show_message(
             'loading',
@@ -101,7 +102,7 @@ async function post_observation_interface(command_i) {
             transfer_id: transfer.id,
             content: `Observação criada por ${user_i.username} na transferência ${transfer.code} `,
             generated_by: user_i.id,
-            created_at: set_timestamp(new Date())
+            created_at: set_timestamp(now)
         });
         let participants = transfer_users.filter((t) => String(t.user_id.trim().toUpperCase()) !== String(user_i.id.trim().toUpperCase()))
         participants.forEach(async (p) => {

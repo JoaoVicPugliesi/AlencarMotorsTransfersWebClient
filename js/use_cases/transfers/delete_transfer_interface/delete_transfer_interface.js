@@ -71,11 +71,12 @@ async function delete_transfer_interface(command_i) {
             return;
         }
         const { transfer_users } = tr_json;
+        const now = new Date();
         const notification = await post_notifications_interface({
             transfer_id: null,
             content: `Transferência ${t_transfer.code} deletada por ${user.username}`,
             generated_by: user.id,
-            created_at: set_timestamp(new Date())
+            created_at: set_timestamp(now)
         });
         let participants = transfer_users.filter((t) => String(t.user_id.trim().toUpperCase()) !== String(user.id.trim().toUpperCase()))
         participants.forEach(async (p) => {

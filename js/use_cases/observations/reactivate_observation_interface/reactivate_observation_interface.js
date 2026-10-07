@@ -32,8 +32,6 @@ async function reactivate_observation_interface(command_i) {
             );
             return;
         }
-        const now = new Date();
-        const default_term = new Date(now.getTime() + 15 * 24 * 60 * 60 * 1000);
         const loading_message = show_message(
             'loading',
             'Reativando Observação'
@@ -54,9 +52,10 @@ async function reactivate_observation_interface(command_i) {
         }
 
         const { transfer } = t_json;
+        const now = new Date();
         const params = {
             id: ids_i.id,
-            term_date: set_timestamp(new Date().getTime() * 5 * 24 * 60 * 60 * 1000),
+            term_date: set_timestamp(new Date(now.getTime() + 5 * 24 * 60 * 60 * 1000)),
             username: user_i.username,
             password: password.value
         };
@@ -134,7 +133,7 @@ async function reactivate_observation_interface(command_i) {
             transfer_id: transfer.id,
             content: `Observação reativada por ${user_i.username} na transferência ${transfer.code} `,
             generated_by: user_i.id,
-            created_at: set_timestamp(new Date())
+            created_at: set_timestamp(now)
         });
         let participants = transfer_users.filter((t) => String(t.user_id.trim().toUpperCase()) !== String(user_i.id.trim().toUpperCase()))
         participants.forEach(async (p) => {

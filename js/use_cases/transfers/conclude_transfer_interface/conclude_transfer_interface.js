@@ -32,10 +32,10 @@ async function conclude_transfer_interface(command_i) {
             );
             return;
         }
-
+        const now = new Date();
         const params = {
             id: ids_i.id,
-            final_date: set_timestamp(new Date()),
+            final_date: set_timestamp(now),
             username: user_i.username,
             password: password.value
         };
@@ -101,7 +101,7 @@ async function conclude_transfer_interface(command_i) {
             transfer_id: c_transfer.id,
             content: `Transferência ${c_transfer.code} concluída por ${user_i.username}`,
             generated_by: user_i.id,
-            created_at: set_timestamp(new Date())
+            created_at: set_timestamp(now)
         });
         let participants = transfer_users.filter((t) => String(t.user_id.trim().toUpperCase()) !== String(user_i.id.trim().toUpperCase()))
         participants.forEach(async (p) => {

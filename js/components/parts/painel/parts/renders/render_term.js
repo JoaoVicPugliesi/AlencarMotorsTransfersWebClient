@@ -1,7 +1,6 @@
 import render_info from "./render_info.js";
 
 function render_term(fields, params) {
-    console.log(params);
     return `
         ${render_info(fields, params)}
         <div>
