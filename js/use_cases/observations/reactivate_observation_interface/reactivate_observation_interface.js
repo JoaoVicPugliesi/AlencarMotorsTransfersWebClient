@@ -9,7 +9,6 @@ import get_transfer_users from "../../../server/use_cases/transfers/get_transfer
 import { get_current_user } from "../../users/helpers/get_current_user.js";
 import show_message from "../../../helpers/messages/show_message.js";
 
-
 async function reactivate_observation_interface(command_i) {
     const main = document.querySelector('#main');
     const observation_painel = command_i.closest('.painel');
@@ -35,16 +34,32 @@ async function reactivate_observation_interface(command_i) {
         }
         const now = new Date();
         const default_term = new Date(now.getTime() + 15 * 24 * 60 * 60 * 1000);
-        const params = {
-            id: ids_i.id,
-            term_date: default_term,
-            username: user_i.username,
-            password: password.value
-        };
         const loading_message = show_message(
             'loading',
             'Reativando Observação'
         );
+        const {
+            status: t_status,
+            json: t_json
+        } = await get_transfer({
+            id: ids_i.transfer_id
+        });
+
+        if (t_status !== 200) {
+            show_message(
+                'error',
+                'Erro ao atualizar a observação'
+            );
+            return;
+        }
+
+        const { transfer } = t_json;
+        const params = {
+            id: ids_i.id,
+            term_date: transfer.term_date,
+            username: user_i.username,
+            password: password.value
+        };
         const {
             status: c_status,
             json: c_json
@@ -72,22 +87,6 @@ async function reactivate_observation_interface(command_i) {
         }
         const trigger = transfer_painel._trigger;
         transfer_painel.remove();
-        const {
-            status: t_status,
-            json: t_json
-        } = await get_transfer({
-            id: ids_i.transfer_id
-        });
-
-        if (t_status !== 200) {
-            show_message(
-                'error',
-                'Erro ao atualizar a observação'
-            );
-            return;
-        }
-
-        const { transfer } = t_json;
         const {
             status: obs_status,
             json: obs_json

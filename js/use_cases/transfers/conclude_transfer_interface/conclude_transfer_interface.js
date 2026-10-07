@@ -121,7 +121,7 @@ async function conclude_transfer_interface(command_i) {
         loading_message.remove();
         show_message(
             'success',
-            'Transferência deletada'
+            'Transferência concluída'
         );
     });
 }

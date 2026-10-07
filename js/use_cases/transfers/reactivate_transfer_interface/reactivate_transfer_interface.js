@@ -33,7 +33,7 @@ async function reactivate_transfer_interface(command_i) {
             return;
         }
         const now = new Date();
-        const default_term = new Date(now.getTime() + 15 * 24 * 60 * 60 * 1000);
+        const default_term = new Date(now.getTime() + 20 * 24 * 60 * 60 * 1000);
         const params = {
             id: ids_i.id,
             term_date: default_term,

@@ -6,7 +6,7 @@ function transfer(params) {
     return `
     <div class="transfer ${status}" data-id="${id}">
         ${transfer_info(name, plate, vehicle, code)}
-        ${transfer_info_progress_term(initial_date, final_date, term_date)}
+        ${transfer_info_progress_term(initial_date, final_date, term_date, status)}
     </div>
     `
 }
