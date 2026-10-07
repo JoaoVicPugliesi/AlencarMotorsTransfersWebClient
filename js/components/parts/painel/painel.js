@@ -12,7 +12,7 @@ function painel(mode, params) {
         return;
     }
     const is_diff = get_difference(params.term_date);
-    if(!is_diff) {
+    if(!is_diff && params.status !== 'concluded') {
         params.status = 'delayed';
     }
     return `

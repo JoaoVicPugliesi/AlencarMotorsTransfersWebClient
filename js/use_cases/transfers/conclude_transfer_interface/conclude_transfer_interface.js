@@ -52,11 +52,10 @@ async function conclude_transfer_interface(command_i) {
             message: c_message,
             transfer: c_transfer
         } = c_json;
-
         if (c_status !== 200) {
             show_message(
                 'error',
-                'Erro ao concluir a transferência'
+                `${c_message}`
             );
             return;
         }

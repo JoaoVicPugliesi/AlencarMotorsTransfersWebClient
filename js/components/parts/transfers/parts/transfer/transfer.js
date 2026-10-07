@@ -5,7 +5,7 @@ import transfer_info_progress_term from "./parts/transfer_info_progress_term.js"
 function transfer(params) {
     let { id, status, name, plate, vehicle, code, initial_date, final_date, term_date } = params;
     const is_diff = get_difference(term_date);
-    if(!is_diff) {
+    if(!is_diff && status !== 'concluded') {
         status = 'delayed';
     }
     return `
