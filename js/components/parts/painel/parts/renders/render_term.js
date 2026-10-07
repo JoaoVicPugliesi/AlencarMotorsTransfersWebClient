@@ -12,7 +12,7 @@ function render_term(fields, params) {
                 status: params.status
              })}'>
                 <i class="fa-solid fa-hourglass-half"></i>
-                <h3>Carregando...</h3>
+                <h3>${params.status === 'delayed' ? 'ATRASADO' : 'Carregando...'}</h3>
             </div>
         </div>
     `;

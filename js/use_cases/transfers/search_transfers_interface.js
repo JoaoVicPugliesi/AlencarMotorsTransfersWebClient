@@ -1,5 +1,5 @@
 import display_transfers_interface from "./get_transfers_interface/helpers/display_transfers_interface.js";
-import countdown from '../../helpers/countdown.js';
+import countdown from '../../helpers/countdown/countdown.js';
 
 function search_transfers_interface () {
     const command = document.getElementById('transfers-searchbar-command');

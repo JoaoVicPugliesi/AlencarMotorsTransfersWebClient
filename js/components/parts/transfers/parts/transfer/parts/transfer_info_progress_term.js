@@ -17,7 +17,7 @@ function transfer_info_progress_term (initial_date, final_date, term_date, statu
                 status: status
              })}'>
                 <i class="fa-solid fa-hourglass-half"></i>
-                <h3></h3>
+                <h3>${status === 'delayed' ? 'ATRASADO' : 'Carregando...'}</h3>
             </div>
     </div>
     `

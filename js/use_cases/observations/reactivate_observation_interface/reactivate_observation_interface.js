@@ -48,7 +48,7 @@ async function reactivate_observation_interface(command_i) {
         if (t_status !== 200) {
             show_message(
                 'error',
-                'Erro ao atualizar a observação'
+                'Erro ao reativar a observação'
             );
             return;
         }
@@ -56,7 +56,7 @@ async function reactivate_observation_interface(command_i) {
         const { transfer } = t_json;
         const params = {
             id: ids_i.id,
-            term_date: transfer.term_date,
+            term_date: set_timestamp(new Date().getTime() * 5 * 24 * 60 * 60 * 1000),
             username: user_i.username,
             password: password.value
         };
@@ -68,7 +68,7 @@ async function reactivate_observation_interface(command_i) {
         if (c_status !== 200) {
             show_message(
                 'error',
-                'Erro ao atualizar a observação'
+                'Erro ao reativar a observação'
             );
             return;
         }
@@ -97,7 +97,7 @@ async function reactivate_observation_interface(command_i) {
         if (obs_status !== 200) {
             show_message(
                 'error',
-                'Erro ao atualizar a observação'
+                'Erro ao reativar a observação'
             );
             return;
         }
@@ -125,7 +125,7 @@ async function reactivate_observation_interface(command_i) {
         if (tr_status !== 200) {
             show_message(
                 'error',
-                'Erro ao atualizar a observação'
+                'Erro ao reativar a observação'
             );
             return;
         }

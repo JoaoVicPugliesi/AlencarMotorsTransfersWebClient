@@ -29,7 +29,7 @@ function render_related(mode, params) {
                    <div id="painel-related-options-commands">
                     ${(() => {
                         if (user.role == 'admin') {
-                            if (params.status == 'pending') {
+                            if (params.status !== 'concluded') {
                                 return render_buttons(configs.transfers.buttons);
                             }
                             if (params.status == 'concluded') {
@@ -78,7 +78,7 @@ function render_related(mode, params) {
                 <div id="painel-related-options-commands">
                     ${(() => {
                         if (user.role == 'admin') {
-                            if (params.status == 'pending') {
+                            if (params.status !== 'concluded') {
                                 return render_buttons(configs.observations.buttons);
                             }
                             if (params.status == 'concluded') {

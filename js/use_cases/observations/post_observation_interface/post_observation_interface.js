@@ -44,13 +44,12 @@ async function post_observation_interface(command_i) {
             return;
         }
         const { transfer } = t_json;
-
         const params = {
             transfer_id: transfer.id,
             title: title.value,
             description: description.value,
             initial_date: set_timestamp(new Date()),
-            term_date: transfer.term_date
+            term_date: set_timestamp(new Date().getTime() * 5 * 24 * 60 * 60 * 1000)
         }
         const loading_message = show_message(
             'loading',

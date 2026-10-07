@@ -1,6 +1,6 @@
 import get_transfers from "../../../server/use_cases/transfers/get_transfers.js";
 import display_transfers_interface from "./helpers/display_transfers_interface.js";
-import countdown from '../../../helpers/countdown.js';
+import countdown from '../../../helpers/countdown/countdown.js';
 
 async function get_transfers_interface() {
     const user = JSON.parse(localStorage.getItem('user'));

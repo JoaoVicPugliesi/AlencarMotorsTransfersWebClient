@@ -1,3 +1,4 @@
+import get_difference from "../../../helpers/countdown/helpers/get_difference.js";
 import format_status from "../../../helpers/format_status.js";
 import configs from "./parts/renders/configs.js";
 import render_info from "./parts/renders/render_info.js";
@@ -9,6 +10,10 @@ function painel(mode, params) {
     if (!config) {
         window.alert(`Modo de painel inválido: ${mode}`);
         return;
+    }
+    const is_diff = get_difference(params.term_date);
+    if(!is_diff) {
+        params.status = 'delayed';
     }
     return `
         <div class="painel" data-params='${JSON.stringify(params)}' data-ids='${JSON.stringify({
