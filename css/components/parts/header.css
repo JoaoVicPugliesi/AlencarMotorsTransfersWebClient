@@ -100,10 +100,6 @@
 
 }
 
-#header-options-notifications-toggle h3 {
-    color: var(--text-color);
-}
-
 #header-options-notifications-toggle {
     position: relative;
 }
@@ -113,11 +109,12 @@
     top: -0.35rem;
     right: -0.35rem;
     background: var(--pending-color);
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     text-align: center;
     justify-content: center;
     font-family: var(--nunito);
+    color: var(--text-color);
     border-radius: 50%;
 }
 

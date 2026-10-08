@@ -11,8 +11,7 @@ function display_notifications(params) {
         container.innerHTML = '';
 
         let unread_count = 0;
-        const reversed_params = params.reverse();
-        reversed_params.forEach((p) => {
+        params.forEach((p) => {
             const notification_params = {
                 user_id: p.user_id,
                 is_viewed: p.is_viewed,

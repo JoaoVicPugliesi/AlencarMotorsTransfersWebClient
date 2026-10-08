@@ -53,8 +53,8 @@ async function reactivate_transfer_interface(command_i) {
         } = c_json;
         if (c_status !== 200) {
             show_message(
-            'error',
-            'Erro ao reativar a transferência'
+                'error',
+                'Erro ao reativar a transferência'
             );
             return;
         }
@@ -86,8 +86,8 @@ async function reactivate_transfer_interface(command_i) {
         });
         if (tr_status !== 200) {
             show_message(
-            'error',
-            'Erro ao reativar a transferência'
+                'error',
+                'Erro ao reativar a transferência'
             );
             return;
         }
@@ -99,13 +99,15 @@ async function reactivate_transfer_interface(command_i) {
             created_at: set_timestamp(now)
         });
         let participants = transfer_users.filter((t) => String(t.user_id.trim().toUpperCase()) !== String(user_i.id.trim().toUpperCase()))
-        participants.forEach(async (p) => {
-            await post_user_notifications_interface({
-                user_id: p.user_id,
-                notification_id: notification.id,
-                notified_at: notification.created_at
-            });
-        });
+        await Promise.all(
+            participants.map((p) =>
+                post_user_notifications_interface({
+                    user_id: p,
+                    notification_id: notification.id,
+                    notified_at: notification.created_at
+                })
+            )
+        );
         main.insertAdjacentHTML(
             'beforeend',
             painel('transfers', updated_params)

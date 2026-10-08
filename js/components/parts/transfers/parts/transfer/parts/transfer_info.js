@@ -1,6 +1,6 @@
 import info_i from "../../../../../helpers/info_i.js";
 
-function transfer_info(name, plate, vehicle, code) {
+function transfer_info({ name, plate, vehicle, code }) {
     return `
     <div class="transfer-info">
           ${info_i('transfer-info-name', `${name}`, 'fa-regular fa-id-card')}

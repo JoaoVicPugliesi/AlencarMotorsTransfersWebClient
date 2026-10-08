@@ -79,14 +79,15 @@ async function delete_transfer_interface(command_i) {
             created_at: set_timestamp(now)
         });
         let participants = transfer_users.filter((t) => String(t.user_id.trim().toUpperCase()) !== String(user.id.trim().toUpperCase()))
-        participants.forEach(async (p) => {
-            await post_user_notifications_interface({
-                user_id: p.user_id,
-                notification_id: notification.id,
-                notified_at: notification.created_at
-            });
-        });
-
+        await Promise.all(
+            participants.map((p) =>
+                post_user_notifications_interface({
+                    user_id: p,
+                    notification_id: notification.id,
+                    notified_at: notification.created_at
+                })
+            )
+        );
         painel_i.remove();
         form_i.remove();
         adapt_togglers();

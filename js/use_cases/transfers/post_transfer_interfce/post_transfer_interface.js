@@ -77,13 +77,18 @@ async function post_transfer_interface() {
         });
 
         participants.shift();
-        participants.forEach(async (p) => {
-            await post_user_notifications_interface({
-                user_id: p,
-                notification_id: notification.id,
-                notified_at: transfer.initial_date
-            });
-        });
+        await Promise.all(
+            participants.map((p) => {
+                console.log(p);
+                post_user_notifications_interface({
+                    user_id: p,
+                    notification_id: notification.id,
+                    notified_at: notification.created_at
+                })
+            }
+              
+            )
+        );
         loading_message.remove();
         show_message(
             'success',

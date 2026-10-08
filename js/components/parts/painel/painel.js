@@ -1,46 +1,47 @@
-import get_difference from "../../../helpers/countdown/helpers/get_difference.js";
 import format_status from "../../../helpers/format_status.js";
 import configs from "./parts/renders/configs.js";
 import render_info from "./parts/renders/render_info.js";
 import render_related from "./parts/renders/render_related.js";
 import render_term from "./parts/renders/render_term.js";
+import show_message from '../../../helpers/messages/show_message.js';
 
 function painel(mode, params) {
     const config = configs[mode];
     if (!config) {
-        window.alert(`Modo de painel inválido: ${mode}`);
+        show_message(
+            'error',
+            `Modo de painel inválido: ${mode}`
+        )
         return;
-    }
-    const is_diff = get_difference(params.term_date);
-    if(!is_diff && params.status !== 'concluded') {
-        params.status = 'delayed';
     }
     return `
         <div class="painel" data-params='${JSON.stringify(params)}' data-ids='${JSON.stringify({
-            id: params.id,
-            transfer_id: params.transfer_id ? params.transfer_id : null
-        })}'>
+        id: params.id,
+        transfer_id: params.transfer_id ? params.transfer_id : null
+    })}'>
             <div class="painel-info-toggler">
                 <i class="fa-solid fa-angles-left"></i>
             </div>
             <div class="painel-info ${params.status}">
                 <div class="painel-info-basic">
                     ${render_info(config.basic, params)}
-                    ${
-                        mode === 'observations'
-                            ? `
-                                <div class="painel-info-basic-status">
-                                    ${format_status(params.status)}
-                                </div>
-                            `
-                            : ''
-                    }
+                    ${mode === 'observations'
+            ? `
+                <div class="painel-info-basic-status">
+                    ${format_status(params.status)}
+                </div>
+                `
+            : ''
+        }
                 </div>
                 <div class="painel-info-progress">
                     ${render_info(config.progress, params)}
                 </div>
                 <div class="painel-info-term">
-                    ${render_term(config.term, params)}
+                    ${render_term(config.term, {
+                        ...params,
+                        mode: mode
+                    })}
                 </div>
             </div>
             ${render_related(mode, params)}

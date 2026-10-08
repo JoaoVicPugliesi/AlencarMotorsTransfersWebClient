@@ -5,6 +5,8 @@ function render_term(fields, params) {
         ${render_info(fields, params)}
         <div>
              <div class="countdown" data-params='${JSON.stringify({
+                id: params.id,
+                mode: params.mode,
                 initial_date: params.initial_date,
                 final_date: params.final_date,
                 term_date: params.term_date,

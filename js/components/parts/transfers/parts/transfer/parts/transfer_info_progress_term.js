@@ -1,7 +1,7 @@
 import date_format_timestamp from "../../../../../../helpers/date_format_timestamp.js";
 import info_i from "../../../../../helpers/info_i.js";
 
-function transfer_info_progress_term (initial_date, final_date, term_date, status) {
+function transfer_info_progress_term ({ id, initial_date, final_date, term_date, status }) {
     return `
     <div class="transfer-info-progress-term">  
             ${final_date === null ? 
@@ -11,6 +11,8 @@ function transfer_info_progress_term (initial_date, final_date, term_date, statu
             }
             ${info_i('transfer-info-term-date', `Prazo: ${date_format_timestamp(term_date)}`, 'fa-solid fa-file-contract')}
             <div class="countdown" data-params='${JSON.stringify({
+                id: id,
+                mode: 'transfers',
                 initial_date: initial_date,
                 final_date: final_date,
                 term_date: term_date,
