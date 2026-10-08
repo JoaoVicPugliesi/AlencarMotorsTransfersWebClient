@@ -15,7 +15,7 @@ function painel(mode, params) {
         return;
     }
     return `
-        <div class="painel" data-params='${JSON.stringify(params)}' data-ids='${JSON.stringify({
+        <div class="painel" data-mode='${mode}' data-params='${JSON.stringify(params)}' data-ids='${JSON.stringify({
         id: params.id,
         transfer_id: params.transfer_id ? params.transfer_id : null
     })}'>

@@ -1,7 +1,7 @@
 import delayed_notification_interface from "../../use_cases/notifications/delayed_notification_interface/delayed_notification_interface.js";
 import get_difference from "./helpers/get_difference.js";
 import get_transfers_interface from "../../use_cases/transfers/get_transfers_interface/get_transfers_interface.js";
-import adapt_togglers from '../adapt_togglers.js';
+import refresh_painel from "../../use_cases/painel/helpers/refresh_painel.js";
 
 let countdown_interval = null;
 const delaying = new Set();
@@ -34,6 +34,7 @@ async function update() {
         }
 
         const is_diff = get_difference(term_date);
+
         if (!is_diff) {
             if (status !== 'delayed' && !delaying.has(id)) {
                 delaying.add(id);
@@ -43,19 +44,27 @@ async function update() {
                         mode
                     });
                     await get_transfers_interface();
-                    const painels = document.querySelectorAll('.painel');
-                    if(painels) {
-                        painels.forEach((p) => {
-                            p.remove();
-                        });
-                        adapt_togglers();
+                    const painel_instance = document.querySelector(
+                        `.painel[data-mode="${mode}"][data-ids]`
+                    );
+                    if (painel_instance) {
+                        const ids = JSON.parse(painel_instance.dataset.ids);
+                        if (
+                            String(ids.id) === String(id) ||
+                            String(ids.transfer_id) === String(id)
+                        ) {
+                            await refresh_painel(painel_instance);
+                        }
                     }
+
                 } catch (error) {
                     console.error(error);
                     delaying.delete(id);
                 }
+
                 return;
             }
+
             return;
         }
 
