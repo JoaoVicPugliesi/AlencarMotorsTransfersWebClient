@@ -102,7 +102,7 @@ async function reactivate_transfer_interface(command_i) {
         await Promise.all(
             participants.map((p) =>
                 post_user_notifications_interface({
-                    user_id: p,
+                    user_id: p.user_id,
                     notification_id: notification.id,
                     notified_at: notification.created_at
                 })

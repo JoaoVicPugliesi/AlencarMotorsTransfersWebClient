@@ -57,10 +57,14 @@ async function delayed_notification_interface(params) {
         );
         return;
     }
+    let content = `Transferência ${tr_transfer.code} atrasada`;
+    if(params.mode === 'observations') {
+        content = `Observação na transferência ${tr_transfer.code} atrasada`;
+    }
     const now = new Date();
     const notification = await post_notifications_interface({
         transfer_id: tr_transfer.id,
-        content: `Transferência ${tr_transfer.code} atrasada`,
+        content: `${content}`,
         generated_by: user.id,
         created_at: set_timestamp(now)
     });

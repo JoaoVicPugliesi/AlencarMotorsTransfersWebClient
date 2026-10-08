@@ -50,7 +50,7 @@ async function post_observation_interface(command_i) {
             title: title.value,
             description: description.value,
             initial_date: set_timestamp(now),
-            term_date: set_timestamp(new Date(now.getTime() + 5 * 24 * 60 * 60 * 1000))
+            term_date: set_timestamp(new Date(now.getTime() + 10000))
         }
         const loading_message = show_message(
             'loading',
@@ -106,12 +106,14 @@ async function post_observation_interface(command_i) {
         });
         let participants = transfer_users.filter((t) => String(t.user_id.trim().toUpperCase()) !== String(user_i.id.trim().toUpperCase()))
         await Promise.all(
-            participants.map((p) =>
+            participants.map((p) => {
+                console.log(p);
                 post_user_notifications_interface({
-                    user_id: p,
+                    user_id: p.user_id,
                     notification_id: notification.id,
                     notified_at: notification.created_at
                 })
+            }
             )
         );
 
@@ -130,7 +132,7 @@ async function post_observation_interface(command_i) {
         form_i.remove();
 
         adapt_togglers();
-        get_transfers_interface();
+        await get_transfers_interface();
         loading_message.remove();
         show_message(
             'success',
