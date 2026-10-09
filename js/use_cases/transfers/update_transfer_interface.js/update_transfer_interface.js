@@ -47,7 +47,7 @@ async function update_transfer_interface(command_i) {
         };
         const loading_message = show_message(
             'loading',
-            'Reativando Transferência'
+            'Atualizando Transferência'
         );
         const {
             status: c_status,
@@ -62,7 +62,7 @@ async function update_transfer_interface(command_i) {
         if (c_status !== 200) {
             show_message(
                 'error',
-                'Erro ao reativar a transferência'
+                'Erro ao atualizar a transferência'
             );
             return;
         }
@@ -98,7 +98,7 @@ async function update_transfer_interface(command_i) {
         if (tr_status !== 200) {
             show_message(
                 'error',
-                'Erro ao reativar a transferência'
+                'Erro ao atualizar a transferência'
             );
             return;
         }

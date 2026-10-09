@@ -1,3 +1,4 @@
+import show_message from '../../../../helpers/messages/show_message.js';
 import login from '../../../../server/use_cases/users/login.js';
 import { set_current_user } from '../../helpers/get_current_user.js';
 
@@ -17,7 +18,10 @@ function login_interface() {
             password: password.value
         });
         if (status !== 200) {
-            window.alert(json.message);
+            show_message(
+                'error',
+                `${json.message}`
+            )
             return;
         }
         const { user } = json;
