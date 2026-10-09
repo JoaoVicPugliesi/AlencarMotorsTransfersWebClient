@@ -10,9 +10,16 @@ function login_interface() {
         const password = document.getElementById('login-password');
 
         if (!username.value || !password.value) {
-            window.alert('Campos precisam ser preenchidos');
+            show_message(
+                'error',
+                'Os campos precisam ser preenchidos'
+            );
             return;
         }
+        const loading_message = show_message(
+            'loading',
+            'Carregando...'
+        )
         const { status, json } = await login({
             username: username.value,
             password: password.value
@@ -24,6 +31,7 @@ function login_interface() {
             )
             return;
         }
+        loading_message.remove();
         const { user } = json;
         set_current_user(user);
         window.dispatchEvent(

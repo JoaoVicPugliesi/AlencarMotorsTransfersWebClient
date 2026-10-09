@@ -3,7 +3,7 @@ import transfer from '../../../../components/parts/transfers/parts/transfer/tran
 function display_transfers_interface (transfers) {
     const transfers_display = document.querySelector('.transfers-display');
     transfers_display.innerHTML = '';
-    if(!transfers) {
+    if(transfers.length === 0) {
         transfers_display.insertAdjacentHTML('beforeend', '<h3>Sem Transferências</h3>');
         return;
     }

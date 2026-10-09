@@ -3,7 +3,7 @@ import countdown from '../../helpers/countdown/countdown.js';
 
 function search_transfers_interface () {
     const command = document.getElementById('transfers-searchbar-command');
-    command.addEventListener('click', (e) => {
+    command.addEventListener('click', () => {
         const name_i = document.getElementById('main-searchbar-name');
         const plate_i = document.getElementById('transfers-searchbar-filters-plate');
         const vehicle_i = document.getElementById('transfers-searchbar-filters-vehicle');

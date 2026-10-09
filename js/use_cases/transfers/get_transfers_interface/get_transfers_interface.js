@@ -7,9 +7,9 @@ async function get_transfers_interface() {
     const transfers_i = await get_transfers({ id: user.id });
     const { status, json } = transfers_i;
     const { transfers } = json;
-    if (status !== 200) { localStorage.setItem('transfers', JSON.stringify([])) };
-    if (status === 200) { localStorage.setItem('transfers', JSON.stringify(transfers)) };
-    display_transfers_interface(transfers); 
+    if (status !== 200 || !transfers) localStorage.setItem('transfers', JSON.stringify([]));
+    if (status === 200) localStorage.setItem('transfers', JSON.stringify(transfers));
+    display_transfers_interface(transfers === null ? [] : transfers); 
     countdown();
 }
 
