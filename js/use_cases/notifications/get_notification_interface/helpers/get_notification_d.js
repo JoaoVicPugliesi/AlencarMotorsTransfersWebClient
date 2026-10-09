@@ -1,6 +1,7 @@
 import get_transfer from "../../../../server/use_cases/transfers/get_transfer.js";
 import get_observations from '../../../../server/use_cases/observations/get_observations.js';
 import update_user_notification_interface from "../../update_user_notification_interface/update_user_notification_interface.js";
+import show_message from "../../../../helpers/messages/show_message.js";
 
 async function get_notification_d (el) {
     const ids_i = JSON.parse(el.dataset.ids);
@@ -10,7 +11,10 @@ async function get_notification_d (el) {
     });
     const { message: tr_message, transfer } = tr_json;
     if(tr_status !== 200) {
-        window.alert(`${tr_message}`);
+        show_message(
+            'error',
+            'Erro ao pegar dados'
+        );
         return;
     }
     const { status: ob_status, json: ob_json } = await get_observations({

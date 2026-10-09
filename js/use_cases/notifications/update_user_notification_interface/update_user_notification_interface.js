@@ -1,10 +1,14 @@
 import update_user_notification from '../../../server/use_cases/notifications/update_user_notification.js';
 import get_notifications_interface from '../get_notifications_interface/get_notifications_interface.js';
 import set_timestamp from '../../../helpers/timestamp/set_timestamp.js';
+import show_message from '../../../helpers/messages/show_message.js';
 
 async function update_user_notification_interface(el) {
     if (!el) {
-        window.alert('Notificação não existe')
+        show_message(
+            'error',
+            'Erro'
+        )
         return
     }
     const ids = JSON.parse(el.dataset.ids);
@@ -16,7 +20,10 @@ async function update_user_notification_interface(el) {
     });
     const { message } = json;
     if (status !== 200) {
-        window.alert(`${message}`);
+        show_message(
+            'error',
+            'Erro ao atualizar notificação'
+        );
         return;
     }
     await get_notifications_interface();

@@ -1,3 +1,4 @@
+import error from "../../../../components/parts/messages/error.js";
 import get_observation from "../../../../server/use_cases/observations/get_observation.js";
 
 async function get_observation_d (el) {
@@ -8,7 +9,10 @@ async function get_observation_d (el) {
     });
     const { message: tr_message, observation } = tr_json;
     if(tr_status !== 200) {
-        window.alert(`${tr_message}`);
+        error(
+            'error',
+            'Erro ao pegar observação'
+        )
         return;
     }
     return {

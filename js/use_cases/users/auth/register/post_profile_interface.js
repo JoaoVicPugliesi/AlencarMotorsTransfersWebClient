@@ -1,4 +1,5 @@
 import register from "../../../../server/use_cases/users/register.js";
+import show_message from '../../../../helpers/messages/show_message.js';
 
 function post_profile_interface() {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -8,7 +9,10 @@ function post_profile_interface() {
     const command = document.getElementById('add-profile-command');
     command.addEventListener('click', async () => {
         if(username_i.value === '' || password_i.value === '' || role_i.value === '') {
-            window.alert('Campos precisam ser preenchidos');
+            show_message(
+                'error',
+                'Os campos precisam ser preenchidos'
+            )
             return;
         }
         const { status, json } = await register({
@@ -18,7 +22,10 @@ function post_profile_interface() {
             admin_username: user.username
         });
         if(status !== 201) return;
-        window.alert('Usuário Criado');
+        show_message(
+            'success',
+            'Perfil criado com sucesso'
+        );
         username_i.value = '';
         password_i.value = '';
         role_i.value = 'admin';

@@ -81,7 +81,7 @@ async function reactivate_observation_interface(command_i) {
         const transfer_painel = main.lastElementChild;
 
         if (!transfer_painel || !transfer_painel.classList.contains('painel')) {
-            window.alert('Transfer painel not found');
+            show_message('Erro ao reativar a observação')
             return;
         }
         const trigger = transfer_painel._trigger;

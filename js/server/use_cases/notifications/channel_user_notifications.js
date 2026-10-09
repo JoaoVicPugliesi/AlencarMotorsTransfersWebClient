@@ -1,3 +1,4 @@
+import show_message from '../../../helpers/messages/show_message.js';
 import display_notifications from '../../../use_cases/notifications/get_notifications_interface/helpers/display_notifications.js';
 import get_transfers_interface from '../../../use_cases/transfers/get_transfers_interface/get_transfers_interface.js';
 import { get_current_user } from '../../../use_cases/users/helpers/get_current_user.js';
@@ -14,7 +15,10 @@ function channel_user_notifications() {
     const user = get_current_user();
 
     if (!user) {
-        window.alert('No logged user');
+        show_message(
+            'error',
+            'Nenhum usuário'
+        )
         return;
     }
 

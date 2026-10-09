@@ -1,3 +1,4 @@
+import show_message from "../../../helpers/messages/show_message.js";
 import update_profile from "../../../server/use_cases/users/update_profile.js";
 
 function update_profile_interface() {
@@ -7,7 +8,10 @@ function update_profile_interface() {
     const command = document.getElementById('edit-profile-save');
     command.addEventListener('click', async () => {
         if(!username_i.value) {
-            window.alert('Campos precisam ser preenchidos');
+            show_message(
+                'error',
+                'Os campos precisam ser preenchidos'
+            )
             return;
         }
         const { status, json } = await update_profile({
@@ -16,13 +20,16 @@ function update_profile_interface() {
         });
         if(status !== 200) return;
         const { user } = json;
-        username_i.value = '';
+        username_i.value = user.username;
         const profile_username = document.querySelector('#profile-info-name');
         const header_username = document.querySelector('#header-username');
         localStorage.setItem('user', JSON.stringify(user));
         profile_username.innerHTML = `<h3>${user.username}</h3>`;
         header_username.innerHTML = `<h3>${user.username}</h3>`;
-        window.alert('Usuário Editado');
+        show_message(
+            'success',
+            'Usuário editado com sucesso'
+        );
     });
 }
 

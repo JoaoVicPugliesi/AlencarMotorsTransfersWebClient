@@ -1,3 +1,4 @@
+import show_message from '../../../helpers/messages/show_message.js';
 import delete_user_notification from '../../../server/use_cases/notifications/delete_user_notification.js';
 import get_notifications_interface from '../get_notifications_interface/get_notifications_interface.js';
 
@@ -13,7 +14,10 @@ function delete_user_notification_interface () {
             });
             const { message } = json;
             if(status !== 200) {
-                window.alert(`${message}`);
+                show_message(
+                    'error',
+                    'Erro ao deletar notificação'
+                )
                 return;
             }
             await get_notifications_interface();
