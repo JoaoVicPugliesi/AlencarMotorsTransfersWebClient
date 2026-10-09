@@ -1,0 +1,553 @@
+[33mcommit b423ff9ca1f01afcf04bd1c3ecda914d5472f2cf[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Merge: 73b2a4f 67307b9
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 9 15:39:07 2026 -0300
+
+    Merge branch 'main' of https://github.com/JoaoVicPugliesi/AlencarMotorsTransfersWebClient
+
+[33mcommit 73b2a4fa2afaff8311c20791744311da9926214a[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 9 15:38:35 2026 -0300
+
+    fix participant functionalities
+    
+    fix participant functionalities
+
+[33mcommit 67307b9b03399e67e8e0ed187fa0d3724c7079d2[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: João Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 9 13:16:08 2026 -0300
+
+    Atualizar o base_url.js
+
+[33mcommit 33aeb5669f67711d0d55ead5cc094dca21ab7e41[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 9 12:46:10 2026 -0300
+
+    fix text-area responsiviy
+    
+    fix text-area responsivity
+
+[33mcommit 1b69dbe6d16a08f2b12585b4b4de3e7da4f54e3c[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 9 12:36:27 2026 -0300
+
+    fix details
+    
+    fix details
+
+[33mcommit e78770718ba2d7aba7ebaf6b12d9e3d88b2e8395[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 9 12:05:47 2026 -0300
+
+    change notification component
+    
+    change notification component
+
+[33mcommit 02fc8bc90fa375a07b537ee702ae54d0ee5cdf15[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 9 11:22:56 2026 -0300
+
+    fix post_transfer_interface implementation
+    
+    fix post_transfer_interface implementation
+
+[33mcommit c8aa8177921266445d2fb86e021804a3a3da45a8[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 9 10:41:11 2026 -0300
+
+    fix base_url importation
+    
+    fix base_url importation
+
+[33mcommit ad4f3203e2235b9a700352d935f790f2a0b36355[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 9 10:37:01 2026 -0300
+
+    change base_url again
+    
+    change base_url again
+
+[33mcommit c6b9f75eef9bc025d1f6cde7b51539c05946f773[m
+Merge: 6768a53 4634ff7
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 9 10:35:44 2026 -0300
+
+    Merge branch 'main' of https://github.com/JoaoVicPugliesi/AlencarMotorsTransfersWebClient
+
+[33mcommit 6768a53bef6bce3f52f608af7c54d17fa2db175c[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 9 10:34:03 2026 -0300
+
+    change base_url
+    
+    change base_url
+
+[33mcommit 4634ff7c43fe49bc37827907bd3a1cc826081d60[m
+Author: João Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 9 10:31:11 2026 -0300
+
+    Create CNAME
+
+[33mcommit 5b93881fdf9a8ef0ae378a7f4d743dbd3a0259ec[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Thu Oct 8 10:43:44 2026 -0300
+
+    implement refresh_painel helper function
+    
+    implement refresh_painel helper function
+
+[33mcommit 9b9d3a39a9954b9e50d5236a1fd2547c6377efce[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Thu Oct 8 10:10:17 2026 -0300
+
+    fix loop bug
+    
+    fix loop bug
+
+[33mcommit 7defa781d74f2c312c37400862c1a31fbc4bf1af[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Thu Oct 8 09:36:58 2026 -0300
+
+    implement delayed_notification use_case
+    
+    implement delayed_notification use_case
+
+[33mcommit 6e9dd39661fef03e738c0e8e03b2e456311d59e4[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Wed Oct 7 10:01:59 2026 -0300
+
+    change is_diff logic condition
+    
+    expand is_diff logic condition
+
+[33mcommit a152f8c81799f63d9da519cd3b1e9ddce06f7a72[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Wed Oct 7 09:49:51 2026 -0300
+
+    fix term_date observation business logic
+    
+    fix term_date observation business logic
+
+[33mcommit f2e284a548332e2487627f38ffbfb0b7657de8ec[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Wed Oct 7 09:29:29 2026 -0300
+
+    implement get_difference helper function
+    
+    implement get_difference helper function
+
+[33mcommit 739dcfeee9a46c14b43f2ab13a6bd06cc56fda9a[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Wed Oct 7 08:45:40 2026 -0300
+
+    expand countdown handle status situation
+    
+    expand countdown handle status situation
+
+[33mcommit bae44e6ec2fe7aeab50f621b06b180ef9528e0b8[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Tue Oct 6 17:29:01 2026 -0300
+
+    finish applying show_message to use_cases
+    
+    finish applying show_message to use_cases
+
+[33mcommit 2c15acd39201e7f8b2204460b7eab771a89ace93[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Tue Oct 6 17:14:36 2026 -0300
+
+    implement show_message
+    
+    implement show_message
+
+[33mcommit 13ed948700fc2bfae5b68201b97036d2acfc8f7d[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Tue Oct 6 14:39:28 2026 -0300
+
+    fix display notifications
+    
+    fix display notifications
+
+[33mcommit f81a470403673efe5b277fbcca269dacba881abc[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Tue Oct 6 14:31:25 2026 -0300
+
+    fix delete_observation use_case
+    
+    fix delete_observation use_case
+
+[33mcommit 0939004518ae7a25b8563a48979801dfd355719e[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Mon Oct 5 16:25:55 2026 -0300
+
+    implement update_user_notification use_case
+    
+    implement update_user_notification use_case
+
+[33mcommit 169b9e0aa851fb054de5d43c8073fb9fe1371925[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Mon Oct 5 15:26:19 2026 -0300
+
+    implement delete_user_notification use_case
+    
+    implement delete_user_notification use_case
+
+[33mcommit 2f51408a6dd2302d2c4e7142089c26d0765094cf[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Mon Oct 5 12:43:55 2026 -0300
+
+    fix play_sound_effect implementation
+    
+    fix play_sound_effect implementation
+
+[33mcommit 65e0e06a3dbf6f5d723b4e3589231ee0185c6e3b[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Mon Oct 5 11:37:47 2026 -0300
+
+    fix app flow
+    
+    fix app flow
+
+[33mcommit 4191e1f82bd90c81e4f617b247819717c2c7d907[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Mon Oct 5 09:09:41 2026 -0300
+
+    implement get_transfer_users
+    
+    implement get_transfer_users
+
+[33mcommit 69a70f77aa4f3cbe944f1e3aa78a491017f1a01b[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Sat Oct 3 18:57:57 2026 -0300
+
+    implement post_notification and post_user_notification use_case
+    
+    implement post_notification and post_user_notification use_case
+
+[33mcommit 52b65f390476b7d42499499c9684d9890e1db969[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Sat Oct 3 13:43:24 2026 -0300
+
+    implement get_notifications use_case
+    
+    implement get_notifications use_case
+
+[33mcommit cf530764f11449477fb45692b727e655b8c4702e[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Sat Oct 3 10:25:02 2026 -0300
+
+    implement basic channel_user_notifications use_case
+    
+    implement basic channel_user_notifications use_case
+
+[33mcommit d1bc2c0ce83141b4f08fbbd3fcfc7ed3e8745503[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 2 17:44:51 2026 -0300
+
+    implement update_profile use_case
+    
+    implement update_profile use_case
+
+[33mcommit 336d465c61667805582823e0eacfba16f657c1dc[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 2 15:56:26 2026 -0300
+
+    implement update_observation use_case
+    
+    implement update_observation use_case
+
+[33mcommit a8b5d177724bca264676a29e42a2a4577092de32[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 2 15:33:57 2026 -0300
+
+    implement update_transfer use_case
+    
+    implement update_transfer use_case
+
+[33mcommit f4d02c2d33d4af1290ad7d078b9f548a8b865924[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 2 14:51:48 2026 -0300
+
+    implement reactivate_observation use_case
+    
+    implement reactivate_observation use_case
+
+[33mcommit 1b821fdc221547353fe0d5d6cc75340368c8b85b[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 2 12:52:04 2026 -0300
+
+    implement reactivate_transfer use_case
+    
+    implement reactivate_transfer use_case
+
+[33mcommit 7c2e000b16c47dc2d997ffa773106e9da623b213[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 2 10:26:55 2026 -0300
+
+    implement conclude_observation_interface
+    
+    implement conclude_observation_interface
+
+[33mcommit d6732f8a00e2fcaf07b95ebe5527d715b2ecbff4[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Oct 2 09:34:31 2026 -0300
+
+    implement conclude_observation use_case
+    
+    implement conclude_observation use_case
+
+[33mcommit e583524935770d913b33c56260a1b43487860468[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Thu Oct 1 18:29:55 2026 -0300
+
+    fix some details
+    
+    fix some details
+
+[33mcommit 1395733ff76ef9e2d35d3c3780d231f1b858398e[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Thu Oct 1 17:57:42 2026 -0300
+
+    implement delete_observation use_case
+    
+    implement delete_observation use_case
+
+[33mcommit d520716e24c57954f6ec53e0a535e31903238fd7[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Thu Oct 1 16:43:29 2026 -0300
+
+    implement delete_transfer use_case
+    
+    implement delete_transfer use_case
+
+[33mcommit f2971b7564a1f6ca71ede2ead6fa4d58db27e235[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Thu Oct 1 10:58:34 2026 -0300
+
+    expand get_transfer_d and post_observation interface
+    
+    expand get_transfer_d and post_observation interface
+
+[33mcommit c37424a026ef3185faeb4c4a9bb598a35ddba556[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Thu Oct 1 10:11:41 2026 -0300
+
+    implement get_observation use_case
+    
+    implement get_observation use_case
+
+[33mcommit f94d6b58439a330909276b317fbcb3772757f10f[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Thu Oct 1 09:30:48 2026 -0300
+
+    implement post_observation use_case
+    
+    implement post_observation use_case
+
+[33mcommit 44249cb1a65c0c6c4ace62eaee79904d7fa9a9ea[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Wed Sep 30 15:42:28 2026 -0300
+
+    implement get_transfer_interface
+    
+    implement get_transfer_interface
+
+[33mcommit a6957fe475f73a4bd3a436526b10b0e0b10a2b88[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Wed Sep 30 12:14:03 2026 -0300
+
+    implement get_observations use_case
+    
+    implement get_observations use_case
+
+[33mcommit ad2461d912b842fca37ab324c6d2e253ed572b9b[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Wed Sep 30 11:12:17 2026 -0300
+
+    implement transfers searching functionality
+    
+    implement transfers searching functionality
+
+[33mcommit 6b128cbe1e1e49c2559d3dec4df7289efb25ea42[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Wed Sep 30 10:32:10 2026 -0300
+
+    implement countdown helper function
+    
+    implement countdown helper function
+
+[33mcommit c0e3d5f36010f81f54d87106d0dd2157c3d05206[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Wed Sep 30 09:37:33 2026 -0300
+
+    implement get_transfers use_case
+    
+    implement get_transfers use_case
+
+[33mcommit 9459f3167280f209d8f493a2d7326f17bf920aef[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Tue Sep 29 16:13:48 2026 -0300
+
+    implement post transfer use_case
+    
+    implement post transfer use_case
+
+[33mcommit aabf2a723f880aeb8b63b3103a3fbe45fd0acc03[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Tue Sep 29 09:26:31 2026 -0300
+
+    implement get_users use_case
+    
+    implement get_users use_case
+
+[33mcommit ff209f8575bf590ef7f9c869ac606b5cac107ba9[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Tue Sep 29 08:29:54 2026 -0300
+
+    implement login use_case
+    
+    implement login_use_case
+
+[33mcommit e523e7f0406abeccbb355509844eb72e5abcff7f[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Mon Sep 28 16:18:55 2026 -0300
+
+    implement register use_case
+    
+    implement register use_case
+
+[33mcommit d42b82957a1d3313a206cea7854db531a02c55a3[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Sat Sep 26 21:44:09 2026 -0300
+
+    implement logout interface
+    
+    implement logout interface
+
+[33mcommit 1377de944f1ffddc3d9f56e40ddddd533d3e1036[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Sep 25 13:28:16 2026 -0300
+
+    add type property to primary_input
+    
+    add type property to primary_input
+
+[33mcommit ac5232cfede38f592920db4008812d3ff943b80c[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Sep 25 10:20:50 2026 -0300
+
+    implement open_close_painel_info
+    
+    open_close_painel_info
+
+[33mcommit da0590f940477824e0604c609be04cdee7ba3409[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Sep 25 09:49:16 2026 -0300
+
+    implement login_interface
+    
+    implement login_interface
+
+[33mcommit dcb28a37116d12100d94b0118c8034351bb8365c[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Sep 25 09:23:47 2026 -0300
+
+    use event delegation inside open_close_forms_interface
+    
+    use event delegation inside open_close_forms_interface
+
+[33mcommit c4995d1136b7c8d3070c86ba5cdbcaed11a5ddde[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Sep 25 08:53:23 2026 -0300
+
+    structure and shape confirm component
+    
+    structure and shape confirm component
+
+[33mcommit 990b6acaf945d55deece0b81c0607fae33eda532[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Sep 25 08:39:13 2026 -0300
+
+    structure and shape edit_transfer component
+    
+    structure and shape edit_transfer component
+
+[33mcommit 5ef9c83a6184c6062f32cf6d1ab4c45110396dcf[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Fri Sep 25 08:33:27 2026 -0300
+
+    structure/ shape add_observation_form and text_area components
+    
+    structure/ shape add_observation_form and text_area components
+
+[33mcommit 98726dd2e2e0c0aefc5253a1eb9b39ea9c174b33[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Thu Sep 24 18:50:24 2026 -0300
+
+    rename painel-form to form and make it a global component
+    
+    rename painel-form to form and make it a global component
+
+[33mcommit 6d5fa0b8fab9383e34deefd20f3f74233437b4dd[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Thu Sep 24 17:55:50 2026 -0300
+
+    abstract painel parts
+    
+    abstract painel parts
+
+[33mcommit b464a4dca1f8ca6a5d9981606eadc67b3eb66713[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Thu Sep 24 17:21:33 2026 -0300
+
+    structure and shape edit_profile component
+    
+    structure and shape edit_profile component. also make open_close_profile_forms_interface similar to open_close_painel
+
+[33mcommit b050d078cce367e194784557e0a2789d01319d0b[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Thu Sep 24 16:41:20 2026 -0300
+
+    implement open_close_profile_forms_interface
+    
+    implement open_close_profile_forms_interface
+
+[33mcommit da663eafb35c530f861816023bafe0efe259edb9[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Thu Sep 24 15:11:13 2026 -0300
+
+    define add_profile basic structure
+    
+    define add_profile basic structure
+
+[33mcommit bf38f456de995b890ca17186d63f6078be36db8e[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Thu Sep 24 12:30:44 2026 -0300
+
+    implement open_close_painel and abstract painel opening functionality
+    
+    implement open_close_painel and abstract painel opening functionality. this method makes source code more organized and scalable by utilizing Map() to track every possible trigger which may open painel alongside pre defined mode and expected DTO
+
+[33mcommit 723447cc62369f3812a5911607c4ada20b510437[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Thu Sep 24 10:41:54 2026 -0300
+
+    implement open_close_add_transfer_interface and adapt_togglers
+    
+    implement open_close_add_transfer_interface and adapt_togglers
+
+[33mcommit c233cad05bd88f04e1285ee53280fc2d37b847a5[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Thu Sep 24 10:26:43 2026 -0300
+
+    abstract add_transfer component
+    
+    abstract add_transfer component
+
+[33mcommit f69fe0cb2ab6718addca934d90e6445a82d61760[m
+Author: Joao Pugliesi <mrlanguages62@gmail.com>
+Date:   Thu Sep 24 10:18:31 2026 -0300
+
+    structure and shape add_tranfer component
+    
+    structure and shape add_tranfer component. i forgot to make define add_transfer component basic structure

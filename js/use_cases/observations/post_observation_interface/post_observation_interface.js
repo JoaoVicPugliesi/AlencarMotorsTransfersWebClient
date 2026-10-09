@@ -116,21 +116,15 @@ async function post_observation_interface(command_i) {
             }
             )
         );
-
         const trigger = painel_i._trigger;
-
         main.insertAdjacentHTML(
             'beforeend',
             painel('transfers', params_i)
         );
-
         const new_painel = main.lastElementChild;
-
         new_painel._trigger = trigger;
-
         painel_i.remove();
         form_i.remove();
-
         adapt_togglers();
         await get_transfers_interface();
         loading_message.remove();

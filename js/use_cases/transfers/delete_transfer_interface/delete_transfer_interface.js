@@ -43,7 +43,7 @@ async function delete_transfer_interface(command_i) {
         if (t_status !== 200) {
             show_message(
                 'error',
-                'Erro ao reativar a transferência'
+                'Erro ao deletar a transferência'
             );
             return;
         }
@@ -53,7 +53,7 @@ async function delete_transfer_interface(command_i) {
         if (tr_status !== 200) {
             show_message(
                 'error',
-                'Erro ao reativar a transferência'
+                'Erro ao deletar a transferência'
             );
             return;
         }
@@ -66,7 +66,7 @@ async function delete_transfer_interface(command_i) {
         if (d_status !== 200) {
             show_message(
                 'error',
-                'Erro ao reativar a transferência'
+                'Erro ao deletar a transferência'
             );
             return;
         }

@@ -2,11 +2,13 @@ import participant from "../../../../components/parts/forms/add_transfer/partici
 
 function render_participants_options(users_to_render) {
     const container = document.querySelector('.form-participants-options');
-    const current_options = container.querySelectorAll('.participant');
-    current_options.forEach((option) => { if (option.dataset.selected !== 'true') option.remove(); });
+    const participants = container.querySelectorAll('.participant');
+    participants.forEach(
+        (o) => { if (o.dataset.selected !== 'true') o.remove(); 
+    });
     users_to_render.forEach((u) => {
-        const already_exists = container.querySelector(`[data-id="${u.id}"]`);
-        if (already_exists) return;
+        const is_already = container.querySelector(`[data-id="${u.id}"]`);
+        if (is_already) return;
         container.insertAdjacentHTML(
             'beforeend',
             participant({

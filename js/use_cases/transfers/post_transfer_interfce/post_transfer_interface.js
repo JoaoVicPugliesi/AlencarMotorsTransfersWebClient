@@ -7,6 +7,7 @@ import get_transfers_interface from "../get_transfers_interface/get_transfers_in
 import search_participants_options from "./helpers/search_participants_options.js";
 import select_participant_option from "./helpers/select_participant_option.js";
 import show_message from '../../../helpers/messages/show_message.js'
+import reset_participant_options from "./helpers/reset_participant_options.js";
 
 async function post_transfer_interface() {
     search_participants_options();
@@ -63,11 +64,6 @@ async function post_transfer_interface() {
             );
             return;
         }
-        localStorage.setItem('participants', JSON.stringify([]));
-        participants_options.classList.remove('searched');
-        name_i.value = '';
-        plate_i.value = '';
-        vehicle_i.value = '';
         await get_transfers_interface();
         const notification = await post_notifications_interface({
             transfer_id: transfer.id,
@@ -89,6 +85,12 @@ async function post_transfer_interface() {
               
             )
         );
+        localStorage.setItem('participants', JSON.stringify([]));
+        participants_options.classList.remove('searched');
+        reset_participant_options();
+        name_i.value = '';
+        plate_i.value = '';
+        vehicle_i.value = '';
         loading_message.remove();
         show_message(
             'success',
