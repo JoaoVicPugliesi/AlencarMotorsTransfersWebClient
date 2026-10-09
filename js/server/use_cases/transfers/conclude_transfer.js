@@ -1,4 +1,4 @@
-import base_url from "../../base_URL.js"
+import base_url from "../../base_url.js"
 
 async function conclude_transfer (params) {
     const req = await fetch(`${base_url}/conclude_transfer`, {

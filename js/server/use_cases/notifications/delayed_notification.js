@@ -1,4 +1,4 @@
-import base_url from "../../base_URL.js"
+import base_url from "../../base_url.js"
 
 async function delayed_notification (params) {
     const req = await fetch(`${base_url}/delayed_notification`, {

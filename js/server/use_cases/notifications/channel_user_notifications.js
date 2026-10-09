@@ -1,7 +1,7 @@
 import display_notifications from '../../../use_cases/notifications/get_notifications_interface/helpers/display_notifications.js';
 import get_transfers_interface from '../../../use_cases/transfers/get_transfers_interface/get_transfers_interface.js';
 import { get_current_user } from '../../../use_cases/users/helpers/get_current_user.js';
-import base_url from '../../base_URL.js';
+import base_url from '../../base_url.js';
 import get_notifications from './get_notifications.js';
 
 let event = null;

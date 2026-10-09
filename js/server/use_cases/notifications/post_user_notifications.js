@@ -1,4 +1,4 @@
-import base_url from "../../base_URL.js"
+import base_url from "../../base_url.js"
 
 async function post_user_notifications (params) {
     const req = await fetch(`${base_url}/post_user_notifications`, {

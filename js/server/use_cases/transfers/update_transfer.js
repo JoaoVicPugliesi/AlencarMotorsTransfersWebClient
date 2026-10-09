@@ -1,4 +1,4 @@
-import base_url from "../../base_URL.js"
+import base_url from "../../base_url.js"
 
 async function update_transfer (params) {
     const req = await fetch(`${base_url}/update_transfer`, {
