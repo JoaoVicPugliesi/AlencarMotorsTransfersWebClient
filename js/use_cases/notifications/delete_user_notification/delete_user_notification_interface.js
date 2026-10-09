@@ -5,13 +5,7 @@ function delete_user_notification_interface () {
     const commands = document.querySelectorAll('.notification-options-delete');
     commands.forEach((c) => {
         c.addEventListener('click', async (e) => {
-            e.stopPropagation();
-            const notification = e.target.closest('.notification');
-            if(!notification) {
-                window.alert('Notificação não existe')
-                return
-            }
-            const ids = JSON.parse(notification.dataset.ids);
+            const ids = JSON.parse(c.dataset.ids);
             const { id, user_id } = ids;
             const { status, json } = await delete_user_notification({
                 user_id: user_id,
