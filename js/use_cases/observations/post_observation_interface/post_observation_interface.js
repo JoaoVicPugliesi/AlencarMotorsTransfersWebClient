@@ -50,7 +50,7 @@ async function post_observation_interface(command_i) {
             title: title.value,
             description: description.value,
             initial_date: set_timestamp(now),
-            term_date: set_timestamp(new Date(now.getTime() + 5 * 24 * 60 * 60 * 1000))
+            term_date: set_timestamp(new Date(now.getTime() + 20 * 24 * 60 * 60 * 1000))
         }
         const loading_message = show_message(
             'loading',
