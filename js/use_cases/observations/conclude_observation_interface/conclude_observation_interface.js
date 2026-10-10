@@ -53,6 +53,7 @@ async function conclude_observation_interface(command_i) {
                 'error',
                 'Erro ao concluir a observação'
             );
+            loading_message.remove();
             return;
         }
         const {
@@ -67,6 +68,7 @@ async function conclude_observation_interface(command_i) {
                 'error',
                 'Erro ao concluir a observação'
             );
+            loading_message.remove();
             return;
         }
         const trigger = transfer_painel._trigger;
@@ -83,6 +85,7 @@ async function conclude_observation_interface(command_i) {
                 'error',
                 'Erro ao concluir a observação'
             );
+            loading_message.remove();
             return;
         }
 
@@ -99,6 +102,7 @@ async function conclude_observation_interface(command_i) {
                 'error',
                 'Erro ao concluir a observação'
             );
+            loading_message.remove();
             return;
         }
 
@@ -127,6 +131,7 @@ async function conclude_observation_interface(command_i) {
                 'error',
                 'Erro ao concluir a observação'
             );
+            loading_message.remove();
             return;
         }
         const { transfer_users } = tr_json;

@@ -7,18 +7,25 @@ function update_profile_interface() {
     username_i.value = user_i.username;
     const command = document.getElementById('edit-profile-save');
     command.addEventListener('click', async () => {
-        if(!username_i.value) {
+        if (!username_i.value) {
             show_message(
                 'error',
                 'Os campos precisam ser preenchidos'
             )
             return;
         }
+        const loading_message = show_message(
+            'loading',
+            'Atualizando perfil...'
+        )
         const { status, json } = await update_profile({
             id: user_i.id,
             username: username_i.value,
         });
-        if(status !== 200) return;
+        if (status !== 200) {
+            loading_message.remove();
+            return;
+        };
         const { user } = json;
         username_i.value = user.username;
         const profile_username = document.querySelector('#profile-info-name');
@@ -26,6 +33,7 @@ function update_profile_interface() {
         localStorage.setItem('user', JSON.stringify(user));
         profile_username.innerHTML = `<h3>${user.username}</h3>`;
         header_username.innerHTML = `<h3>${user.username}</h3>`;
+        loading_message.remove();
         show_message(
             'success',
             'Usuário editado com sucesso'

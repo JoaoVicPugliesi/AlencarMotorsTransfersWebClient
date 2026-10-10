@@ -50,15 +50,4 @@ function close_user_notifications_channel() {
     };
 }
 
-window.addEventListener('pagehide', () => {
-    close_user_notifications_channel();
-});
-
-window.addEventListener('pageshow', (e) => {
-    if (!e.persisted) return;
-    const user = get_current_user();
-    if (!user) return;
-    channel_user_notifications();
-});
-
 export { channel_user_notifications, close_user_notifications_channel };

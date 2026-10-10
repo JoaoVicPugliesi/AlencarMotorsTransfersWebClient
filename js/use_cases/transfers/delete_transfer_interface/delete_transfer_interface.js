@@ -34,7 +34,7 @@ async function delete_transfer_interface(command_i) {
         }
         const loading_message = show_message(
             'loading',
-            'Reativando Transferência'
+            'Deletando Transferência'
         );
         const { status: t_status, json: t_json } = await get_transfer({
             id: ids_i.id
@@ -45,6 +45,7 @@ async function delete_transfer_interface(command_i) {
                 'error',
                 'Erro ao deletar a transferência'
             );
+            loading_message.remove();
             return;
         }
         const { status: tr_status, json: tr_json } = await get_transfer_users({
@@ -55,6 +56,7 @@ async function delete_transfer_interface(command_i) {
                 'error',
                 'Erro ao deletar a transferência'
             );
+            loading_message.remove();
             return;
         }
         const params = {
@@ -68,6 +70,7 @@ async function delete_transfer_interface(command_i) {
                 'error',
                 'Erro ao deletar a transferência'
             );
+            loading_message.remove();
             return;
         }
         const { transfer_users } = tr_json;

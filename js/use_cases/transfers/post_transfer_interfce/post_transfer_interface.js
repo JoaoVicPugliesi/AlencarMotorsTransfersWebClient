@@ -34,6 +34,10 @@ async function post_transfer_interface() {
             );
             return;
         }
+        const loading_message = show_message(
+            'loading',
+            'Criando Transferência'
+        );
         participants.unshift(user.id);
         const now = new Date();
         const initial_date = set_timestamp(now);
@@ -50,10 +54,6 @@ async function post_transfer_interface() {
             participants: participants,
             created_by: user.username,
         };
-        const loading_message = show_message(
-            'loading',
-            'Criando Transferência'
-        );
         const { status, json } = await post_transfer(params);
 
         const { message, transfer } = json;
@@ -62,6 +62,7 @@ async function post_transfer_interface() {
                 'error',
                 'Erro ao criar transferência'
             );
+            loading_message.remove();
             return;
         }
         await get_transfers_interface();

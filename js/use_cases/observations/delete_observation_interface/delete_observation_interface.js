@@ -48,6 +48,7 @@ async function delete_observation_interface(command_i) {
                 'error',
                 'Erro ao deletar a observação'
             );
+            loading_message.remove();
             return;
         }
         const { status: t_status, json: t_json } = await get_transfer({
@@ -59,6 +60,7 @@ async function delete_observation_interface(command_i) {
                 'error',
                 'Erro ao deletar a observação'
             );
+            loading_message.remove();
             return;
         }
         const { transfer } = t_json;
@@ -92,6 +94,7 @@ async function delete_observation_interface(command_i) {
                 'error',
                 'Erro ao deletar a observação'
             );
+            loading_message.remove();
             return;
         }
         const { status: tr_status, json: tr_json } = await get_transfer_users({
@@ -102,6 +105,7 @@ async function delete_observation_interface(command_i) {
                 'error',
                 'Erro ao deletar a observação'
             );
+            loading_message.remove();
             return;
         }
         const { transfer_users } = tr_json;

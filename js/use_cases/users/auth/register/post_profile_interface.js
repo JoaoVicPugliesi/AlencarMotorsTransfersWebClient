@@ -15,20 +15,29 @@ function post_profile_interface() {
             )
             return;
         }
+        const loading_message = show_message(
+            'loading',
+            'Adicionando perfil...'
+        )
         const { status, json } = await register({
             username: username_i.value,
             password: password_i.value,
             role: role_i.value,
             admin_username: user.username
         });
-        if(status !== 201) return;
+        if(status !== 201) {
+            show_message('error', 'Error ao adicionar perfil');
+            loading_message.remove();
+            return;
+        };
+        username_i.value = '';
+        password_i.value = '';
+        role_i.value = 'admin';
+        loading_message.remove();
         show_message(
             'success',
             'Perfil criado com sucesso'
         );
-        username_i.value = '';
-        password_i.value = '';
-        role_i.value = 'admin';
     });
 }
 

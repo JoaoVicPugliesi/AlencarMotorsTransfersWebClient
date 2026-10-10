@@ -48,6 +48,7 @@ async function reactivate_observation_interface(command_i) {
                 'error',
                 'Erro ao reativar a observação'
             );
+            loading_message.remove();
             return;
         }
 
@@ -69,6 +70,7 @@ async function reactivate_observation_interface(command_i) {
                 'error',
                 'Erro ao reativar a observação'
             );
+            loading_message.remove();
             return;
         }
 
@@ -81,7 +83,8 @@ async function reactivate_observation_interface(command_i) {
         const transfer_painel = main.lastElementChild;
 
         if (!transfer_painel || !transfer_painel.classList.contains('painel')) {
-            show_message('Erro ao reativar a observação')
+            show_message('Erro ao reativar a observação');
+            loading_message.remove();
             return;
         }
         const trigger = transfer_painel._trigger;
@@ -98,6 +101,7 @@ async function reactivate_observation_interface(command_i) {
                 'error',
                 'Erro ao reativar a observação'
             );
+            loading_message.remove();
             return;
         }
 
@@ -126,6 +130,7 @@ async function reactivate_observation_interface(command_i) {
                 'error',
                 'Erro ao reativar a observação'
             );
+            loading_message.remove();
             return;
         }
         const { transfer_users } = tr_json;

@@ -35,12 +35,17 @@ async function post_observation_interface(command_i) {
             );
             return;
         }
+        const loading_message = show_message(
+            'loading',
+            'Adicionando Observação'
+        );
         const { status: t_status, json: t_json } = await get_transfer({ id: ids.id });
         if (t_status !== 200) {
             show_message(
                 'error',
                 'Erro ao adicionar a observação'
             );
+            loading_message.remove();
             return;
         }
         const { transfer } = t_json;
@@ -52,13 +57,13 @@ async function post_observation_interface(command_i) {
             initial_date: set_timestamp(now),
             term_date: set_timestamp(new Date(now.getTime() + 20 * 24 * 60 * 60 * 1000))
         }
-        const loading_message = show_message(
-            'loading',
-            'Adicionando Observação'
-        );
         const { status: ob_status, json: ob_json } = await post_observation(params);
 
-        if (ob_status !== 201) return;
+        if (ob_status !== 201) {
+            show_message('error', 'Erro ao adicionar observação')
+            loading_message.remove();
+            return;
+        };
 
         const { status: obs_status, json: obs_json } = await get_observations({
             id: transfer.id
@@ -68,6 +73,7 @@ async function post_observation_interface(command_i) {
                 'error',
                 'Erro ao adicionar a observação'
             );
+            loading_message.remove();
             return;
         }
         const { observations } = obs_json;
@@ -95,6 +101,7 @@ async function post_observation_interface(command_i) {
                 'error',
                 'Erro ao adicionar a observação'
             );
+            loading_message.remove();
             return;
         }
         const { transfer_users } = tr_json;

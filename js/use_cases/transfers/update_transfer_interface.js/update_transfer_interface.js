@@ -64,6 +64,7 @@ async function update_transfer_interface(command_i) {
                 'error',
                 'Erro ao atualizar a transferência'
             );
+            loading_message.remove();
             return;
         }
         const trigger = painel_i._trigger;
@@ -100,6 +101,7 @@ async function update_transfer_interface(command_i) {
                 'error',
                 'Erro ao atualizar a transferência'
             );
+            loading_message.remove();
             return;
         }
 

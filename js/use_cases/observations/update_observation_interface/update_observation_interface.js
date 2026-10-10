@@ -54,6 +54,7 @@ async function update_observation_interface(command_i) {
                 'error',
                 'Erro ao atualizar a observação'
             );
+            loading_message.remove();
             return;
         }
         const {
@@ -63,11 +64,12 @@ async function update_observation_interface(command_i) {
         form_i.remove();
         observation_painel.remove();
         const transfer_painel = main.lastElementChild;
-        if (
-            !transfer_painel ||
-            !transfer_painel.classList.contains('painel')
-        ) {
-            console.error('Transfer painel not found');
+        if (!transfer_painel || !transfer_painel.classList.contains('painel')) {
+            show_message(
+                'error',
+                'Erro ao atualizar a observação'
+            );
+            loading_message.remove();
             return;
         }
         const trigger = transfer_painel._trigger;
@@ -83,6 +85,7 @@ async function update_observation_interface(command_i) {
                 'error',
                 'Erro ao atualizar a observação'
             );
+            loading_message.remove();
             return;
         }
         const { transfer } = t_json;
@@ -98,6 +101,7 @@ async function update_observation_interface(command_i) {
                 'error',
                 'Erro ao atualizar a observação'
             );
+            loading_message.remove();
             return;
         }
         const { observations } = obs_json;
@@ -123,6 +127,7 @@ async function update_observation_interface(command_i) {
                 'error',
                 'Erro ao atualizar a observação'
             );
+            loading_message.remove();
             return;
         }
         const { transfer_users } = tr_json;

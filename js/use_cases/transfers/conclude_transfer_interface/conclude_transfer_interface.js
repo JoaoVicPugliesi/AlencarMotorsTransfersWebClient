@@ -57,6 +57,7 @@ async function conclude_transfer_interface(command_i) {
                 'error',
                 `${c_message}`
             );
+            loading_message.remove();
             return;
         }
         const trigger = painel_i._trigger;
@@ -93,6 +94,7 @@ async function conclude_transfer_interface(command_i) {
                 'error',
                 'Erro ao concluir a transferência'
             );
+            loading_message.remove();
             return;
         }
         const { transfer_users } = tr_json;

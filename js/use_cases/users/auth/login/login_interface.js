@@ -29,6 +29,7 @@ function login_interface() {
                 'error',
                 `${json.message}`
             )
+            loading_message.remove();
             return;
         }
         loading_message.remove();
