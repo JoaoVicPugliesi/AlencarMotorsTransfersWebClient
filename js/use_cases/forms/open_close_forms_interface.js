@@ -37,41 +37,29 @@ document.addEventListener('click', (event) => {
     for (const [add, params] of form_cases) {
         const command_i = event.target.closest(`#${add}`);
         if (!command_i) continue;
-        if (command_i.dataset.already_opened === 'true') {
-            return;
-        }
+        if (command_i.dataset.already_opened === 'true') return;
         const main = document.getElementById('main');
         if (!main) return;
         command_i.dataset.already_opened = 'true';
         const component = params.callback();
-        main.insertAdjacentHTML(
-            'beforeend',
-            component
-        );
+        main.insertAdjacentHTML('beforeend', component);
         const form = main.lastElementChild;
         form_commands.set(form, command_i);
         adapt_togglers();
-        if(params.use_case) {
-            params.use_case(command_i);
-        }
+        if(params.use_case) params.use_case(command_i);
         toggle_primary_input_eye()
         return;
     }
-
 });
 
 document.addEventListener('click', (event) => {
     for (const [, params] of form_cases) {
-        const comeback_i = event.target.closest(
-            `#${params.comeback}`
-        );
+        const comeback_i = event.target.closest(`#${params.comeback}`);
         if (!comeback_i) continue;
         const form = comeback_i.closest('.form-holder');
         if (!form) return;
         const command_i = form_commands.get(form);
-        if (command_i) {
-            command_i.dataset.already_opened = 'false';
-        }
+        if (command_i) command_i.dataset.already_opened = 'false';
         form.remove();
         adapt_togglers();
         return;
@@ -79,7 +67,6 @@ document.addEventListener('click', (event) => {
 });
 
 function open_close_forms_interface_caller() {
-
     open_close_forms_interface(
         'profile-options-add-transfer',
         'add-transfer-comeback',
@@ -92,14 +79,12 @@ function open_close_forms_interface_caller() {
         edit_transfer,
         update_transfer_interface
     );
-    
     open_close_forms_interface(
         'profile-options-add-profile',
         'add-profile-comeback',
         add_profile,
         post_profile_interface
     );
-    
     open_close_forms_interface(
         'profile-options-edit-profile',
         'edit-profile-comeback',
@@ -155,7 +140,6 @@ function open_close_forms_interface_caller() {
         confirm_f,
         reactivate_observation_interface
     );
-  
 }
 
 
