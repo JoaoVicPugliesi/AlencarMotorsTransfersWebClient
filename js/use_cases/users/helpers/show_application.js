@@ -18,6 +18,7 @@ import logout_interface from "../auth/logout/logout_interface.js";
 import clear_application from "./clear_application.js";
 import { get_current_user } from "./get_current_user.js";
 import { channel_user_notifications } from "../../../server/use_cases/notifications/channel_user_notifications.js";
+import open_close_painel_info from "../../painel/open_close_painel_info.js";
 
 async function show_application() {
     const page = document.getElementById('page');
@@ -35,6 +36,7 @@ async function show_application() {
     get_observation_interface();
     get_notification_interface();
     await get_transfers_interface();
+    open_close_painel_info();
     search_transfers_interface();
     const user = get_current_user()
     const { json } = await get_users({
