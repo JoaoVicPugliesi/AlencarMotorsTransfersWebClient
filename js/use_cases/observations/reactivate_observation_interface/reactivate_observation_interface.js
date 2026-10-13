@@ -31,7 +31,7 @@ async function reactivate_observation_interface(command_i) {
                 'Campos precisam ser preenchidos'
             );
             return;
-        }
+        };
         const loading_message = show_message(
             'loading',
             'Reativando Observação'
@@ -42,7 +42,6 @@ async function reactivate_observation_interface(command_i) {
         } = await get_transfer({
             id: ids_i.transfer_id
         });
-
         if (t_status !== 200) {
             show_message(
                 'error',
@@ -51,7 +50,6 @@ async function reactivate_observation_interface(command_i) {
             loading_message.remove();
             return;
         }
-
         const { transfer } = t_json;
         const now = new Date();
         const params = {
@@ -73,15 +71,10 @@ async function reactivate_observation_interface(command_i) {
             loading_message.remove();
             return;
         }
-
-        const {
-            message: c_message,
-            observation: c_observation
-        } = c_json;
+        const { observation: c_observation } = c_json;
         form_i.remove();
         observation_painel.remove();
         const transfer_painel = main.lastElementChild;
-
         if (!transfer_painel || !transfer_painel.classList.contains('painel')) {
             show_message('Erro ao reativar a observação');
             loading_message.remove();
@@ -95,7 +88,6 @@ async function reactivate_observation_interface(command_i) {
         } = await get_observations({
             id: transfer.id
         });
-
         if (obs_status !== 200) {
             show_message(
                 'error',
@@ -104,9 +96,7 @@ async function reactivate_observation_interface(command_i) {
             loading_message.remove();
             return;
         }
-
         const { observations } = obs_json;
-
         const pending_observations =
             observations?.filter(
                 ob => ob.status === 'pending'
@@ -154,15 +144,12 @@ async function reactivate_observation_interface(command_i) {
             'beforeend',
             painel('transfers', updated_params)
         );
-
         const new_transfer_painel = main.lastElementChild;
-
         new_transfer_painel._trigger = trigger;
         main.insertAdjacentHTML(
             'beforeend',
             painel('observations', c_observation)
         );
-
         const new_observation_painel = main.lastElementChild;
         new_observation_painel._parent_painel = new_transfer_painel;
         loading_message.remove();

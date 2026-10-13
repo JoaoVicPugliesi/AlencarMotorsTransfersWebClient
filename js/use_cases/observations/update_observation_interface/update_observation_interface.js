@@ -57,10 +57,7 @@ async function update_observation_interface(command_i) {
             loading_message.remove();
             return;
         }
-        const {
-            message: c_message,
-            observation: c_observation
-        } = c_json;
+        const { observation: c_observation } = c_json;
         form_i.remove();
         observation_painel.remove();
         const transfer_painel = main.lastElementChild;

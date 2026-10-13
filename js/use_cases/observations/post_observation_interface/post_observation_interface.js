@@ -57,7 +57,7 @@ async function post_observation_interface(command_i) {
             initial_date: set_timestamp(now),
             term_date: set_timestamp(new Date(now.getTime() + 20 * 24 * 60 * 60 * 1000))
         }
-        const { status: ob_status, json: ob_json } = await post_observation(params);
+        const { status: ob_status } = await post_observation(params);
 
         if (ob_status !== 201) {
             show_message('error', 'Erro ao adicionar observação')

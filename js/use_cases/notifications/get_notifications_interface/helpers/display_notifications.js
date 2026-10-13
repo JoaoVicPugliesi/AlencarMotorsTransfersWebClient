@@ -5,11 +5,9 @@ import delete_user_notification_interface from "../../delete_user_notification/d
 
 function display_notifications(params) {
     const container = document.querySelector('#notifications-display');
-
     if (!container) return;
     if (Array.isArray(params)) {
         container.innerHTML = '';
-
         let unread_count = 0;
         params.forEach((p) => {
             const notification_params = {
@@ -21,15 +19,11 @@ function display_notifications(params) {
                 generated_by: p.generated_by,
                 created_at: p.created_at
             };
-
             container.insertAdjacentHTML(
                 'beforeend',
                 notification(notification_params)
             );
-
-            if (!p.is_viewed) {
-                unread_count++;
-            }
+            if (!p.is_viewed) unread_count++;
         });
         localStorage.setItem(
             'bell_number',
@@ -43,16 +37,12 @@ function display_notifications(params) {
         );
 
         if (!params.is_viewed) {
-            const current_bell = Number(
-                localStorage.getItem('bell_number') || 0
-            );
-
+            const current_bell = Number(localStorage.getItem('bell_number') || 0);
             localStorage.setItem(
                 'bell_number',
                 current_bell + 1
             );
         }
-
         play_sound_effect(
             'notification',
             0.4

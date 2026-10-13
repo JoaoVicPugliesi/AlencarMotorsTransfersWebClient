@@ -56,7 +56,7 @@ async function post_transfer_interface() {
         };
         const { status, json } = await post_transfer(params);
 
-        const { message, transfer } = json;
+        const { transfer } = json;
         if (status !== 201) {
             show_message(
                 'error',

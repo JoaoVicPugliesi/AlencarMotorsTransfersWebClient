@@ -4,10 +4,7 @@ import update_timestamp_ago_counter from '../../helpers/timestamp/update_timesta
 
 const painel_cases = new Map();
 
-function open_close_painel(params) {
-    painel_cases.set(params.trigger, params);
-}
-
+function open_close_painel(params) { painel_cases.set(params.trigger, params); }
 document.addEventListener('click', async (e) => {
     const comeback = e.target.closest('#transfers-comeback, #observations-comeback');
     if (comeback) {

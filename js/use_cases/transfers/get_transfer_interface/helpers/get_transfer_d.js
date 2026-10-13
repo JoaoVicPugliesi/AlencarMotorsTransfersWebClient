@@ -8,7 +8,7 @@ async function get_transfer_d (el) {
     const { status: tr_status, json: tr_json } = await get_transfer({
         id: id
     });
-    const { message: tr_message, transfer } = tr_json;
+    const { transfer } = tr_json;
     if(tr_status !== 200) {
         show_message(
             'error',
@@ -16,10 +16,10 @@ async function get_transfer_d (el) {
         )
         return;
     }
-    const { status: ob_status, json: ob_json } = await get_observations({
+    const { json: ob_json } = await get_observations({
         id: transfer.id
     });
-    const { message, observations } = ob_json;
+    const { observations } = ob_json;
     let pending_observations = [];
     let concluded_observations = [];
     if(observations) {

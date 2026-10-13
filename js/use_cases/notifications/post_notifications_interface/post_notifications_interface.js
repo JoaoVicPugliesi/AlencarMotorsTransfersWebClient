@@ -3,7 +3,6 @@ import post_notifications from "../../../server/use_cases/notifications/post_not
 
 async function post_notifications_interface (params) {
     const { status, json } = await post_notifications(params);
-
     if(status !== 201) {
         show_message(
             'error',
@@ -11,9 +10,7 @@ async function post_notifications_interface (params) {
         )
         return;
     }
-
-    const { message, notification } = json;
-
+    const { notification } = json;
     return notification;
 }
 

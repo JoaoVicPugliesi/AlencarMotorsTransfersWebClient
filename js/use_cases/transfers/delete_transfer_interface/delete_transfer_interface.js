@@ -8,6 +8,7 @@ import set_timestamp from '../../../helpers/timestamp/set_timestamp.js';
 import adapt_togglers from '../../../helpers/adapt_togglers.js';
 import { get_current_user } from "../../users/helpers/get_current_user.js";
 import show_message from "../../../helpers/messages/show_message.js";
+import get_notifications_interface from "../../notifications/get_notifications_interface/get_notifications_interface.js";
 
 async function delete_transfer_interface(command_i) {
     const main = document.querySelector('#main');
@@ -95,6 +96,7 @@ async function delete_transfer_interface(command_i) {
         form_i.remove();
         adapt_togglers();
         await get_transfers_interface();
+        await get_notifications_interface();
         loading_message.remove();
         show_message(
             'success',
