@@ -4,30 +4,41 @@ import success from '../../components/parts/messages/success.js';
 
 function show_message(mode, message, delay = 3000) {
     const container = document.querySelector('#body');
-    container.insertAdjacentHTML('beforeend', '<div class="message-holder"></div>');
-    const message_holder = container.querySelector('.message-holder');
+
+    const message_holder = document.createElement('div');
+    message_holder.classList.add('message-holder');
+
     if (mode === 'loading') {
         message_holder.innerHTML = loading(message);
+
         container.append(message_holder);
+
         requestAnimationFrame(() => {
             message_holder.classList.add('active');
         });
+
         return message_holder;
     }
+
     message_holder.innerHTML =
         mode === 'success'
             ? success(message)
             : error(message);
+
     container.append(message_holder);
+
     requestAnimationFrame(() => {
         message_holder.classList.add('active');
     });
+
     setTimeout(() => {
         message_holder.classList.remove('active');
+
         setTimeout(() => {
             message_holder.remove();
         }, 1000);
     }, delay);
+
     return message_holder;
 }
 

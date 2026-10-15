@@ -26,8 +26,8 @@ function post_profile_interface() {
             admin_username: user.username
         });
         if(status !== 201) {
-            show_message('error', 'Error ao adicionar perfil');
             loading_message.remove();
+            show_message('error', 'Error ao adicionar perfil');
             return;
         };
         username_i.value = '';
