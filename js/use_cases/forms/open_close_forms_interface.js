@@ -19,6 +19,8 @@ import reactivate_transfer_interface from '../transfers/reactivate_transfer_inte
 import update_transfer_interface from '../transfers/update_transfer_interface.js/update_transfer_interface.js';
 import post_profile_interface from '../users/auth/register/post_profile_interface.js';
 import update_profile_interface from '../users/update_profile_interface/update_profile_interface.js';
+import view_participants from '../../components/parts/forms/view_participants/view_participants.js'
+import view_participants_interface from '../transfers/view_participants_interface/view_participants_interface.js';
 
 const form_cases = new Map();
 const form_commands = new WeakMap();
@@ -121,7 +123,12 @@ function open_close_forms_interface_caller() {
         confirm_f,
         reactivate_transfer_interface
     );
-  
+    open_close_forms_interface(
+        'transfers-view-participants',
+        'view-participants-comeback',
+        view_participants,
+        view_participants_interface
+    );
     open_close_forms_interface(
         'observations-conclude',
         'confirm-comeback',

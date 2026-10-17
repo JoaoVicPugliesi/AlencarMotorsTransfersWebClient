@@ -22,6 +22,7 @@ const configs = {
             ['transfers-comeback', 'fa-solid fa-arrow-left-long', 'Voltar', 'blue'],
             ['transfers-edit', 'fa-solid fa-pen-to-square', 'Editar', 'blue'],
             ['transfers-add-observation', 'fa-solid fa-plus', 'Observação', 'green'],
+            ['transfers-view-participants', 'fa-solid fa-eye', 'Participantes', 'green'],
             ['transfers-conclude', 'fa-solid fa-check-double', 'Concluir', 'green'],
             ['transfers-exclude', 'fa-solid fa-trash', 'Excluir', 'red']
         ]

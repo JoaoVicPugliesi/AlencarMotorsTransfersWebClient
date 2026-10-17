@@ -14,6 +14,7 @@
     padding: 0.5rem 1rem;
     position: relative;
     user-select: none;
+    outline: none;
 }
 
 .primary-input-holder-i, .primary-input-holder-eye {
