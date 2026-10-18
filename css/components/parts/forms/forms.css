@@ -1,7 +1,8 @@
 .form-holder, 
 .form,
 .form-options,
-.participants {
+.participants,
+.participant-results {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,6 +127,9 @@
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     background: var(--background-color);
+    justify-content: start;
+    align-items: start;
+    gap: 0.5rem;
 }
 
 .participant-results.opened {

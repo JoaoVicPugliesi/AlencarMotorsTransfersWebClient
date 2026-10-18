@@ -17,7 +17,15 @@ function channel_user_notifications() {
     const params = { id: user.id };
     const query = new URLSearchParams(params).toString();
     event = new EventSource(`${base_url}/channel_user_notifications?${query}`);
-    event.addEventListener('open', () => {});
+    event.addEventListener('open', () => {
+        console.log(
+            '[SSE] OPEN',
+            {
+                readyState: event.readyState,
+                time: new Date().toISOString()
+            }
+        );
+    });
     event.addEventListener('message', async (e) => {
         const payload = JSON.parse(e.data);
         if (!payload) return;
@@ -40,7 +48,15 @@ function channel_user_notifications() {
         });
         await get_transfers_interface();
     });
-    event.addEventListener('error', (error) => {});
+    event.addEventListener('error', () => {
+        console.log(
+            '[SSE] ERROR',
+            {
+                readyState: event.readyState,
+                time: new Date().toISOString()
+            }
+        );
+    });
 }
 
 function close_user_notifications_channel() {

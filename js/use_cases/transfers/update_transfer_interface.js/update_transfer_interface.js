@@ -55,7 +55,6 @@ async function update_transfer_interface(command_i) {
         } = await update_transfer(params);
 
         const {
-            message: c_message,
             transfer: c_transfer
         } = c_json;
 
