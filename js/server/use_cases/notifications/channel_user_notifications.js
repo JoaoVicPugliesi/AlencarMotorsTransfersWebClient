@@ -20,17 +20,26 @@ function channel_user_notifications() {
     event.addEventListener('open', () => {
         console.log(
             '[SSE] OPEN',
-            {
-                readyState: event.readyState,
-                time: new Date().toISOString()
-            }
+            new Date().toISOString(),
+            'readyState:',
+            event.readyState
         );
     });
     event.addEventListener('message', async (e) => {
+        console.log(
+            '[SSE] MESSAGE',
+            new Date().toISOString(),
+            e.data
+        );
         const payload = JSON.parse(e.data);
         if (!payload) return;
         const current_user = get_current_user();
         if (!current_user || current_user.id !== user.id) {
+            console.log('[SSE] USER CHANGED', {
+                channel_user: user.id,
+                current_user: current_user?.id
+            });
+
             event?.close();
             event = null;
             return;
@@ -51,10 +60,9 @@ function channel_user_notifications() {
     event.addEventListener('error', () => {
         console.log(
             '[SSE] ERROR',
-            {
-                readyState: event.readyState,
-                time: new Date().toISOString()
-            }
+            new Date().toISOString(),
+            'readyState:',
+            event.readyState
         );
     });
 }
