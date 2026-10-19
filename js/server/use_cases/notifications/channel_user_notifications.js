@@ -8,7 +8,6 @@ import get_notifications from './get_notifications.js';
 let event = null;
 
 function channel_user_notifications() {
-    close_user_notifications_channel();
     const user = get_current_user();
     if (!user) {
         show_message('error', 'Nenhum usuário')
@@ -18,12 +17,7 @@ function channel_user_notifications() {
     const query = new URLSearchParams(params).toString();
     event = new EventSource(`${base_url}/channel_user_notifications?${query}`);
     event.addEventListener('open', () => {
-        console.log(
-            '[SSE] OPEN',
-            new Date().toISOString(),
-            'readyState:',
-            event.readyState
-        );
+        console.log('opened');
     });
     event.addEventListener('message', async (e) => {
         console.log(
@@ -58,12 +52,7 @@ function channel_user_notifications() {
         await get_transfers_interface();
     });
     event.addEventListener('error', () => {
-        console.log(
-            '[SSE] ERROR',
-            new Date().toISOString(),
-            'readyState:',
-            event.readyState
-        );
+        console.log('erro');
     });
 }
 

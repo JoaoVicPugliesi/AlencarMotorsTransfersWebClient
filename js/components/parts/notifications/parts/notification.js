@@ -10,7 +10,7 @@ function notification(params) {
                 <h3>${is_viewed ? 'Lida' : 'Não lida'}</h3>
             </div>
             <div>
-                <h3 class="timestamp-ago" data-timestamp="${created_at}">HÁ</h3>
+                <h3 class="timestamp-ago" data-timestamp="${created_at}">Carregando...</h3>
             </div>
         </div>
         <div class="notification-options">

@@ -20,7 +20,15 @@ import { get_current_user } from "./get_current_user.js";
 import { channel_user_notifications } from "../../../server/use_cases/notifications/channel_user_notifications.js";
 import open_close_painel_info from "../../painel/open_close_painel_info.js";
 
+let application_calls = 0;
+
 async function show_application() {
+    const call_id = ++application_calls;
+    console.log(
+        `[APPLICATION ${call_id}] START`,
+        new Date().toISOString()
+    );
+
     const page = document.getElementById('page');
     const main = document.getElementById('main');
     clear_application();
@@ -49,6 +57,10 @@ async function show_application() {
     set_bell_number();
     await get_notifications_interface();
     start_timestamp_ago_counter();
+    console.log(
+        `[APPLICATION ${call_id}] CHANNEL`,
+        new Date().toISOString()
+    );
     channel_user_notifications();
 }
 
