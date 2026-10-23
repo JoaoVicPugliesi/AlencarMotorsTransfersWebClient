@@ -30,7 +30,9 @@ const configs = {
 
     observations: {
         basic: [
-            ['observations-info-title', 'title', 'fa-solid fa-signature']
+            ['observations-title', 'title', 'fa-solid fa-signature'],
+            ['observations-plate', 'plate', 'fa-solid fa-certificate'],
+            ['observations-vehicle', 'vehicle', 'fa-solid fa-car'],
         ],
 
         progress: [

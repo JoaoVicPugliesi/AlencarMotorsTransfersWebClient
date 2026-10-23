@@ -2,7 +2,6 @@ import date_format_timestamp from "../../../../../helpers/date_format_timestamp.
 import info_i from "../../../../helpers/info_i.js";
 
 function render_info(fields, params) {
-
     return fields.map(([id, property, icon, prefix = '', fallback = '']) => {
         let value
         value = property
