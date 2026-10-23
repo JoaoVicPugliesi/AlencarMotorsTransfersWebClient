@@ -7,8 +7,10 @@
 
 .transfer {
     width: 100%;
-    min-width: 10rem;
-    max-width: 30rem;
+    min-width: 0;
+    max-width: none;
+    box-sizing: border-box;
+    height: max-content;
     border-radius: 0.5rem;
     border: 2px solid var(--text-color);
     font-family: var(--comic-neue);
@@ -17,10 +19,8 @@
     align-self: start;
     user-select: none;
     position: relative;
-    overflow: hidden; 
-   
+    overflow: hidden;
 }
-
 .transfer-info {
     width: 100%;
     min-width: 0;

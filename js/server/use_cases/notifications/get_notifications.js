@@ -2,6 +2,7 @@ import base_url from "../../base_url.js";
 
 async function get_notifications (params) {
     const query = new URLSearchParams(params).toString();
+    console.log(query);
     const request = await fetch(`${base_url}/get_notifications?${query}`, {
         method: 'GET',
         headers: {
@@ -10,6 +11,7 @@ async function get_notifications (params) {
     });
     const status = request.status;
     const json = await request.json();
+    console.log(json);
     return { 
         status: status,
         json: json

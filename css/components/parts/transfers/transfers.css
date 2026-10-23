@@ -30,14 +30,15 @@
     gap: 0.5rem;
 }
 
-
 .transfers-display {
     width: 100%;
     flex: 1;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+    column-gap: 0.5rem;
+    row-gap: 0.5rem;
     align-content: start;
     justify-content: start;
-    flex-wrap: wrap;
     gap: 0.5rem;
     padding: 0.5rem;
     box-sizing: border-box;
@@ -62,8 +63,7 @@
     }
 
     .transfers-display {
-        width: 100%;
-        justify-content: center;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 @media (max-width: 500px) {
