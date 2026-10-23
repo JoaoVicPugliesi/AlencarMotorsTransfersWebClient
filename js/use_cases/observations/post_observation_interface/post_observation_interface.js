@@ -114,7 +114,6 @@ async function post_observation_interface(command_i) {
         let participants = transfer_users.filter((t) => String(t.user_id.trim().toUpperCase()) !== String(user_i.id.trim().toUpperCase()))
         await Promise.all(
             participants.map((p) => {
-                console.log(p);
                 post_user_notifications_interface({
                     user_id: p.user_id,
                     notification_id: notification.id,

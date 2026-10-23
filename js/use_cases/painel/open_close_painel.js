@@ -1,5 +1,6 @@
 import painel from "../../components/parts/painel/painel.js";
 import adapt_togglers from "../../helpers/adapt_togglers.js";
+import show_message from "../../helpers/messages/show_message.js";
 import update_timestamp_ago_counter from '../../helpers/timestamp/update_timestamp_ago.js';
 
 const painel_cases = new Map();

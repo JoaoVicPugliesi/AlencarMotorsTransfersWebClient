@@ -10,7 +10,6 @@ async function get_notifications (params) {
     });
     const status = request.status;
     const json = await request.json();
-    console.log(json);
     return { 
         status: status,
         json: json

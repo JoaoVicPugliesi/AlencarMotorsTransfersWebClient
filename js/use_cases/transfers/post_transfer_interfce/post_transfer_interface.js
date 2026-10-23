@@ -76,7 +76,6 @@ async function post_transfer_interface() {
         participants.shift();
         await Promise.all(
             participants.map((p) => {
-                console.log(p);
                 post_user_notifications_interface({
                     user_id: p,
                     notification_id: notification.id,

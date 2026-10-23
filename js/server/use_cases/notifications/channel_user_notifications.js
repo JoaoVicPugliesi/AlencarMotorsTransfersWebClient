@@ -16,24 +16,11 @@ function channel_user_notifications() {
     const params = { id: user.id };
     const query = new URLSearchParams(params).toString();
     event = new EventSource(`${base_url}/channel_user_notifications?${query}`);
-    event.addEventListener('open', () => {
-        console.log('opened');
-    });
     event.addEventListener('message', async (e) => {
-        console.log(
-            '[SSE] MESSAGE',
-            new Date().toISOString(),
-            e.data
-        );
         const payload = JSON.parse(e.data);
         if (!payload) return;
         const current_user = get_current_user();
         if (!current_user || current_user.id !== user.id) {
-            console.log('[SSE] USER CHANGED', {
-                channel_user: user.id,
-                current_user: current_user?.id
-            });
-
             event?.close();
             event = null;
             return;
